@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12345a"><meta name="description" content="Show do Bilhão — quiz pixel art">
+<title>Show do Bilhão — Demo 1.3</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="crt" aria-hidden="true"></div>
+<header class="topbar">
+  <button class="brand" data-view="home" aria-label="Início"><span class="crown">★</span><span><b>SHOW DO BILHÃO</b><small>QUIZ • PIXEL ART • DEMO 1.3</small></span></button>
+  <nav class="nav" aria-label="Menu principal">
+    <button class="nav-btn active" data-view="home">INÍCIO</button><button class="nav-btn" data-view="ranking">RANKING</button><button class="nav-btn" data-view="achievements">CONQUISTAS</button><button class="nav-btn" data-view="config">CONFIG</button>
+  </nav>
+  <div class="wallet">R$ <b id="money">0</b></div>
+</header>
+
+<main class="app">
+<section id="home" class="view active-view">
+  <div class="hero panel">
+    <div class="hero-copy"><span class="eyebrow">★ BEM-VINDO AO PALCO ★</span><h1>Quem vai levar o bilhão?</h1><p>Escolha seu nome, avatar e tratamento. Responda 30 perguntas e aguente a reação da plateia.</p>
+      <div class="chips"><span>● 10 BÁSICAS</span><span>● 10 MÉDIAS</span><span>● 10 AVANÇADAS</span></div>
+    </div>
+    <div class="stage">
+      <div class="pixel-stars">✦　·　✦　·　✦</div><div class="show-sign">SHOW!</div>
+      <div class="stage-avatars"><div class="stage-avatar"><img id="heroFemale" src="assets/avatar-feminino.gif" alt="Avatar feminino"></div><div class="stage-avatar"><img id="heroMale" src="assets/avatar-masculino.gif" alt="Avatar masculino"></div></div>
+      <div class="bubble left">BORA<br>JOGAR?</div><div class="bubble right">VOCÊ<br>CONSEGUE!</div>
+    </div>
+  </div>
+
+  <div class="setup-grid">
+    <div class="panel field"><label for="username">1. SEU NOME</label><input id="username" maxlength="18" autocomplete="off" placeholder="Ex.: Matheus"><small>Seu nome aparecerá no ranking deste dispositivo.</small></div>
+    <div class="panel field"><label>2. COMO DEVEMOS TE CHAMAR?</label><div class="choices"><button class="choice selected" data-gender="masculino">♂ Homem</button><button class="choice" data-gender="feminino">♀ Mulher</button><button class="choice" data-gender="neutro">○ Neutro</button></div><small>Adapta as falas sem alterar as regras do jogo.</small></div>
+  </div>
+
+  <div class="panel avatar-panel"><div class="panel-title"><label>3. ESCOLHA SEU AVATAR</label><span class="tag">PIXEL ART</span></div><div class="avatar-grid">
+    <button class="avatar-option selected" data-avatar="masculino" data-state="idle"><span class="avatar-art"><img src="assets/avatar-masculino.gif" alt="Rapaz"></span><b>RAPAZ</b><small>clássico</small></button>
+    <button class="avatar-option" data-avatar="feminino" data-state="idle"><span class="avatar-art"><img src="assets/avatar-feminino.gif" alt="Moça"></span><b>MOÇA</b><small>clássico</small></button>
+    <button class="avatar-option" data-avatar="masculino" data-state="happy"><span class="avatar-art state-happy"><img src="assets/avatar-masculino.gif" alt="Rapaz comemorando"></span><b>RAPAZ • FESTA</b><small>reação alegre</small></button>
+    <button class="avatar-option" data-avatar="feminino" data-state="wave"><span class="avatar-art state-wave"><img src="assets/avatar-feminino.gif" alt="Moça acenando"></span><b>MOÇA • OI!</b><small>reação aceno</small></button>
+  </div></div>
+
+  <div class="extras-grid"><div class="panel extra"><div class="extra-title">🌱 PLANTA DA SORTE <span>ANIMADA</span></div><div class="extra-content"><img src="assets/planta-sorte.gif" alt="Planta carnívora"><div><b>Ela está de olho em você.</b><p>O palco ganha pequenas reações durante a partida.</p></div></div></div>
+  <div class="panel extra"><div class="extra-title">💰 SACOLAS HC <span>RECOMPENSA</span></div><div class="extra-content"><img src="assets/sacolas-hc.gif" alt="Sacolas HC"><div><b>Prêmios e colecionáveis.</b><p>Base para loja, conquistas e economia do jogo.</p></div></div></div></div>
+  <button id="startBtn" class="primary big">▶ ENTRAR NO PALCO</button>
+</section>
+
+<section id="game" class="view">
+ <div class="gamebar panel"><div class="player"><div class="mini-avatar"><img id="gameAvatar" src="assets/avatar-masculino.gif" alt=""></div><div><small id="greeting">Boa sorte!</small><b id="playerName">Jogador</b></div></div><div class="progress-box"><b id="roundLabel">PERGUNTA 1/30</b><div class="progress"><i id="progress"></i></div></div><div class="prize">R$ <b id="prize">0</b></div></div>
+ <div class="game-layout"><aside class="sidebar panel"><h3>PAINEL</h3><div class="money-box">R$ <b id="sidePrize">0</b></div><button class="life" id="hint50">50:50 <small>elimina 2</small></button><button class="life" id="hintAudience">👥 PLATEIA <small>palpite</small></button><button class="life" id="hintSkip">⏭ PULAR <small>1 vez</small></button><div class="host-card"><img id="hostAvatar" src="assets/avatar-feminino.gif" alt=""><b id="hostLine">A apresentadora está de olho...</b></div><button class="secondary" id="quitBtn">⏹ SAIR DA PARTIDA</button></aside>
+ <article class="question panel"><div class="question-top"><span class="difficulty" id="difficulty">BÁSICA</span><span id="streak">🔥 0 sequência</span></div><div class="question-scene"><div class="q-avatar"><img id="questionAvatar" src="assets/avatar-masculino.gif" alt=""></div><img class="q-plant" src="assets/planta-sorte.gif" alt=""></div><h2 id="question">Pergunta</h2><div id="answers" class="answers"></div><div id="reaction" class="reaction" aria-live="polite"></div><button id="nextBtn" class="primary next hidden">PRÓXIMA ▶</button></article></div>
+</section>
+
+<section id="ranking" class="view"><div class="page-head"><span class="eyebrow">PLACAR LOCAL</span><h2>Ranking</h2><p>Os melhores resultados ficam salvos neste navegador.</p></div><div class="panel ranking-panel"><div class="rank-tabs"><button class="rank-tab active" data-rank="all">GERAL</button><button class="rank-tab" data-rank="perfect">SEM ERROS</button></div><div id="rankingList"></div></div></section>
+<section id="achievements" class="view"><div class="page-head"><span class="eyebrow">COLEÇÃO</span><h2>Conquistas</h2><p>Desbloqueie medalhas jogando e acumulando acertos.</p></div><div id="achievementGrid" class="achievement-grid"></div></section>
+<section id="config" class="view"><div class="page-head"><span class="eyebrow">PREFERÊNCIAS</span><h2>Configurações</h2></div><div class="panel settings"><label><input type="checkbox" id="soundToggle" checked> Sons e efeitos</label><label><input type="checkbox" id="motionToggle" checked> Animações pixel art</label><label><input type="checkbox" id="compactToggle"> Interface compacta</label><button id="clearData" class="danger">LIMPAR RANKING LOCAL</button></div></section>
+
+<section id="result" class="view"><div class="result panel"><img src="assets/sacolas-hc.gif" alt="Sacolas HC"><span class="eyebrow">FIM DE JOGO</span><h2 id="resultTitle">Resultado</h2><p id="resultText"></p><div class="result-stats"><div><b id="resultPrize">R$ 0</b><small>prêmio</small></div><div><b id="resultCorrect">0/30</b><small>acertos</small></div><div><b id="resultBest">0</b><small>sequência</small></div></div><div class="result-actions"><button id="restartBtn" class="primary">↻ JOGAR NOVAMENTE</button><button class="secondary" data-view="ranking">🏆 VER RANKING</button></div></div></section>
+</main>
+<footer><span>★ CONHECIMENTO TAMBÉM É PODER!</span><span>SHOW DO BILHÃO v1.3 • PIXEL ART</span></footer>
+<script src="script.js"></script>
+</body></html>
