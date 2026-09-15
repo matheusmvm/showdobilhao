@@ -1,20 +1,18 @@
-# Show do Bilhão — Demo 1.3
+# Show do Bilhão — Demo 1.4
 
-Versão corrigida e expandida do quiz pixel art.
+Quiz em pixel art para GitHub Pages. Esta versão prioriza estabilidade e correção dos bugs básicos encontrados na Demo 1.3.
 
-## Principais mudanças
-- Background azul-claro/cinza-azulado, removendo o rosa da V1.2.
-- Interface responsiva para notebook, tablet/iPad e celular.
-- Menu funcional: Início, Ranking, Conquistas e Configurações.
-- Ranking local com `localStorage`.
-- Sistema de conquistas.
-- Avatar com variantes visuais e estados de reação.
-- 30 perguntas: 10 básicas, 10 médias e 10 avançadas.
-- 50:50, Plateia e Pular.
-- Reações bem-humoradas e dinâmica de sequência de acertos.
-- Resultado final com prêmio, acertos e melhor sequência.
-- Configurações para sons, animações e modo compacto.
-- Assets de planta carnívora, sacolas HC e avatares preservados.
+## Correções
+- Avatares reais restaurados a partir do material pixel art fornecido; os arquivos de avatar corrompidos/pretos foram substituídos.
+- Seleção de gênero e avatar sincronizada.
+- 50:50, Plateia e Pular são consumíveis uma única vez por partida.
+- Ajudas são reativadas corretamente ao iniciar nova partida.
+- Reiniciar realmente começa uma nova partida.
+- Finalização protegida contra gravação duplicada no ranking.
+- Ranking local sanitizado e ordenado por prêmio, acertos e sequência.
+- Preferências de som, movimento e modo compacto persistem no navegador.
+- Layout dos avatares corrigido para não cortar os personagens em notebook, tablet e celular.
+- Enter no campo de nome inicia a partida.
 
-## GitHub Pages
-Coloque `index.html`, `style.css`, `script.js` e `assets/` na raiz do repositório e publique `main / (root)` em Settings → Pages.
+## Publicação
+Mantenha `index.html`, `style.css`, `script.js` e `assets/` na raiz publicada pelo GitHub Pages.
