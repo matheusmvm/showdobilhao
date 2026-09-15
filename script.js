@@ -1,154 +1,35 @@
-const questions = [
- {d:"BÁSICA", q:"Qual é o maior planeta do Sistema Solar?", a:["Terra","Júpiter","Marte","Vênus"], c:1, p:1000},
- {d:"BÁSICA", q:"Qual é a capital do Brasil?", a:["Rio de Janeiro","Brasília","Salvador","São Paulo"], c:1, p:2000},
- {d:"BÁSICA", q:"Quantos lados tem um triângulo?", a:["2","3","4","5"], c:1, p:3000},
- {d:"BÁSICA", q:"Qual animal é conhecido como 'rei da selva'?", a:["Tigre","Leão","Lobo","Onça"], c:1, p:5000},
- {d:"BÁSICA", q:"Qual é o resultado de 7 × 8?", a:["54","56","64","48"], c:1, p:7000},
- {d:"BÁSICA", q:"Qual oceano banha a costa leste do Brasil?", a:["Pacífico","Índico","Atlântico","Ártico"], c:2, p:10000},
- {d:"BÁSICA", q:"Qual gás é mais abundante na atmosfera terrestre?", a:["Oxigênio","Nitrogênio","CO₂","Hélio"], c:1, p:15000},
- {d:"BÁSICA", q:"Qual instrumento possui teclas pretas e brancas?", a:["Violino","Piano","Flauta","Trompete"], c:1, p:20000},
- {d:"BÁSICA", q:"Em que continente fica o Egito?", a:["Europa","África","Ásia","Oceania"], c:1, p:30000},
- {d:"BÁSICA", q:"Qual é o estado físico da água a 0 °C, em condições normais?", a:["Sempre vapor","Sólido/líquido em equilíbrio","Plasma","Somente gás"], c:1, p:40000},
-
- {d:"MÉDIA", q:"Qual civilização construiu Machu Picchu?", a:["Maia","Asteca","Inca","Fenícia"], c:2, p:50000},
- {d:"MÉDIA", q:"Qual é o símbolo químico do ferro?", a:["Fe","Ir","F","Fr"], c:0, p:60000},
- {d:"MÉDIA", q:"Qual planeta possui os anéis mais conhecidos do Sistema Solar?", a:["Saturno","Urano","Netuno","Júpiter"], c:0, p:70000},
- {d:"MÉDIA", q:"Quem escreveu 'Dom Quixote'?", a:["Cervantes","Dante","Shakespeare","Goethe"], c:0, p:80000},
- {d:"MÉDIA", q:"Qual é a unidade básica de informação digital?", a:["Byte","Bit","Pixel","Hertz"], c:1, p:90000},
- {d:"MÉDIA", q:"Qual país é atravessado pelo rio Nilo e abriga o vale dos reis?", a:["Egito","Grécia","Turquia","Marrocos"], c:0, p:100000},
- {d:"MÉDIA", q:"A Revolução Industrial começou primeiro em qual país?", a:["França","Alemanha","Inglaterra","Itália"], c:2, p:120000},
- {d:"MÉDIA", q:"Qual órgão humano bombeia o sangue?", a:["Pulmão","Fígado","Coração","Rim"], c:2, p:140000},
- {d:"MÉDIA", q:"Qual é a raiz quadrada de 144?", a:["10","11","12","14"], c:2, p:160000},
- {d:"MÉDIA", q:"Qual é o maior oceano da Terra?", a:["Atlântico","Índico","Pacífico","Ártico"], c:2, p:180000},
-
- {d:"AVANÇADA", q:"Qual processo produz ATP principalmente nas mitocôndrias?", a:["Fotossíntese","Respiração celular","Transcrição","Fermentação láctica"], c:1, p:220000},
- {d:"AVANÇADA", q:"Qual tratado encerrou formalmente a Primeira Guerra Mundial com a Alemanha?", a:["Tordesilhas","Versalhes","Utrecht","Brest-Litovsk"], c:1, p:260000},
- {d:"AVANÇADA", q:"Qual é o número atômico do carbono?", a:["6","8","12","14"], c:0, p:300000},
- {d:"AVANÇADA", q:"Qual império tinha Constantinopla como capital durante a maior parte de sua história?", a:["Romano do Oriente","Persa","Mongol","Cartaginês"], c:0, p:350000},
- {d:"AVANÇADA", q:"Em economia, inflação é principalmente:", a:["Queda geral de preços","Aumento geral e persistente do nível de preços","Aumento de produtividade","Queda da oferta monetária"], c:1, p:400000},
- {d:"AVANÇADA", q:"Qual camada da atmosfera concentra a maior parte do ozônio estratosférico?", a:["Troposfera","Estratosfera","Mesosfera","Termosfera"], c:1, p:500000},
- {d:"AVANÇADA", q:"Qual filósofo escreveu 'Crítica da Razão Pura'?", a:["Hume","Kant","Spinoza","Locke"], c:1, p:600000},
- {d:"AVANÇADA", q:"Qual partícula mede a carga elementar negativa?", a:["Próton","Nêutron","Elétron","Fóton"], c:2, p:700000},
- {d:"AVANÇADA", q:"Qual é a principal função do DNA?", a:["Armazenar informação genética","Produzir ATP diretamente","Digerir proteínas","Transportar oxigênio"], c:0, p:850000},
- {d:"AVANÇADA", q:"Qual é o valor aproximado da velocidade da luz no vácuo?", a:["3×10⁶ m/s","3×10⁸ m/s","3×10¹⁰ m/s","3×10⁴ m/s"], c:1, p:1000000}
-];
-
-let state = {i:0, correct:0, prize:0, gender:"masculino", avatar:"masculino", name:"Jogador", used50:false, usedSkip:false, usedAudience:false, locked:false};
-const $ = id => document.getElementById(id);
-const moneyFmt = n => n.toLocaleString("pt-BR");
-
-document.querySelectorAll(".choice").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    document.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));
-    btn.classList.add("selected"); state.gender = btn.dataset.gender;
-    if(state.gender==="feminino") state.avatar="feminino";
-  });
-});
-document.querySelectorAll(".avatar-option").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    document.querySelectorAll(".avatar-option").forEach(x=>x.classList.remove("selected"));
-    btn.classList.add("selected"); state.avatar = btn.dataset.avatar;
-  });
-});
-$("startBtn").onclick = startGame;
-$("restartBtn").onclick = ()=>location.reload();
-$("nextBtn").onclick = nextQuestion;
-$("hint50").onclick = use50;
-$("hintSkip").onclick = useSkip;
-$("hintAudience").onclick = useAudience;
-
-function startGame(){
-  const name = $("username").value.trim();
-  if(!name){ $("username").focus(); $("username").style.borderColor="#9a4d4d"; return; }
-  state.name=name.slice(0,18);
-  $("playerName").textContent=state.name;
-  $("gameAvatar").src=`assets/avatar-${state.avatar}.png`;
-  $("setup").classList.add("hidden"); $("game").classList.remove("hidden");
-  renderQuestion();
-}
-function renderQuestion(){
-  const x=questions[state.i]; state.locked=false;
-  $("roundLabel").textContent=`PERGUNTA ${state.i+1}/30`;
-  $("progress").style.width=((state.i+1)/30*100)+"%";
-  $("difficulty").textContent=x.d;
-  $("question").textContent=x.q;
-  $("reaction").textContent=""; $("reaction").className="reaction";
-  $("nextBtn").classList.add("hidden");
-  const box=$("answers"); box.innerHTML="";
-  x.a.forEach((txt,idx)=>{
-    const b=document.createElement("button"); b.className="answer"; b.textContent=`${String.fromCharCode(65+idx)}) ${txt}`;
-    b.onclick=()=>answer(idx,b); box.appendChild(b);
-  });
-}
-function answer(idx,btn){
-  if(state.locked)return; state.locked=true;
-  const x=questions[state.i], all=[...document.querySelectorAll(".answer")];
-  all.forEach(b=>b.disabled=true); all[x.c].classList.add("correct");
-  if(idx===x.c){
-    state.correct++; state.prize=x.p; $("money").textContent=moneyFmt(state.prize);
-    $("reaction").textContent=randomGood();
-    $("reaction").className="reaction good";
-  }else{
-    btn.classList.add("wrong"); state.prize = state.i>0 ? questions[state.i-1].p : 0;
-    $("money").textContent=moneyFmt(state.prize);
-    $("reaction").textContent=randomBad(); $("reaction").className="reaction bad";
-  }
-  $("nextBtn").classList.remove("hidden");
-}
-function nextQuestion(){
-  if(!state.locked)return;
-  if(state.i>=questions.length-1){endGame();return}
-  state.i++; renderQuestion();
-}
-function use50(){
-  if(state.used50||state.locked)return;
-  state.used50=true; $("hint50").disabled=true;
-  const x=questions[state.i], wrong=[0,1,2,3].filter(n=>n!==x.c).sort(()=>Math.random()-.5).slice(0,2);
-  wrong.forEach(n=>document.querySelectorAll(".answer")[n].classList.add("removed"));
-}
-function useSkip(){
-  if(state.usedSkip||state.locked)return;
-  state.usedSkip=true; $("hintSkip").disabled=true;
-  if(state.i<questions.length-1){ state.i++; renderQuestion(); }
-}
-function useAudience(){
-  if(state.usedAudience||state.locked)return;
-  state.usedAudience=true; $("hintAudience").disabled=true;
-  const x=questions[state.i], confidence=60+Math.floor(Math.random()*25);
-  $("reaction").textContent=`A PLATEIA APOSTA ${confidence}% NA ALTERNATIVA ${String.fromCharCode(65+x.c)}.`;
-  $("reaction").className="reaction good";
-}
-function randomGood(){
-  const arr = state.gender==="feminino"
-    ? ["GÊNIA! Já pode pedir aumento.","Mandou bem, garota!","Aí sim, moça! A plateia gostou.","Essa foi de milhões!"]
-    : state.gender==="masculino"
-    ? ["GÊNIO! Já pode ganhar na Mega-Sena.","Boa, rapaz!","Aí sim, homem! A plateia foi à loucura.","Essa foi de milhões!"]
-    : ["GÊNIO! Essa foi de milhões.","Mandou muito bem!","A plateia aprovou.","Resposta certeira!"];
-  return arr[Math.floor(Math.random()*arr.length)];
-}
-function randomBad(){
-  const arr = state.gender==="feminino"
-    ? ["ERROU, garota! Essa doeu.","Ih, moça... passou longe.","A plateia sentiu essa.","Essa escapou, garota!"]
-    : state.gender==="masculino"
-    ? ["BURRO, rapaz! Brincadeira... quase.","Ih, homem... essa doeu.","A plateia sentiu essa.","Essa escapou, rapaz!"]
-    : ["ERROU! Essa doeu.","A plateia sentiu essa.","Essa escapou!","Quase! Mas não foi dessa vez."];
-  return arr[Math.floor(Math.random()*arr.length)];
-}
-function endGame(){
-  $("game").classList.add("hidden"); $("result").classList.remove("hidden");
-  $("correctCount").textContent=state.correct; $("finalPrize").textContent=moneyFmt(state.prize);
-  $("resultTitle").textContent=state.correct>=25?"QUE MÁQUINA!":state.correct>=15?"Mandou bem!":"Valeu a tentativa!";
-  $("resultText").textContent=`${state.name}, você acertou ${state.correct} de 30 perguntas e terminou com R$ ${moneyFmt(state.prize)}.`;
-  saveRank();
-}
-function saveRank(){
-  const key="showdobilhao-ranking-v11";
-  let r=JSON.parse(localStorage.getItem(key)||"[]");
-  r.push({name:state.name,correct:state.correct,prize:state.prize});
-  r.sort((a,b)=>b.prize-a.prize || b.correct-a.correct); r=r.slice(0,10);
-  localStorage.setItem(key,JSON.stringify(r));
-  const pos=r.findIndex(x=>x.name===state.name&&x.prize===state.prize&&x.correct===state.correct)+1;
-  $("rankPosition").textContent="#"+pos;
-  $("rankingList").innerHTML=r.map((x,i)=>`<li>${i+1}. ${escapeHtml(x.name)} — R$ ${moneyFmt(x.prize)} <small>${x.correct}/30</small></li>`).join("");
-}
-function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));}
+const questions=[
+['BÁSICA','Qual é o maior planeta do Sistema Solar?',['Terra','Júpiter','Marte','Vênus'],1,1000],['BÁSICA','Qual é a capital do Brasil?',['Rio de Janeiro','Brasília','Salvador','São Paulo'],1,2000],['BÁSICA','Quantos lados tem um triângulo?',['2','3','4','5'],1,3000],['BÁSICA','Qual animal é conhecido popularmente como “rei da selva”?',['Tigre','Leão','Lobo','Onça'],1,5000],['BÁSICA','Qual é o resultado de 7 × 8?',['54','56','64','48'],1,7000],['BÁSICA','Qual oceano banha a costa leste do Brasil?',['Pacífico','Índico','Atlântico','Ártico'],2,10000],['BÁSICA','Qual gás é mais abundante na atmosfera terrestre?',['Oxigênio','Nitrogênio','CO₂','Hélio'],1,15000],['BÁSICA','Qual instrumento possui teclas pretas e brancas?',['Violino','Piano','Flauta','Trompete'],1,20000],['BÁSICA','Em que continente fica o Egito?',['Europa','África','Ásia','Oceania'],1,30000],['BÁSICA','A água ferve, ao nível do mar, aproximadamente a:',['50 °C','80 °C','100 °C','120 °C'],2,40000],
+['MÉDIA','Qual civilização construiu Machu Picchu?',['Maia','Asteca','Inca','Fenícia'],2,50000],['MÉDIA','Qual é o símbolo químico do ferro?',['Fe','Ir','F','Fr'],0,60000],['MÉDIA','Qual planeta possui os anéis mais conhecidos do Sistema Solar?',['Saturno','Urano','Netuno','Júpiter'],0,70000],['MÉDIA','Quem escreveu Dom Quixote?',['Cervantes','Dante','Shakespeare','Goethe'],0,80000],['MÉDIA','Qual é a unidade básica de informação digital?',['Byte','Bit','Pixel','Hertz'],1,90000],['MÉDIA','Qual país é atravessado pelo rio Nilo?',['Egito','Grécia','Turquia','Marrocos'],0,100000],['MÉDIA','A Revolução Industrial começou primeiro em qual país?',['França','Alemanha','Inglaterra','Itália'],2,120000],['MÉDIA','Qual órgão bombeia o sangue?',['Pulmão','Fígado','Coração','Rim'],2,140000],['MÉDIA','Qual é a raiz quadrada de 144?',['10','11','12','14'],2,160000],['MÉDIA','Qual é o maior oceano da Terra?',['Atlântico','Índico','Pacífico','Ártico'],2,180000],
+['AVANÇADA','Qual processo produz ATP principalmente nas mitocôndrias?',['Fotossíntese','Respiração celular','Transcrição','Fermentação láctica'],1,220000],['AVANÇADA','Qual tratado encerrou formalmente a Primeira Guerra Mundial com a Alemanha?',['Tordesilhas','Versalhes','Utrecht','Brest-Litovsk'],1,260000],['AVANÇADA','Qual é o número atômico do carbono?',['6','8','12','14'],0,300000],['AVANÇADA','Qual império tinha Constantinopla como capital durante a maior parte de sua história?',['Romano do Oriente','Persa','Mongol','Cartaginês'],0,350000],['AVANÇADA','Em economia, inflação é principalmente:',['Queda geral de preços','Aumento geral e persistente do nível de preços','Aumento de produtividade','Queda da oferta monetária'],1,400000],['AVANÇADA','Qual camada da atmosfera concentra a maior parte do ozônio estratosférico?',['Troposfera','Estratosfera','Mesosfera','Termosfera'],1,500000],['AVANÇADA','Qual civilização desenvolveu a escrita cuneiforme na Mesopotâmia?',['Suméria','Inca','Minoica','Maia'],0,600000],['AVANÇADA','Qual princípio afirma que a energia não é criada nem destruída, apenas transformada?',['Inércia','Conservação da energia','Arquimedes','Exclusão de Pauli'],1,700000],['AVANÇADA','Qual é a unidade SI de resistência elétrica?',['Volt','Watt','Ohm','Ampere'],2,800000],['AVANÇADA','Em genética, qual molécula normalmente armazena a informação hereditária?',['ATP','DNA','Lipídio','Glicogênio'],1,1000000]
+].map(x=>({d:x[0],q:x[1],a:x[2],c:x[3],p:x[4]}));
+const reactions={good:['GÊNIO! Já pode jogar na Mega-Sena.','AÍ SIM! A plateia foi à loucura!','ACERTOU! O bilhão continua vivo.','Mandou bem, rapaz!','Boa! Até a planta carnívora comemorou.'],bad:['ERROU! Ih, rapaz... essa doeu.','Quase! A plateia fez “eeeeh...”.','OPA! Essa passou longe.','Não foi dessa vez. Bora respirar e seguir.','A planta carnívora julgou silenciosamente.'],end:['Belo jogo! O palco agradece.','Você encarou 30 perguntas. Respeito!','Resultado registrado no placar local.']};
+let state={index:0,correct:0,prize:0,streak:0,best:0,gender:'masculino',avatar:'masculino',state:'idle',name:'Jogador',used50:false,usedSkip:false,answered:false};
+const $=id=>document.getElementById(id); const money=n=>n.toLocaleString('pt-BR');
+function save(){localStorage.setItem('sdb13-ranking',JSON.stringify(JSON.parse(localStorage.getItem('sdb13-ranking')||'[]')))}
+function navigate(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active-view')); $(id)?.classList.add('active-view');document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===id));if(id==='ranking')renderRanking();if(id==='achievements')renderAchievements();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.view)));
+document.querySelectorAll('.choice').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');state.gender=b.dataset.gender;syncAvatarGender()}));
+document.querySelectorAll('.avatar-option').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.avatar-option').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');state.avatar=b.dataset.avatar;state.state=b.dataset.state;syncAvatar()}));
+function syncAvatarGender(){if(state.gender==='feminino'&&!document.querySelector('.avatar-option.selected')?.dataset.avatar==='feminino'){} }
+function syncAvatar(){const src=`assets/avatar-${state.avatar}.gif`;['gameAvatar','questionAvatar','hostAvatar'].forEach(id=>$(id).src=src);}
+function greeting(){return state.gender==='feminino'?`Boa sorte, ${state.name}!`:state.gender==='neutro'?`Boa sorte, ${state.name}!`:`Boa sorte, ${state.name}!`}
+$('startBtn').onclick=()=>{state={...state,index:0,correct:0,prize:0,streak:0,best:0,used50:false,usedSkip:false,answered:false,name:($('username').value.trim()||'Jogador').slice(0,18)};syncAvatar();$('playerName').textContent=state.name;$('greeting').textContent=greeting();$('money').textContent='0';navigate('game');loadQuestion()};
+function loadQuestion(){const q=questions[state.index];state.answered=false;$('roundLabel').textContent=`PERGUNTA ${state.index+1}/30`;$('progress').style.width=`${((state.index)/30)*100}%`;$('difficulty').textContent=q.d;$('question').textContent=q.q;$('reaction').className='reaction';$('reaction').textContent='';$('nextBtn').classList.add('hidden');$('streak').textContent=`🔥 ${state.streak} sequência`;$('gameAvatar').src=`assets/avatar-${state.avatar}.gif`;$('questionAvatar').src=`assets/avatar-${state.avatar}.gif`;$('hostAvatar').src=`assets/avatar-${state.gender==='feminino'?'masculino':'feminino'}.gif`;
+const wrap=$('answers');wrap.innerHTML='';q.a.forEach((text,i)=>{const b=document.createElement('button');b.className='answer';b.textContent=`${String.fromCharCode(65+i)}) ${text}`;b.onclick=()=>answer(i,b);wrap.appendChild(b)});updatePrize()}
+function answer(i,btn){if(state.answered)return;state.answered=true;const q=questions[state.index];document.querySelectorAll('.answer').forEach(b=>b.disabled=true);if(i===q.c){btn.classList.add('correct');state.correct++;state.streak++;state.best=Math.max(state.best,state.streak);state.prize=q.p;react('good',reactions.good[Math.floor(Math.random()*reactions.good.length)]);$('gameAvatar').classList.add('celebrate');setTimeout(()=>$('gameAvatar').classList.remove('celebrate'),500)}else{btn.classList.add('wrong');document.querySelectorAll('.answer')[q.c].classList.add('correct');state.streak=0;react('bad',reactions.bad[Math.floor(Math.random()*reactions.bad.length)]);$('gameAvatar').classList.add('sad');setTimeout(()=>$('gameAvatar').classList.remove('sad'),500)}updatePrize();$('nextBtn').classList.remove('hidden');$('progress').style.width=`${((state.index+1)/30)*100}%`}
+function react(kind,text){$('reaction').textContent=text;$('reaction').className=`reaction show ${kind}`}
+$('nextBtn').onclick=()=>{if(state.index>=29)return finish();state.index++;loadQuestion()};
+$('hint50').onclick=()=>{if(state.used50||state.answered)return;state.used50=true;const q=questions[state.index];let wrong=[0,1,2,3].filter(i=>i!==q.c).sort(()=>Math.random()-.5).slice(0,2);wrong.forEach(i=>document.querySelectorAll('.answer')[i].classList.add('disabled'));$('hint50').disabled=true};
+$('hintSkip').onclick=()=>{if(state.usedSkip||state.answered)return;state.usedSkip=true;state.index++;if(state.index>=30)finish();else loadQuestion();$('hintSkip').disabled=true};
+$('hintAudience').onclick=()=>{if(state.answered)return;const q=questions[state.index];const chance=Math.random();const pick=chance<.75?q.c:Math.floor(Math.random()*4);react('good',`A plateia votou: alternativa ${String.fromCharCode(65+pick)}!`)};
+$('quitBtn').onclick=()=>{if(confirm('Sair da partida? O progresso atual será perdido.'))navigate('home')};
+function updatePrize(){$('prize').textContent=money(state.prize);$('sidePrize').textContent=money(state.prize);$('money').textContent=money(state.prize)}
+function finish(){const data=JSON.parse(localStorage.getItem('sdb13-ranking')||'[]');data.push({name:state.name,score:state.prize,correct:state.correct,best:state.best,date:Date.now()});data.sort((a,b)=>b.score-a.score||b.correct-a.correct);localStorage.setItem('sdb13-ranking',JSON.stringify(data.slice(0,30)));$('resultPrize').textContent=`R$ ${money(state.prize)}`;$('resultCorrect').textContent=`${state.correct}/30`;$('resultBest').textContent=state.best;$('resultTitle').textContent=state.correct===30?'VOCÊ É O REI DO PALCO!':state.correct>=20?'MANDOU MUITO BEM!':state.correct>=10?'BOM JOGO!':'VALEU A TENTATIVA!';$('resultText').textContent=reactions.end[Math.floor(Math.random()*reactions.end.length)];navigate('result')}
+$('restartBtn').onclick=()=>navigate('home');
+function renderRanking(filter='all'){const box=$('rankingList');let data=JSON.parse(localStorage.getItem('sdb13-ranking')||'[]');if(filter==='perfect')data=data.filter(x=>x.correct===30);if(!data.length){box.innerHTML='<div class="empty">Ainda não há resultados. Seja o primeiro a subir no placar!</div>';return}box.innerHTML=data.slice(0,20).map((x,i)=>`<div class="rank-row"><span class="rank-pos">#${i+1}</span><span class="rank-name">${escapeHtml(x.name)}</span><span class="rank-score">R$ ${money(x.score)}</span><span class="rank-correct">${x.correct}/30</span></div>`).join('')}
+document.querySelectorAll('.rank-tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.rank-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderRanking(b.dataset.rank)});
+function renderAchievements(){const data=JSON.parse(localStorage.getItem('sdb13-ranking')||'[]');const best=Math.max(0,...data.map(x=>x.correct));const defs=[['👶','Primeiro passo','Faça sua primeira partida',data.length>0],['🎯','10 acertos','Acerte pelo menos 10 perguntas em uma partida',best>=10],['🔥','Sequência quente','Acerte pelo menos 15 perguntas',best>=15],['💎','Quase bilionário','Acerte pelo menos 20 perguntas',best>=20],['👑','Lenda do palco','Acerte todas as perguntas',best>=30],['💰','Caçador de prêmio','Chegue a R$ 1.000.000',data.some(x=>x.score>=1000000)]];$('achievementGrid').innerHTML=defs.map(x=>`<div class="panel achievement ${x[3]?'':'locked'}"><div class="icon">${x[0]}</div><b>${x[1]}</b><small>${x[2]}</small><div>${x[3]?'✓ DESBLOQUEADA':'🔒 BLOQUEADA'}</div></div>`).join('')}
+function escapeHtml(s){return s.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+$('soundToggle').onchange=e=>localStorage.setItem('sdb13-sound',e.target.checked);$('motionToggle').onchange=e=>document.body.classList.toggle('no-motion',!e.target.checked);$('compactToggle').onchange=e=>document.body.classList.toggle('compact',e.target.checked);$('clearData').onclick=()=>{if(confirm('Apagar todo o ranking local?')){localStorage.removeItem('sdb13-ranking');renderRanking()}};
+if(localStorage.getItem('sdb13-sound')==='false')$('soundToggle').checked=false;
