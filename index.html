@@ -1,5 +1,153 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Show do Bilhão — Demo 1.0</title><link rel="stylesheet" href="style.css"></head><body><div class="scan"></div><header><div class="brand"><span class="coin">★</span><div><h1>SHOW DO BILHÃO</h1><small>QUIZ • PIXEL ART • DEMO 1.0</small></div></div><div class="score">R$ <b id="money">0</b></div></header><main>
-<section id="start" class="screen active"><div class="hero"><div class="copy"><em>BEM-VINDO AO PALCO</em><h2>Quem vai levar o bilhão?</h2><p>Escolha seu nome e avatar e enfrente 30 perguntas. A dificuldade sobe e a plateia reage às suas respostas.</p><div class="tags"><b>🟢 10 BÁSICAS</b><b>🟡 10 MÉDIAS</b><b>🔴 10 AVANÇADAS</b></div></div><div class="preview"><div class="sign">★ SHOW ★</div><div class="chars"><img src="assets/avatars/female_wave.png"><img src="assets/avatars/male_normal.png"></div></div></div>
-<div class="setup"><div class="panel"><h3>1. USERNAME</h3><input id="name" maxlength="16" placeholder="Ex.: Matheus"><small>Seu nome aparecerá no ranking.</small></div><div class="panel"><h3>2. COMO DEVEMOS TE CHAMAR?</h3><div class="genders"><button class="choice active" data-g="male">♂ Homem</button><button class="choice" data-g="female">♀ Mulher</button><button class="choice" data-g="neutral">⚪ Neutro</button></div></div><div class="panel wide"><h3>3. ESCOLHA SEU AVATAR</h3><div class="avatars"><button class="av selected" data-a="male_normal"><img src="assets/avatars/male_normal.png"></button><button class="av" data-a="male_wave"><img src="assets/avatars/male_wave.png"></button><button class="av" data-a="female_normal"><img src="assets/avatars/female_normal.png"></button><button class="av" data-a="female_wave"><img src="assets/avatars/female_wave.png"></button></div></div></div><button id="startBtn" class="big">▶ ENTRAR NO SHOW</button><div id="err" class="err"></div></section>
-<section id="game" class="screen"><div class="gamehead"><div class="player"><img id="playerAvatar" src="assets/avatars/male_normal.png"><div><b id="playerName">Jogador</b><small id="playerGender">Homem</small></div></div><div><div class="barline"><span id="diff">BÁSICA</span><span><b id="qn">1</b>/30</span></div><div class="bar"><i id="bar"></i></div></div><div class="streak">🔥 <b id="streak">0</b></div></div><div class="stage"><div class="audience">👾 👾 👾 👾 👾 👾 👾</div><div class="question"><div class="value" id="value">R$ 100</div><h2 id="q"></h2><div id="answers" class="answers"></div></div><div id="reaction" class="reaction hidden"><img id="face"><div><b id="rtitle"></b><span id="rtext"></span></div></div></div><div class="actions"><button id="skip" class="small">PULAR</button><button id="next" class="big hidden">PRÓXIMA ▶</button><button id="quit" class="small danger">SAIR</button></div></section>
-<section id="end" class="screen"><div class="result"><div class="trophy">🏆</div><em>FIM DA PARTIDA</em><h2 id="endTitle"></h2><p id="endMsg"></p><div class="stats"><div><b id="fs">0</b><small>pontos</small></div><div><b id="fc">0</b><small>acertos</small></div><div><b id="fb">0</b><small>melhor sequência</small></div></div><div class="rank"><h3>🏆 RANKING LOCAL</h3><ol id="ranking"></ol></div><button id="again" class="big">↻ JOGAR NOVAMENTE</button></div></section></main><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#dfeaf4">
+  <meta name="description" content="Show do Bilhão — quiz em pixel art">
+  <title>Show do Bilhão — Demo 1.2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanline" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">★</div>
+      <div><strong>SHOW DO BILHÃO</strong><span>QUIZ • PIXEL ART • DEMO 1.2</span></div>
+    </div>
+    <nav class="top-nav" aria-label="Navegação">
+      <button class="nav-pill active">INÍCIO</button>
+      <button class="nav-pill">RANKING</button>
+      <button class="nav-pill">CONQUISTAS</button>
+      <button class="nav-pill">CONFIG</button>
+    </nav>
+    <div class="money">R$ <b id="money">0</b></div>
+  </header>
+
+  <main class="wrap">
+    <section id="setup" class="screen">
+      <div class="hero card">
+        <div class="hero-copy">
+          <span class="eyebrow">★ BEM-VINDO AO PALCO ★</span>
+          <h1>Quem vai levar o bilhão?</h1>
+          <p>Escolha seu nome, tratamento e avatar. Encare 30 perguntas enquanto o palco reage às suas respostas.</p>
+          <div class="levels">
+            <span class="level basic">● 10 BÁSICAS</span>
+            <span class="level medium">● 10 MÉDIAS</span>
+            <span class="level hard">● 10 AVANÇADAS</span>
+          </div>
+        </div>
+        <div class="stage-card">
+          <div class="stage-light light-a"></div><div class="stage-light light-b"></div>
+          <div class="sign">★ SHOW!</div>
+          <div class="avatars">
+            <div class="avatar-frame"><img src="assets/avatar-feminino.gif" alt="Avatar feminino"></div>
+            <div class="avatar-frame"><img src="assets/avatar-masculino.gif" alt="Avatar masculino"></div>
+          </div>
+          <div class="audience-dots" aria-hidden="true">● ● ● ● ● ● ● ●</div>
+        </div>
+      </div>
+
+      <div class="setup-grid">
+        <section class="card field-card">
+          <label for="username">1. USERNAME</label>
+          <input id="username" maxlength="18" placeholder="Ex.: Matheus" autocomplete="off">
+          <small>Seu nome aparecerá no ranking local.</small>
+        </section>
+
+        <section class="card field-card">
+          <label>2. COMO DEVEMOS TE CHAMAR?</label>
+          <div class="choice-row">
+            <button class="choice selected" data-gender="masculino">♂ Homem</button>
+            <button class="choice" data-gender="feminino">♀ Mulher</button>
+            <button class="choice" data-gender="neutro">◯ Neutro</button>
+          </div>
+          <small>Usado para adaptar as falas do apresentador.</small>
+        </section>
+      </div>
+
+      <section class="card avatar-select">
+        <div class="section-title"><label>3. ESCOLHA SEU AVATAR</label><span class="badge">PIXEL ART</span></div>
+        <div class="avatar-options">
+          <button class="avatar-option selected" data-avatar="masculino">
+            <img src="assets/avatar-masculino.gif" alt="Rapaz">
+            <span>Rapaz</span><small>idle • clássico</small>
+          </button>
+          <button class="avatar-option" data-avatar="feminino">
+            <img src="assets/avatar-feminino.gif" alt="Moça">
+            <span>Moça</span><small>idle • clássico</small>
+          </button>
+        </div>
+      </section>
+
+      <section class="extras-grid">
+        <div class="card extra-card">
+          <div class="extra-head"><span>🌱 PLANTA DA SORTE</span><span class="mini-badge">ANIMADA</span></div>
+          <div class="extra-body">
+            <img class="plant-gif" src="assets/planta-sorte.gif" alt="Planta carnívora pixel art">
+            <div><strong>Ela está de olho em você.</strong><p>Uma pequena animação de palco acompanha a partida.</p></div>
+          </div>
+        </div>
+        <div class="card extra-card">
+          <div class="extra-head"><span>💰 SACOLAS HC</span><span class="mini-badge">COLECIONÁVEL</span></div>
+          <div class="extra-body">
+            <img class="bags-gif" src="assets/sacolas-hc.gif" alt="Sacolas HC em pixel art">
+            <div><strong>Recompensas visuais.</strong><p>Base para futuras conquistas, itens e loja.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <button id="startBtn" class="primary big">▶ ENTRAR NO PALCO</button>
+    </section>
+
+    <section id="game" class="screen hidden">
+      <div class="game-head card">
+        <div class="player">
+          <div class="mini-avatar"><img id="gameAvatar" src="assets/avatar-masculino.gif"></div>
+          <div><span id="greeting">Boa sorte!</span><strong id="playerName">Jogador</strong></div>
+        </div>
+        <div class="progress-wrap">
+          <span id="roundLabel">PERGUNTA 1/30</span>
+          <div class="progress"><i id="progress"></i></div>
+        </div>
+        <div class="prize">R$ <b id="prize">0</b></div>
+      </div>
+
+      <div class="lifelines card">
+        <button id="hint50" class="life">50:50 <small>elimina 2</small></button>
+        <button id="hintSkip" class="life">⏭ PULAR <small>1 vez</small></button>
+        <button id="hintAudience" class="life">👥 PLATEIA <small>palpite</small></button>
+      </div>
+
+      <article class="question-card card">
+        <div class="question-stage">
+          <div class="difficulty" id="difficulty">BÁSICA</div>
+          <div class="question-avatar"><img id="questionAvatar" src="assets/avatar-masculino.gif" alt=""></div>
+          <img class="question-plant" src="assets/planta-sorte.gif" alt="" aria-hidden="true">
+        </div>
+        <h2 id="question">Pergunta</h2>
+        <div id="answers" class="answers"></div>
+        <div id="reaction" class="reaction"></div>
+        <button id="nextBtn" class="primary next hidden">PRÓXIMA ▶</button>
+      </article>
+    </section>
+
+    <section id="result" class="screen hidden">
+      <div class="result-card card">
+        <div class="result-art"><img src="assets/sacolas-hc.gif" alt=""></div>
+        <span class="eyebrow">FIM DE JOGO</span>
+        <h2 id="resultTitle">Resultado</h2>
+        <p id="resultText"></p>
+        <div class="result-stats">
+          <div><b id="resultPrize">R$ 0</b><span>prêmio</span></div>
+          <div><b id="resultCorrect">0/30</b><span>acertos</span></div>
+        </div>
+        <button id="restartBtn" class="primary">↻ JOGAR NOVAMENTE</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>★ CONHECIMENTO TAMBÉM É PODER! <span>SHOW DO BILHÃO v1.2</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
