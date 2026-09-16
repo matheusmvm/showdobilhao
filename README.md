@@ -1,18 +1,25 @@
-# Show do Bilhão — Demo 1.4
+# Show do Bilhão — V1.5.1
 
-Quiz em pixel art para GitHub Pages. Esta versão prioriza estabilidade e correção dos bugs básicos encontrados na Demo 1.3.
+Demo web do quiz em pixel art, pronta para GitHub Pages.
 
-## Correções
-- Avatares reais restaurados a partir do material pixel art fornecido; os arquivos de avatar corrompidos/pretos foram substituídos.
-- Seleção de gênero e avatar sincronizada.
-- 50:50, Plateia e Pular são consumíveis uma única vez por partida.
-- Ajudas são reativadas corretamente ao iniciar nova partida.
-- Reiniciar realmente começa uma nova partida.
-- Finalização protegida contra gravação duplicada no ranking.
-- Ranking local sanitizado e ordenado por prêmio, acertos e sequência.
-- Preferências de som, movimento e modo compacto persistem no navegador.
-- Layout dos avatares corrigido para não cortar os personagens em notebook, tablet e celular.
-- Enter no campo de nome inicia a partida.
+## O que foi corrigido e melhorado
+
+- 6 categorias com 15 perguntas cada.
+- 5 perguntas básicas, 5 médias e 5 avançadas por categoria.
+- Perguntas e alternativas são embaralhadas a cada partida sem perder a resposta correta.
+- Validação do banco de perguntas antes de iniciar uma partida.
+- Proteção contra duplo clique e finalização duplicada.
+- 50:50 bloqueia visualmente e funcionalmente duas alternativas.
+- Pular agora mostra a reação antes de carregar a próxima pergunta.
+- Áudio simples de acerto/erro/fim, controlado por Configurações.
+- Configurações de som, movimento e modo compacto são persistentes.
+- Ranking local continua compatível com versões anteriores.
+- Ranking "sem erros" respeita o tamanho real da partida.
+- Avatares de reação e planta/sacolas mantidos nos assets.
+- Layout reforçado para notebook, tablet e celular.
+- Melhorias de foco de teclado, estados disabled e quebra de textos longos.
+- Pergunta de música ambígua corrigida.
 
 ## Publicação
-Mantenha `index.html`, `style.css`, `script.js` e `assets/` na raiz publicada pelo GitHub Pages.
+
+O projeto não usa servidor e pode ser publicado diretamente pelo GitHub Pages a partir da raiz da branch `main`.
