@@ -1,4 +1,4 @@
-/* Show do Bilhão v1.4 — banco completo embutido.
+/* Show do Bilhão v1.6 — banco completo embutido.
    Correção do erro "O banco de perguntas está incompleto":
    a partida exige 10 Básicas + 10 Médias + 10 Avançadas e o banco abaixo
    contém exatamente 30 por tema. Não depende de questions.js externo. */
@@ -7,20 +7,25 @@ const NEED={"Básica":10,"Média":10,"Avançada":10};
 const BANK_TARGET={"Básica":15,"Média":15,"Avançada":15};
 const state={name:"Jogador",gender:"Homem",avatar:"male",category:"Conhecimentos Gerais",questions:[],index:0,money:0,lives:3,errors:0,streak:0,used50:false,usedAudience:false,usedSkip:false,locked:false,scoreSaved:false};
 const $=id=>document.getElementById(id);
-const shuffle=a=>[...a].sort(()=>Math.random()-.5);
+const shuffle=a=>{const r=[...a];for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]]}return r};
 const br=n=>Number(n).toLocaleString("pt-BR");
 // 30 perguntas jogadas; 10 fecham cada faixa de prêmio.
 const prizes=[0,100,200,500,1000,2000,3000,4000,5000,7000,10000,20000,30000,40000,50000,60000,70000,80000,90000,95000,100000,200000,300000,400000,500000,600000,700000,750000,800000,900000,1000000];
 
 function validateBank(){
-  const cats=[...new Set(QUESTION_BANK.map(q=>q.category))];
-  return cats.map(category=>{
-    const rows=QUESTION_BANK.filter(q=>q.category===category);
-    const counts={"Básica":0,"Média":0,"Avançada":0};
-    rows.forEach(q=>{if(counts[q.difficulty]!==undefined)counts[q.difficulty]++});
-    return {category,counts,ok:Object.keys(NEED).every(k=>counts[k]>=BANK_TARGET[k])};
-  });
+ const cats=[...new Set(QUESTION_BANK.map(q=>q.category))];
+ return cats.map(category=>{
+   const rows=QUESTION_BANK.filter(q=>q.category===category);
+   const counts={"Básica":0,"Média":0,"Avançada":0};
+   let malformed=0;
+   rows.forEach(q=>{
+     if(counts[q.difficulty]!==undefined)counts[q.difficulty]++;
+     if(!q.question||!q.answer||!Array.isArray(q.options)||q.options.length!==4||new Set(q.options).size!==4||!q.options.includes(q.answer)) malformed++;
+   });
+   return {category,counts,total:rows.length,malformed,ok:Object.keys(NEED).every(k=>counts[k]>=BANK_TARGET[k])&&malformed===0};
+ });
 }
+
 function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("active",s.id===id));if(id==="ranking")renderRanking();scrollTo({top:0,behavior:"smooth"})}
 document.querySelectorAll("[data-screen]").forEach(b=>b.onclick=()=>show(b.dataset.screen));
 document.querySelectorAll("#gender button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#gender button").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");state.gender=b.dataset.value});
@@ -44,7 +49,7 @@ function resetRun(){
 }
 function start(sameTheme=false){
  const report=validateBank();const bad=report.filter(r=>!r.ok);
- if(bad.length){$("setupError").hidden=false;$("setupError").textContent="Banco inconsistente: "+bad.map(r=>r.category).join(", ");return}
+ if(bad.length){$("setupError").hidden=false;$("setupError").textContent="Banco inconsistente: "+bad.map(r=>r.category+" ("+r.counts["Básica"]+"/"+r.counts["Média"]+"/"+r.counts["Avançada"]+")").join(", ");return}
  if(!sameTheme){state.name=$("playerName").value.trim()||"Jogador";state.category=state.category||"Conhecimentos Gerais"}
  resetRun();
  try{state.questions=prepare()}catch(e){$("setupError").hidden=false;$("setupError").textContent=e.message;return}
@@ -77,11 +82,26 @@ function answer(btn,opt,q){
 }
 $('fifty').onclick=()=>{if(state.used50||state.locked)return;state.used50=true;const q=state.questions[state.index];shuffle([...document.querySelectorAll('.answer')].filter(b=>b.textContent!==q.answer)).slice(0,2).forEach(b=>{b.classList.add('disabled');b.disabled=true});$('fifty').disabled=true};
 $('audience').onclick=()=>{
- if(state.usedAudience||state.locked)return;state.usedAudience=true;const q=state.questions[state.index];
- const buttons=shuffle([...document.querySelectorAll('.answer')]);const vals=[12,12,12,12];const ci=buttons.findIndex(b=>b.textContent===q.answer);vals[ci]=55;let rest=45;for(let i=0;i<4;i++){if(i!==ci){const n=i===buttons.length-1?rest:Math.floor(Math.random()*(rest+1));vals[i]=n;rest-=n}}
- const lines=buttons.map((b,i)=>`${b.textContent}: ${vals[i]}%`);$('host').textContent="👥 Plateia: "+lines.join(" • ");$('audience').disabled=true;
+ if(state.usedAudience||state.locked)return;
+ state.usedAudience=true;
+ const q=state.questions[state.index];
+ const buttons=shuffle([...document.querySelectorAll('.answer')]);
+ const ci=buttons.findIndex(b=>b.textContent===q.answer);
+ const percentages=[0,0,0,0];
+ const correctPct=45+Math.floor(Math.random()*21); // 45–65%
+ percentages[ci]=correctPct;
+ let remaining=100-correctPct;
+ const others=[0,1,2,3].filter(i=>i!==ci);
+ const cut1=Math.floor(Math.random()*(remaining+1));
+ const cut2=Math.floor(Math.random()*(remaining-cut1+1));
+ percentages[others[0]]=cut1;
+ percentages[others[1]]=cut2;
+ percentages[others[2]]=remaining-cut1-cut2;
+ const lines=buttons.map((btn,i)=>`${btn.textContent}: ${percentages[i]}%`);
+ $('host').textContent='👥 Plateia: '+lines.join(' • ');
+ $('audience').disabled=true;
 };
-$('skip').onclick=()=>{if(state.usedSkip||state.locked)return;state.usedSkip=true;state.index++;render()};
+$('skip').onclick=()=>{if(state.usedSkip||state.locked)return;state.usedSkip=true;state.index=Math.min(state.index+1,29);$('feedback').textContent='⏩ Pulou! A próxima vem aí.';setTimeout(render,300)};
 $('quit').onclick=()=>{save();modal("↩","Sair da partida?","Seu resultado atual será salvo.",[{label:"VOLTAR AO INÍCIO",action:()=>show("home")},{label:"CONTINUAR",action:()=>{}}])};
 function gameOver(){save();modal("💥","Fim de jogo","Você atingiu 3 erros e ficou sem vidas. Resultado: R$ "+br(state.money)+".",[{label:"TENTAR DE NOVO",action:()=>start(true)},{label:"RANKING",action:()=>show("ranking")}])}
 function finish(){save();modal("🏆","VOCÊ CHEGOU AO MILHÃO!","Parabéns, "+state.name+"! Você completou as 30 perguntas e chegou a R$ 1.000.000.",[{label:"JOGAR NOVAMENTE",action:()=>start(true)},{label:"RANKING",action:()=>show("ranking")}])}
@@ -94,3 +114,7 @@ function save(){
 function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 function renderRanking(){let arr=[];try{arr=JSON.parse(localStorage.getItem('showDoBilhaoRanking')||'[]')}catch(e){}$('rankingList').innerHTML=arr.length?arr.map((r,i)=>`<div class="rankrow"><b>#${i+1}</b><div><b>${esc(r.name)}</b><small>${esc(r.category)} • ${r.errors||0} erros • ${r.date}</small></div><strong>R$ ${br(r.money)}</strong></div>`).join(''):'<p>Nenhuma partida registrada ainda.</p>'}
 $('startBtn').onclick=()=>start(false);renderCategories();renderRanking();
+
+
+// Diagnóstico silencioso: erros de programação não deixam a tela em branco.
+window.addEventListener('error',e=>{console.error('[Show do Bilhão]',e.error||e.message);const el=$('setupError');if(el&&document.getElementById('home').classList.contains('active')){el.hidden=false;el.textContent='O jogo encontrou um erro inesperado. Recarregue a página.';}});
