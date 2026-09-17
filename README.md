@@ -1,37 +1,22 @@
-# Show do Bilhão — Demo 1.6
+# Show do Bilhão — Pixel Art v1.8 Visual
 
-Versão corrigida e estabilizada para GitHub Pages.
+Versão focada na remodelação gráfica sem alterar o preset central de gameplay.
 
-## Estrutura
-- `index.html` — interface e telas
-- `style.css` — identidade visual responsiva
-- `script.js` — banco e mecânicas
+## Preset
+- 30 perguntas por partida
+- 10 básicas + 10 médias + 10 avançadas
+- 45 perguntas disponíveis por tema
+- 10 perguntas: R$ 10.000
+- 20 perguntas: R$ 100.000
+- 30 perguntas: R$ 1.000.000
+- 3 vidas
+- 50:50, Plateia e Pular
+- tentar novamente após perder
+- ranking local via localStorage
+- interface responsiva para desktop, notebook, iPad, iPhone e Android
 
-## Banco
-6 temas × 45 perguntas = 270 perguntas.
-Cada tema contém 15 básicas, 15 médias e 15 avançadas.
-Cada partida sorteia exatamente 30: 10 de cada nível.
+## Temas
+Conhecimentos Gerais, História, Cinema, Música, Literatura e Política e Mundo.
 
-## Mecânicas
-- 3 vidas / 3 erros
-- Tentar de novo no mesmo tema
-- 50:50 uma vez
-- Plateia uma vez, com distribuição que sempre soma 100%
-- Pular uma vez
-- Progressão até R$ 1.000.000
-- Ranking local em `localStorage`
-- Validação do banco antes de iniciar
-- Validação de cada questão: 4 alternativas únicas e resposta presente
-
-## Correções desta versão
-- Layout não depende de largura fixa.
-- Responsividade separada para desktop/tablet/celular.
-- Avatares são desenhados por CSS e não dependem de arquivos externos.
-- Em telas pequenas, respostas passam para uma coluna para evitar sobreposição.
-- Sorteio usa Fisher-Yates em vez de `sort(Math.random())`.
-- Plateia sempre totaliza 100%.
-- Pular nunca ultrapassa a pergunta 30.
-- Erros inesperados no JavaScript são registrados no console e exibem aviso amigável na tela inicial.
-
-## GitHub Pages
-Depois de substituir os três arquivos principais no branch `main`, aguarde a publicação e faça um hard refresh (`Ctrl+F5`) se o navegador estiver usando arquivos antigos.
+## Publicação
+Envie `index.html`, `style.css`, `script.js` e a pasta `assets/` para o repositório do GitHub Pages.
