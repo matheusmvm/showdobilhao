@@ -1,35 +1,36 @@
-# Show do Bilhão — Demo 1.6
+# Show do Bilhão — Demo 1.5
 
-Versão experimental do quiz em pixel art, preparada para GitHub Pages.
+Quiz em pixel art para GitHub Pages, sem backend.
 
-## O que mudou na 1.6
+## O que mudou na 1.5
+- Banco ampliado para **270 perguntas**: 6 temas × 45 perguntas.
+- Cada tema tem **15 básicas + 15 médias + 15 avançadas**.
+- A partida continua com **30 perguntas**: 10 básicas, 10 médias e 10 avançadas.
+- Progressão preservada: pergunta 10 = R$ 10 mil; pergunta 20 = R$ 100 mil; pergunta 30 = R$ 1 milhão.
+- Sistema de **3 vidas / 3 erros**.
+- Ao atingir 3 erros, aparece **TENTAR DE NOVO**, reiniciando a partida no mesmo tema.
+- 50:50, plateia e pular continuam disponíveis uma vez por partida.
+- Plateia agora apresenta percentuais em vez de revelar diretamente a resposta.
+- Ranking local registra também a quantidade de erros.
+- Corrigida a ação quebrada de “Tentar de novo” do modal de fim de jogo.
+- Validação exige 15 perguntas de cada nível no banco, embora apenas 10 sejam sorteadas para a partida.
+- Interface refinada para notebook, iPad, Android e iPhone, mantendo o visual clean azul-claro/creme/dourado.
 
-- Interface mais limpa, clara e responsiva para notebook, iPad/tablet e celular.
-- Identidade visual consistente: azul claro, papel/creme, azul-marinho e dourado.
-- Painel de categoria com 6 temas e 15 perguntas por tema.
-- Partida organizada em 5 perguntas básicas + 5 médias + 5 avançadas.
-- Banco de alternativas embaralhado sem perder a resposta correta.
-- Cronômetro opcional por pergunta, configurável de 10 a 60 segundos.
-- Barra de progresso e indicação do próximo prêmio.
-- 50:50, Plateia e Pular com bloqueio de estado para evitar uso indevido.
-- Feedback visual de acerto/erro, reação do avatar e explicação pós-resposta.
-- Atalhos de teclado 1–4 no desktop.
-- Avatares pixel art masculino/feminino com estados normal, feliz, triste e aceno.
-- Planta da sorte e sacolas HC como elementos animados/colecionáveis.
-- Ranking e conquistas persistidos no navegador.
-- Configurações de som, movimento, modo compacto e cronômetro.
-- Compatibilidade retroativa de leitura com rankings locais das versões anteriores.
-- Proteções contra cliques duplicados, fim de partida repetido, timer concorrente e bancos incompletos.
+## Temas
+Conhecimentos Gerais, História, Cinema, Música, Literatura e Política e Mundo.
+
+## Cinema e cultura adicionados
+Tarantino, Scorsese, Coppola, Wong Kar-wai, Akira Kurosawa, Ingmar Bergman; Shakespeare, Machado de Assis, Gabriel García Márquez, García Lorca e Fernando Pessoa.
+
+## Música adicionada
+System of a Down, Pearl Jam, Guns N' Roses, Slipknot, Avenged Sevenfold, Lil Peep, Drake, Lil Wayne e pop contemporâneo.
+
+## Política e história
+Inclui questões descritivas e históricas sobre Che Guevara, Fidel Castro, Lula, Fernando Henrique Cardoso, José Sarney, John F. Kennedy, além de datas e acontecimentos históricos.
 
 ## Estrutura
+- `index.html` — interface
+- `style.css` — identidade visual e responsividade
+- `script.js` — banco de perguntas + lógica da partida
 
-- `index.html` — interface e telas.
-- `style.css` — identidade visual e responsividade.
-- `script.js` — banco de perguntas e lógica do jogo.
-- `assets/` — avatares, planta, sacolas e demais recursos pixel art.
-
-## GitHub Pages
-
-No repositório, selecione **Settings → Pages → Deploy from a branch → main → /(root)** e salve.
-
-O projeto é estático: não exige Node, banco de dados ou servidor para a demo local.
+Tudo funciona no navegador e pode ser publicado diretamente pelo GitHub Pages.
