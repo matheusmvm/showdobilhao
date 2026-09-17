@@ -27,7 +27,7 @@
     <div class="hero-copy">
       <span class="eyebrow">★ BEM-VINDO AO PALCO ★</span>
       <h1>Quem vai levar o <span>bilhão?</span></h1>
-      <p>Escolha seu nome, avatar e tema. Encare 15 perguntas — 5 básicas, 5 médias e 5 avançadas — e tente chegar ao prêmio máximo.</p>
+      <p>Escolha seu nome, avatar e tema. Encare 30 perguntas — 10 básicas, 10 médias e 10 avançadas — e tente chegar ao prêmio máximo.</p>
       <div class="ladder-mini"><span class="basic">● BÁSICA</span><span class="medium">● MÉDIA</span><span class="hard">● AVANÇADA</span></div>
       <div class="hero-note"><span>15</span> perguntas por tema <i>•</i> ranking local <i>•</i> 3 ajudas</div>
     </div>
@@ -72,12 +72,12 @@
 <section id="game" class="view">
  <div class="gamebar panel">
    <div class="player"><div class="mini-avatar"><img id="gameAvatar" src="assets/male-normal.png" alt=""></div><div><small id="greeting">Boa sorte!</small><b id="playerName">Jogador</b></div></div>
-   <div class="progress-box"><div class="progress-meta"><b id="roundLabel">PERGUNTA 1/15</b><span id="gameTopic">Conhecimentos Gerais</span><span id="streak">🔥 0</span></div><div class="progress"><i id="progress"></i></div><small><span id="progressText">0/15</span> • próximo: <b id="prizeNext">R$ 1.000</b></small></div>
+   <div class="progress-box"><div class="progress-meta"><b id="roundLabel">PERGUNTA 1/30</b><span id="gameTopic">Conhecimentos Gerais</span><span id="streak">🔥 0</span><span class="lives" id="lives" aria-label="Vidas">❤❤❤</span></div><div class="progress"><i id="progress"></i></div><small><span id="progressText">0/30</span> • próximo: <b id="prizeNext">R$ 1.000</b></span> <b id="errors">ERROS 0/3</b></small></div>
    <div class="prize">R$ <b id="prize">0</b></div>
  </div>
  <div class="game-layout">
   <aside class="sidebar panel">
-   <div class="side-head"><span>PAINEL</span><b>AJUDAS</b></div><div class="money-box">R$ <b id="sidePrize">0</b></div>
+   <div class="side-head"><span>PAINEL</span><b>AJUDAS</b></div><div class="money-box">R$ <b id="sidePrize">0</b></div><div class="life-panel"><b>VIDAS</b><div class="life-hearts" id="lifeBar" style="width:100%"></div><small>3 erros encerram a partida</small></div>
    <button class="life" id="hint50"><span>50:50</span><small>elimina 2</small></button><button class="life" id="hintAudience"><span>👥 PLATEIA</span><small>palpite</small></button><button class="life" id="hintSkip"><span>⏭ PULAR</span><small>1 vez</small></button>
    <div class="host-card"><img id="hostAvatar" src="assets/female-normal.png" alt="Apresentadora"><div><b>APRESENTADORA</b><span id="hostLine">A apresentadora está de olho...</span></div></div>
    <button class="secondary" id="quitBtn">⏹ SAIR DA PARTIDA</button>
@@ -95,8 +95,8 @@
 <section id="ranking" class="view"><div class="page-head"><span class="eyebrow">PLACAR LOCAL</span><h2>Ranking</h2><p>Resultados ficam salvos somente neste navegador.</p></div><div class="panel ranking-panel"><div class="rank-tabs"><button class="rank-tab active" data-rank="all">GERAL</button><button class="rank-tab" data-rank="perfect">15/15</button></div><div id="rankingList"></div></div></section>
 <section id="achievements" class="view"><div class="page-head"><span class="eyebrow">COLEÇÃO</span><h2>Conquistas</h2><p>Medalhas por acertos, sequência e prêmio.</p></div><div id="achievementGrid" class="achievement-grid"></div></section>
 <section id="config" class="view"><div class="page-head"><span class="eyebrow">PREFERÊNCIAS</span><h2>Configurações</h2><p>Ajuste o palco ao seu dispositivo.</p></div><div class="panel settings"><label><input type="checkbox" id="soundToggle" checked> Sons e efeitos</label><label><input type="checkbox" id="motionToggle" checked> Animações pixel art</label><label><input type="checkbox" id="compactToggle"> Interface compacta</label><label><input type="checkbox" id="timerToggle" checked> Cronômetro por pergunta</label><label class="timer-setting">Tempo: <input type="number" id="timerSeconds" min="10" max="60" step="5" value="30"> segundos</label><p class="kbd-help">Teclado: <b>1–4</b> escolhe uma alternativa. No celular/tablet, toque normalmente.</p><button id="clearData" class="danger">LIMPAR RANKING LOCAL</button></div></section>
-<section id="result" class="view"><div class="result panel"><img src="assets/sacolas-hc.gif" alt="Sacolas HC"><span class="eyebrow">FIM DE JOGO</span><h2 id="resultTitle">Resultado</h2><p id="resultText"></p><div class="result-topic" id="resultTopic">Conhecimentos Gerais</div><div class="result-stats"><div><b id="resultPrize">R$ 0</b><small>prêmio</small></div><div><b id="resultCorrect">0/15</b><small>acertos</small></div><div><b id="resultBest">0</b><small>sequência</small></div></div><div class="result-actions"><button id="restartBtn" class="primary">↻ JOGAR NOVAMENTE</button><button class="secondary" data-view="ranking">🏆 VER RANKING</button></div></div></section>
+<section id="result" class="view"><div class="result panel"><img src="assets/sacolas-hc.gif" alt="Sacolas HC"><span class="eyebrow">FIM DE JOGO</span><h2 id="resultTitle">Resultado</h2><p id="resultText"></p><div class="result-topic" id="resultTopic">Conhecimentos Gerais</div><div class="result-stats"><div><b id="resultPrize">R$ 0</b><small>prêmio</small></div><div><b id="resultCorrect">0/30</b><small>acertos</small></div><div><b id="resultErrors">0/3</b><small>erros</small></div><div><b id="resultBest">0</b><small>sequência</small></div></div><div class="result-actions"><button id="retryBtn" class="primary">↻ TENTAR DE NOVO</button><button id="restartBtn" class="secondary">⌂ VOLTAR AO INÍCIO</button><button class="secondary" data-view="ranking">🏆 VER RANKING</button></div></div></section>
 </main>
-<footer><span>★ CONHECIMENTO TAMBÉM É PODER!</span><span>SHOW DO BILHÃO v1.6 • PIXEL ART</span></footer>
+<footer><span>★ CONHECIMENTO TAMBÉM É PODER!</span><span>SHOW DO BILHÃO v1.7 • PIXEL ART</span></footer>
 <script src="script.js"></script>
 </body></html>
