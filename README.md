@@ -1,22 +1,26 @@
-# Show do Bilhão — Pixel Art v1.8 Visual
+# Show do Bilhão V2.0 — GitHub Pages
 
-Versão focada na remodelação gráfica sem alterar o preset central de gameplay.
+Pacote de implantação com os arquivos na RAIZ do repositório.
 
-## Preset
+## Importante
+Substitua os arquivos antigos `index.html`, `style.css`, `script.js` e a pasta `assets/` na raiz do repositório.
+Não coloque esta versão dentro de outra pasta se o GitHub Pages estiver configurado para publicar a raiz (`/(root)`).
+
+## Gameplay preservado
 - 30 perguntas por partida
 - 10 básicas + 10 médias + 10 avançadas
-- 45 perguntas disponíveis por tema
-- 10 perguntas: R$ 10.000
-- 20 perguntas: R$ 100.000
-- 30 perguntas: R$ 1.000.000
-- 3 vidas
-- 50:50, Plateia e Pular
-- tentar novamente após perder
-- ranking local via localStorage
-- interface responsiva para desktop, notebook, iPad, iPhone e Android
+- marcos em R$ 10.000, R$ 100.000 e R$ 1.000.000
+- 45 perguntas por tema
+- 3 vidas / 3 erros
+- tentar de novo
+- 50:50, plateia e pular
+- ranking local
 
-## Temas
-Conhecimentos Gerais, História, Cinema, Música, Literatura e Política e Mundo.
+## Identidade visual V2.0
+- background espacial local
+- interface azul espacial + dourado
+- avatares pixel art locais com estados de reação
+- layout inspirado no modelo visual fornecido
+- sem dependência de imagem externa para os principais assets
 
-## Publicação
-Envie `index.html`, `style.css`, `script.js` e a pasta `assets/` para o repositório do GitHub Pages.
+O `index.html` contém o CSS e JavaScript necessários para a aplicação, enquanto `style.css` e `script.js` acompanham a distribuição para manter a estrutura do projeto organizada.

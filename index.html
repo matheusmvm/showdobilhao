@@ -3,152 +3,670 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#10263a">
-<title>Show do Bilhão — Pixel Art v1.8</title>
-<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#0d2033">
+<meta name="description" content="Show do Bilhão — quiz em pixel art, demo 2.0">
+<title>Show do Bilhão — Demo 2.0</title>
+<style id="gameStyles">
+:root{--navy:#0c1b2a;--navy2:#132b40;--blue:#dcecf4;--blue2:#c9e0ec;--cream:#fff8e8;--paper:#fffdf5;--ink:#17283a;--muted:#617384;--gold:#d4aa4c;--gold2:#f1cf78;--line:#486b82;--green:#4e946a;--red:#b75b5b;--shadow:#173049;--pixel:2px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(#d7e8f0,#cbdfe9);color:var(--ink);font-family:Arial,Helvetica,sans-serif;font-size:15px;min-height:100vh}.scanlines{position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.035) 0,rgba(255,255,255,.035) 1px,transparent 1px,transparent 4px);mix-blend-mode:soft-light}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:18px;padding:9px max(14px,3vw);min-height:58px;background:var(--navy);border-bottom:3px solid var(--gold);color:#fff;box-shadow:0 3px 0 #08131f}.brand{display:flex;align-items:center;gap:10px;background:none;border:0;color:#fff;padding:0;text-align:left;cursor:pointer}.brand-mark{display:grid;place-items:center;width:36px;height:36px;border:2px solid var(--gold);color:var(--gold2);font-size:17px}.brand b{display:block;font:14px 'Press Start 2P',monospace;letter-spacing:.5px}.brand small{display:block;margin-top:4px;font:6px 'Press Start 2P',monospace;color:#b9cbd8}.nav{display:flex;gap:5px;margin-left:auto}.nav-btn,.menu-toggle{border:1px solid #6d8799;background:#152f45;color:#fff;padding:9px 10px;font:7px 'Press Start 2P',monospace;cursor:pointer}.nav-btn:hover,.nav-btn.active{background:#274b65;border-color:var(--gold2);color:#fff}.wallet{font:9px 'Press Start 2P',monospace;color:var(--gold2);white-space:nowrap}.menu-toggle{display:none}.app{width:min(1120px,94vw);margin:22px auto 35px}.view{display:none}.active-view{display:block}.panel{background:var(--paper);border:2px solid #29455a;box-shadow:6px 6px 0 var(--shadow)}.hero{display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden;min-height:360px}.hero-copy{padding:42px 40px;background:linear-gradient(135deg,#fffaf0,#f6edda)}.eyebrow{font:8px 'Press Start 2P',monospace;letter-spacing:.2px;color:#8a671c}.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.02;margin:18px 0;color:#17364e}.hero h1 span{color:#9b711e}.hero p{max-width:650px;font-size:17px;line-height:1.55;color:#516879}.ladder-mini{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 12px}.ladder-mini span{padding:8px 10px;border:1px solid #7d8f9b;font:8px 'Press Start 2P',monospace;background:#fff}.ladder-mini .basic{color:#43845e}.ladder-mini .medium{color:#9a761c}.ladder-mini .hard{color:#a74e4e}.hero-note{font:8px 'Press Start 2P',monospace;color:#65788a}.hero-note span{color:#9a731c}.hero-note i{font-style:normal;color:#aaa;margin:0 5px}.stage{position:relative;overflow:hidden;background:linear-gradient(#1a344c,#0e2234);display:flex;align-items:flex-end;justify-content:center;min-height:360px;border-left:2px solid #29455a}.stage-grid{position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:22px 22px;opacity:.55}.pixel-stars{position:absolute;top:22px;color:#e9c76e;font:13px 'Press Start 2P',monospace}.show-sign{position:absolute;top:52px;padding:12px 22px;background:#f7d774;color:#193147;border:3px solid #9b7721;box-shadow:5px 5px 0 #07131f;font:10px 'Press Start 2P',monospace}.stage-avatars{position:absolute;bottom:0;display:flex;gap:35px;align-items:end;z-index:2}.stage-avatar{width:145px;height:235px;display:flex;align-items:end;justify-content:center;background:linear-gradient(90deg,transparent 0 15%,rgba(255,255,255,.06) 15% 85%,transparent 85%);border-bottom:5px solid #b28c3e}.stage-avatar img{width:132px;height:220px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(5px 6px 0 #091522)}.bubble{position:absolute;z-index:3;padding:10px 13px;min-width:100px;background:#fff7dc;border:2px solid #1b3041;box-shadow:4px 4px 0 #091522;text-align:center;font:7px/1.5 'Press Start 2P',monospace;color:#173047}.bubble.left{left:5%;top:38%}.bubble.right{right:5%;top:28%}.stage-lights{position:absolute;bottom:10px;left:12px;right:12px;display:flex;justify-content:space-around}.stage-lights i{width:13px;height:13px;background:#e8c765;border:2px solid #fff1b0;box-shadow:0 0 14px #d9b747}.section-card{padding:24px;margin-top:18px}.section-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.section-heading h2{font-size:27px;margin:8px 0 0;color:#1c3d55}.tag{padding:7px 9px;background:#e8f1f5;border:1px solid #8196a3;color:#597080;font:7px 'Press Start 2P',monospace;white-space:nowrap}.topic-intro{margin:8px 0 17px;color:var(--muted)}.topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.topic-card{position:relative;display:grid;grid-template-columns:48px 1fr;grid-template-rows:auto auto auto;gap:4px 9px;min-height:112px;padding:14px;text-align:left;background:#f9f7ef;border:2px solid #7b919f;box-shadow:4px 4px 0 #bdc9cf;color:var(--ink);cursor:pointer;transition:transform .12s,background .12s,border-color .12s}.topic-card:hover{transform:translateY(-2px);background:#edf6fa}.topic-card.selected{transform:translate(2px,2px);background:#dcecf4;border-color:#315b76;box-shadow:1px 1px 0 #aab9c2}.topic-icon{grid-row:1/4;font-size:29px;display:grid;place-items:center}.topic-card b{font-size:14px}.topic-card small{font-size:11px;line-height:1.35;color:#617384}.topic-card em{font:7px 'Press Start 2P',monospace;color:#8d6b20;font-style:normal}.topic-selected{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px;padding:11px 13px;border:1px dashed #8ca0ac;background:#eef5f6}.topic-selected span{font:7px 'Press Start 2P',monospace;color:#63798a}.topic-selected b{font:9px 'Press Start 2P',monospace;color:#7f601a}.topic-selected small{flex:1;min-width:180px;color:#657989}.setup-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.field{padding:20px}.field label{display:block;font:8px 'Press Start 2P',monospace;color:#304d63;margin-bottom:10px}.field input{width:100%;padding:13px 12px;background:#fffdf5;border:2px solid #6e8798;font-size:16px;color:var(--ink);outline:0}.field input:focus{border-color:#2c5f80;box-shadow:0 0 0 3px #c7dfea}.field small{display:block;margin-top:8px;color:#6a7e8d}.field small b{color:#87651b}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.choice{padding:12px 8px;border:2px solid #7a8e9b;background:#f7f6f0;font-weight:900;cursor:pointer}.choice.selected{background:#f5d56f;border-color:#9a751d;box-shadow:2px 2px 0 #7d5c17}.avatar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.avatar-option{padding:8px;background:#f7f6f0;border:2px solid #8396a2;box-shadow:3px 3px 0 #bcc7cc;cursor:pointer;text-align:center;color:var(--ink)}.avatar-option.selected{background:#dcecf4;border-color:#315b76;box-shadow:1px 1px 0 #aab9c2}.avatar-art{height:175px;display:flex;align-items:end;justify-content:center;background:repeating-linear-gradient(0deg,#e8f2f6 0 8px,#e3edf1 8px 9px)}.avatar-art img{width:115px;height:168px;object-fit:contain;image-rendering:pixelated}.avatar-option b{display:block;font-size:11px;margin-top:9px}.avatar-option small{color:#657989}.avatar-status{margin-top:12px;font:8px 'Press Start 2P',monospace;color:#65798a}.avatar-status b{color:#8a681b}.extras-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.extra{padding:15px}.extra-title{font:8px 'Press Start 2P',monospace;color:#2e4e64;padding-bottom:10px;border-bottom:1px solid #cbd4d9}.extra-title span{float:right;color:#8a681b}.extra-content{display:flex;align-items:center;gap:15px;min-height:125px}.extra-content img{width:120px;height:105px;object-fit:contain;image-rendering:pixelated}.extra-content b{font-size:14px}.extra-content p{color:#687d8c;line-height:1.4}.primary,.secondary,.danger{border:2px solid #29475e;cursor:pointer;font-weight:900}.primary{background:#f4cf65;color:#172b3d;padding:12px 18px;box-shadow:4px 4px 0 #18334a}.primary:hover{transform:translateY(-1px)}.primary.big{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;margin-top:18px;padding:17px;font:10px 'Press Start 2P',monospace}.primary.big small{font:7px 'Press Start 2P',monospace;color:#705417}.secondary{background:#e5eef2;color:#233d52;padding:11px}.gamebar{display:grid;grid-template-columns:230px 1fr auto;align-items:center;gap:18px;padding:13px 15px}.player{display:flex;align-items:center;gap:10px}.mini-avatar{width:56px;height:66px;display:grid;place-items:end;background:#d9e9ef;border:1px solid #7e96a4;overflow:hidden}.mini-avatar img{width:53px;height:64px;object-fit:contain;image-rendering:pixelated}.player small{display:block;color:#627687;font-size:11px}.player b{display:block;margin-top:3px;font-size:16px}.progress-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font:8px 'Press Start 2P',monospace}.progress-meta span{color:#6b7f8e}.progress-meta #streak{margin-left:auto;color:#9a741a}.progress{height:10px;margin:8px 0 5px;background:#d9e3e7;border:1px solid #8196a2;overflow:hidden}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#4c8b69,#e2bd54);transition:width .25s}.progress-box>small{color:#6c7e8b}.prize{font:10px 'Press Start 2P',monospace;color:#856316;white-space:nowrap}.game-layout{display:grid;grid-template-columns:190px 1fr;gap:14px;margin-top:14px}.sidebar{padding:12px;display:flex;flex-direction:column;gap:8px;background:#f5f3e9}.side-head{display:flex;justify-content:space-between;font:7px 'Press Start 2P',monospace;color:#5d7180;padding-bottom:5px;border-bottom:1px solid #cbd3d7}.side-head b{color:#8b691c}.money-box{padding:13px;background:#e8f1f5;border:1px solid #849aa7;font:11px 'Press Start 2P',monospace;color:#7f611b}.life{display:flex;justify-content:space-between;align-items:center;text-align:left;padding:12px 10px;background:#fbfaf4;border:1px solid #8499a5;box-shadow:3px 3px 0 #bdc7cc;cursor:pointer;font-weight:900}.life:hover:not(:disabled){background:#e8f3f7}.life small{display:block;color:#758694;font-weight:400}.life:disabled{opacity:.45;cursor:not-allowed;box-shadow:1px 1px 0 #c2cbd0}.host-card{display:flex;gap:8px;align-items:center;min-height:100px;margin-top:5px;padding:8px;background:#dbeaf1;border:1px solid #7d94a2}.host-card img{width:52px;height:80px;object-fit:contain;image-rendering:pixelated}.host-card b{display:block;font:7px 'Press Start 2P',monospace;color:#3d596c;margin-bottom:7px}.host-card span{font-size:11px;line-height:1.35}.sidebar .secondary{margin-top:auto}.question{padding:20px;min-height:560px;position:relative;overflow:hidden}.question-top{display:flex;justify-content:space-between;align-items:flex-start;gap:15px}.difficulty{display:inline-block;padding:7px 9px;border:1px solid #a98a3e;background:#fff0b8;color:#866615;font:7px 'Press Start 2P',monospace}.question-topic{display:inline-block;margin-left:7px;padding:6px 8px;background:#edf4f7;border:1px solid #9aabb5;color:#597080;font:7px 'Press Start 2P',monospace}.timer-wrap{width:155px}.timer-wrap>span{display:block;text-align:right;font:8px 'Press Start 2P',monospace;color:#5b7180}.timer-wrap>span.danger{color:#a84848}.timer-wrap>span.off{color:#7e8b92}.timer{height:7px;margin-top:5px;background:#d7e1e5;border:1px solid #8296a1}.timer i{display:block;width:100%;height:100%;background:#5a8c70;transition:width .4s linear}.timer-wrap span.danger+.timer i{background:#b75b5b}.question-scene{height:95px;display:flex;align-items:end;justify-content:center;position:relative;margin:4px 0}.q-avatar{width:74px;height:84px;display:flex;align-items:end;justify-content:center;background:#dcebf1;border:1px solid #8399a5;overflow:hidden;z-index:2}.q-avatar img{width:68px;height:81px;object-fit:contain;image-rendering:pixelated}.scene-podium{position:absolute;bottom:0;width:210px;height:20px;background:#263f53;border:2px solid #6f8795;box-shadow:5px 5px 0 #152b3c}.q-plant{position:absolute;right:2%;bottom:3px;width:70px;height:70px;object-fit:contain;image-rendering:pixelated}.question h2{font-size:clamp(25px,3.3vw,38px);line-height:1.22;text-align:center;max-width:930px;margin:13px auto 22px;color:#152d43}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answer{display:flex;align-items:center;gap:12px;min-height:70px;padding:13px 15px;text-align:left;background:#fcfaf1;border:2px solid #78909e;box-shadow:4px 4px 0 #bdc7cc;color:#172a3b;font-size:16px;font-weight:900;cursor:pointer;transition:.12s}.answer:hover:not(:disabled){transform:translateY(-2px);background:#eaf4f8}.answer:disabled{cursor:default}.answer-key{display:grid;place-items:center;min-width:30px;height:30px;background:#e9f0f3;border:1px solid #879ba6;font:9px 'Press Start 2P',monospace;color:#536a7a}.answer.correct{background:#d9f0df;border-color:#4e966b}.answer.correct .answer-key{background:#a9d7b7;border-color:#4e966b}.answer.wrong{background:#f5dddd;border-color:#b75b5b}.answer.disabled{opacity:.35;filter:grayscale(.3)}.reaction{min-height:35px;margin:14px auto 0;text-align:center;font:9px/1.5 'Press Start 2P',monospace;opacity:0;transform:translateY(4px);transition:.18s}.reaction.show{opacity:1;transform:none}.reaction.good{color:#28754b}.reaction.bad{color:#a34848}.explanation{display:none;max-width:820px;margin:9px auto 0;padding:10px 13px;background:#edf5f6;border-left:4px solid #7694a4;color:#5d7180;font-size:12px;line-height:1.45}.explanation.show{display:block}.next{display:block;margin:12px auto 0}.hidden{display:none!important}.page-head{padding:8px 2px 16px}.page-head h2{font-size:42px;margin:8px 0 4px;color:#193b54}.page-head p{margin:0;color:#5d7281}.ranking-panel{padding:15px}.rank-tabs{display:flex;gap:8px;margin-bottom:8px}.rank-tab{padding:9px 12px;background:#e9f1f4;border:1px solid #78909e;font-weight:900;cursor:pointer}.rank-tab.active{background:#f3d36d;border-color:#9c7720}.rank-row{display:grid;grid-template-columns:55px 1fr 140px 90px;gap:10px;align-items:center;padding:13px 8px;border-bottom:1px solid #d0d9dd}.rank-pos{font:9px 'Press Start 2P',monospace;color:#876719}.rank-name{font-weight:900}.rank-name small{display:block;color:#718492;font-size:10px;font-weight:400;margin-top:3px}.rank-score{text-align:right;font-weight:900;color:#745813}.rank-correct{text-align:right;color:#607687}.empty{text-align:center;padding:38px;color:#667b89}.achievement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.achievement{padding:18px;min-height:160px}.achievement .icon{font-size:36px}.achievement b{display:block;margin:10px 0 5px}.achievement small{display:block;color:#6c7f8c;min-height:34px}.achievement span{display:inline-block;margin-top:11px;font:7px 'Press Start 2P',monospace}.achievement.unlocked{background:#f9f4df}.achievement.locked{filter:grayscale(.8);opacity:.55}.achievement.unlocked span{color:#39805a}.settings{padding:22px;display:flex;flex-direction:column;gap:12px}.settings label{font-weight:900;padding:13px;background:#f5f2e8;border:1px solid #b6c3ca}.settings input[type=checkbox]{accent-color:#315b76;margin-right:9px}.settings input[type=number]{margin-left:8px;width:85px;padding:7px;border:1px solid #879ba6}.kbd-help{padding:12px;background:#edf4f6;border-left:4px solid #8ba0ad;color:#617582}.danger{align-self:flex-start;background:#f5dddd;color:#803d3d;padding:11px}.result{max-width:720px;margin:20px auto;text-align:center;padding:34px}.result>img{width:190px;height:105px;object-fit:contain}.result h2{font-size:38px;margin:13px 0 7px;color:#183b55}.result p{color:#5d7180}.result-topic{display:inline-block;padding:7px 10px;background:#e6f0f4;border:1px solid #8da1ad;color:#536b7c;font:8px 'Press Start 2P',monospace}.result-stats{display:flex;justify-content:center;gap:45px;margin:25px 0}.result-stats div{display:flex;flex-direction:column;gap:6px}.result-stats b{font:12px 'Press Start 2P',monospace;color:#866317}.result-stats small{color:#687d8b}.result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}footer{display:flex;justify-content:space-between;gap:15px;padding:13px 4vw;background:#0c1b2a;color:#dbe7ee;border-top:3px solid var(--gold);font:7px 'Press Start 2P',monospace}.no-motion *{animation:none!important;transition:none!important}
+button:focus-visible,input:focus-visible{outline:3px solid #5d8daf;outline-offset:2px}
+@media(max-width:980px){.nav{display:none;position:absolute;top:58px;right:10px;padding:8px;background:#0c1b2a;border:2px solid var(--gold);box-shadow:4px 4px 0 #07131f;flex-direction:column}.nav.open{display:flex}.menu-toggle{display:block}.hero{grid-template-columns:1fr}.stage{border-left:0;border-top:2px solid #29455a}.topic-grid{grid-template-columns:1fr 1fr}.avatar-grid{grid-template-columns:repeat(2,1fr)}.gamebar{grid-template-columns:1fr auto}.progress-box{grid-column:1/-1;grid-row:2}.game-layout{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:repeat(3,1fr);align-items:stretch}.side-head,.money-box,.host-card,.sidebar .secondary{grid-column:1/-1}.host-card{margin-top:0}.sidebar .secondary{margin-top:0}.achievement-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){body{font-size:14px}.app{width:94vw;margin-top:14px}.topbar{padding:8px 10px}.brand b{font-size:9px}.brand small{font-size:5px}.wallet{font-size:8px}.hero-copy{padding:28px 23px}.hero h1{font-size:34px}.hero p{font-size:15px}.stage{min-height:310px}.stage-avatar{width:115px;height:205px}.stage-avatar img{width:105px;height:195px}.bubble{min-width:84px;font-size:6px;padding:8px}.section-card{padding:17px}.topic-grid{grid-template-columns:1fr}.setup-grid,.extras-grid{grid-template-columns:1fr}.choices{grid-template-columns:1fr}.avatar-grid{grid-template-columns:1fr 1fr}.avatar-art{height:145px}.avatar-art img{height:140px}.gamebar{grid-template-columns:1fr auto;gap:8px}.player b{font-size:14px}.progress-meta{font-size:7px}.prize{font-size:8px}.sidebar{grid-template-columns:1fr}.question{padding:16px;min-height:0}.question-top{flex-direction:column}.timer-wrap{width:100%}.timer-wrap>span{text-align:left}.question h2{font-size:clamp(22px,7vw,30px)}.answers{grid-template-columns:1fr}.answer{min-height:60px;font-size:15px}.q-plant{width:55px;height:55px}.result-stats{gap:18px}.result-stats b{font-size:9px}.page-head h2{font-size:34px}.achievement-grid{grid-template-columns:1fr}.rank-row{grid-template-columns:40px 1fr 95px}.rank-correct{display:none}footer{flex-direction:column;font-size:5px}}
+@media(max-width:390px){.avatar-grid{grid-template-columns:1fr}.stage-avatars{gap:5px}.stage-avatar{width:105px}.bubble{display:none}.hero h1{font-size:30px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+.lives{letter-spacing:2px;font-size:1.05em;white-space:nowrap}.life-panel{margin:10px 0;padding:10px;border:1px solid rgba(20,50,80,.18);border-radius:10px;background:rgba(255,255,255,.65)}.life-panel>b{font-size:.72rem}.life-hearts{height:5px;background:linear-gradient(90deg,#d94c58 0 100%);margin:7px 0;border-radius:9px;transition:width .25s ease}.life-panel small{font-size:.68rem;color:#52677a}.result-stats{grid-template-columns:repeat(4,1fr)}
+@media(max-width:700px){.result-stats{grid-template-columns:repeat(2,1fr)}.lives{font-size:.9em}.life-panel{margin:7px 0}}
+
+
+/* =========================================================
+   V2.0 — IDENTIDADE VISUAL
+   Somente apresentação: não altera regras da partida.
+   ========================================================= */
+:root{
+  --navy:#0b1c2c;
+  --navy2:#17344a;
+  --blue:#eaf4f8;
+  --blue2:#d7e9f1;
+  --cream:#fffaf0;
+  --paper:#fffdf7;
+  --ink:#173149;
+  --muted:#647b8b;
+  --gold:#c9a44d;
+  --gold2:#efd17b;
+  --line:#668296;
+  --shadow:#17334a;
+}
+html{background:#dcecf3}
+body{
+  background:
+    radial-gradient(circle at 50% -10%,rgba(255,255,255,.8),transparent 42%),
+    linear-gradient(180deg,#e9f4f8 0%,#d9eaf1 52%,#d1e4ec 100%);
+  font-size:15px;
+}
+.scanlines{opacity:.18}
+.topbar{
+  min-height:62px;
+  padding:8px clamp(12px,2.8vw,34px);
+  gap:16px;
+  box-shadow:0 3px 0 rgba(8,24,37,.55);
+}
+.brand-mark{
+  width:38px;height:38px;
+  background:#122b40;
+  box-shadow:2px 2px 0 #07131e;
+}
+.brand b{font-size:13px}
+.nav-btn,.menu-toggle{
+  border:1px solid #71899a;
+  background:#19344a;
+  padding:8px 10px;
+  box-shadow:2px 2px 0 #081725;
+}
+.nav-btn:hover,.nav-btn.active{background:#274d68}
+.app{width:min(1080px,92vw);margin:18px auto 34px}
+.panel{
+  border:1px solid #49677b;
+  border-radius:4px;
+  box-shadow:4px 4px 0 rgba(19,48,71,.28);
+}
+.hero{
+  min-height:315px;
+  grid-template-columns:1.08fr .92fr;
+  border-radius:5px;
+}
+.hero-copy{
+  padding:34px 36px;
+  background:linear-gradient(135deg,#fffdf7,#f7f0df);
+}
+.eyebrow{font-size:7px}
+.hero h1{
+  font-size:clamp(40px,4.8vw,56px);
+  margin:14px 0 16px;
+  letter-spacing:-1.5px;
+}
+.hero p{font-size:15px;line-height:1.55;max-width:590px}
+.ladder-mini{margin:18px 0 10px}
+.ladder-mini span{
+  padding:7px 9px;
+  background:#fffdf7;
+  border-color:#9aaab3;
+}
+.stage{
+  min-height:315px;
+  border-left:1px solid #49677b;
+  background:
+    radial-gradient(circle at 50% 28%,rgba(79,132,163,.32),transparent 34%),
+    linear-gradient(180deg,#294e67 0%,#17364c 55%,#10283b 100%);
+}
+.stage-grid{background-size:18px 18px;opacity:.28}
+.show-sign{
+  top:34px;
+  padding:10px 18px;
+  border-width:2px;
+  box-shadow:3px 3px 0 #07131f;
+}
+.stage-avatars{gap:18px}
+.stage-avatar{
+  width:155px;height:230px;
+  border-bottom:3px solid #b9933d;
+  background:linear-gradient(90deg,transparent 0 10%,rgba(255,255,255,.05) 10% 90%,transparent 90%);
+}
+.stage-avatar img{
+  width:auto;height:222px;max-width:145px;
+  object-fit:contain;
+}
+.bubble{
+  padding:8px 11px;
+  min-width:95px;
+  border:1px solid #263f51;
+  box-shadow:3px 3px 0 #081725;
+  background:#fff8df;
+}
+.bubble.left{left:4%;top:37%}
+.bubble.right{right:4%;top:25%}
+.stage-lights i{width:10px;height:10px}
+
+.section-card{padding:20px;margin-top:16px}
+.section-heading h2{font-size:23px}
+.topic-grid{grid-template-columns:repeat(4,1fr);gap:9px}
+.topic-card{
+  min-height:105px;
+  padding:11px;
+  grid-template-columns:40px 1fr;
+  background:#fbfaf5;
+  border:1px solid #8ca0ab;
+  box-shadow:3px 3px 0 #c6d1d6;
+}
+.topic-card:hover{background:#f0f7fa}
+.topic-card.selected{
+  background:#e1eff5;
+  border-color:#466b82;
+  box-shadow:1px 1px 0 #b4c3cb;
+}
+.topic-icon{font-size:24px}
+.topic-card b{font-size:13px}
+.topic-card small{font-size:10px}
+.topic-card em{font-size:6px}
+
+.setup-grid,.extras-grid{gap:14px;margin-top:14px}
+.field{padding:17px}
+.field input{padding:11px;font-size:15px}
+.choice{padding:10px 7px}
+.avatar-grid{gap:8px}
+.avatar-option{
+  padding:7px;
+  border:1px solid #8299a6;
+  box-shadow:2px 2px 0 #c4ced2;
+  background:#fbfaf6;
+}
+.avatar-option.selected{
+  background:#e2eff4;
+  border-color:#456a80;
+  box-shadow:1px 1px 0 #aebdc5;
+}
+.avatar-art{
+  height:190px;
+  background:
+    linear-gradient(180deg,#eaf4f8,#dbeaf0);
+  border:1px solid #c4d3da;
+}
+.avatar-art img{
+  width:auto;
+  height:185px;
+  max-width:155px;
+  object-fit:contain;
+  image-rendering:auto;
+  image-rendering:pixelated;
+}
+.avatar-option b{font-size:11px}
+.extra-content img{width:105px;height:95px}
+.primary{box-shadow:3px 3px 0 #18334a}
+.primary.big{margin-top:15px;padding:14px}
+.gamebar{gap:14px;padding:11px 13px}
+.game-layout{grid-template-columns:180px 1fr;gap:12px}
+.sidebar{padding:10px}
+.question{padding:18px}
+.question h2{font-size:clamp(27px,3.5vw,39px);line-height:1.2}
+.answer{
+  min-height:58px;
+  padding:14px 16px;
+  border:1px solid #8da0aa;
+  box-shadow:2px 2px 0 #c5d0d5;
+  background:#fbfaf5;
+}
+.answer:hover{background:#eaf4f8}
+.q-avatar img{
+  width:auto;
+  height:155px;
+  max-width:120px;
+  object-fit:contain;
+  image-rendering:pixelated;
+}
+.mini-avatar{
+  width:58px;height:68px;
+  background:#e6f2f6;
+}
+.mini-avatar img{width:auto;height:66px;max-width:55px}
+.host-card img{width:auto;height:82px;max-width:65px;object-fit:contain}
+.result{padding:30px}
+footer{margin-top:20px}
+
+@media (max-width:900px){
+  .app{width:min(94vw,760px)}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-copy{padding:28px}
+  .hero h1{font-size:clamp(38px,8vw,52px)}
+  .stage{min-height:300px;border-left:0;border-top:1px solid #49677b}
+  .topic-grid{grid-template-columns:repeat(2,1fr)}
+  .avatar-art{height:180px}
+  .avatar-art img{height:175px}
+}
+@media (max-width:650px){
+  .topbar{min-height:54px}
+  .brand b{font-size:9px}
+  .brand small{font-size:5px}
+  .nav{gap:3px}
+  .nav-btn{padding:7px 7px;font-size:6px}
+  .app{width:94vw;margin-top:12px}
+  .hero-copy{padding:23px 19px}
+  .hero h1{font-size:34px;letter-spacing:-.8px}
+  .hero p{font-size:14px}
+  .stage{min-height:260px}
+  .stage-avatar{width:125px;height:205px}
+  .stage-avatar img{height:198px;max-width:120px}
+  .topic-grid{grid-template-columns:1fr}
+  .avatar-grid{grid-template-columns:1fr 1fr}
+  .avatar-art{height:165px}
+  .avatar-art img{height:160px;max-width:135px}
+  .game-layout{grid-template-columns:1fr}
+  .sidebar{display:grid;grid-template-columns:repeat(3,1fr)}
+  .side-head,.money-box,.host-card,.sidebar .secondary{grid-column:1/-1}
+}
+@media (max-width:430px){
+  .avatar-grid{grid-template-columns:1fr}
+  .stage-avatars{gap:3px}
+  .stage-avatar{width:105px}
+  .stage-avatar img{height:185px}
+  .bubble{display:none}
+}
+
+/* =========================================================
+   V2.0 — IDENTIDADE GRÁFICA PIXEL SPACE
+   Apenas apresentação/layout/assets. Regras da partida preservadas.
+   ========================================================= */
+:root{
+  --space:#061b31; --space2:#0a2d4a; --hud:#0b3558; --hud2:#124d7a;
+  --hudline:#45b9ed; --hudline2:#86dcff; --gold:#f1c84b; --gold2:#ffe78a;
+  --white:#f4fbff; --text:#d9efff; --muted:#9fc4d9; --danger:#ff6e73;
+  --paper:rgba(7,34,57,.91); --ink:#eaf7ff; --shadow:#02101d;
+}
+html{background:#061b31}
+body{
+  background:#061b31 url('assets/background-space.png') center top / cover fixed no-repeat;
+  color:var(--text); font-family:Arial,Helvetica,sans-serif; min-height:100vh;
+}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(1,15,29,.12),rgba(1,15,29,.58));}
+.scanlines{opacity:.08;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.18) 0,rgba(255,255,255,.18) 1px,transparent 1px,transparent 5px)}
+.topbar{min-height:66px;padding:8px clamp(12px,3vw,42px);background:rgba(3,19,34,.96);border-bottom:2px solid var(--gold);box-shadow:0 3px 0 #02101d}
+.brand-mark{border:2px solid var(--gold);background:#082b48;color:var(--gold2);box-shadow:2px 2px 0 #020d18}
+.brand b{font-size:13px;text-shadow:2px 2px 0 #061426}.brand small{color:#8bd8ff}
+.nav-btn,.menu-toggle{border:2px solid #3d80a9;background:#0b3150;color:#fff;border-radius:3px;box-shadow:2px 2px 0 #02111d}
+.nav-btn:hover,.nav-btn.active{background:#15547e;border-color:var(--gold2);color:#fff}
+.wallet{color:var(--gold2);text-shadow:1px 1px 0 #07111c}
+.app{width:min(1260px,94vw);margin:18px auto 38px}
+.panel{background:linear-gradient(180deg,rgba(8,45,74,.94),rgba(5,28,49,.94));border:2px solid #2f7ba8;border-radius:7px;box-shadow:5px 5px 0 rgba(1,13,25,.85);color:var(--text)}
+.hero{min-height:360px;grid-template-columns:1.03fr .97fr;border-color:#3b86b1;box-shadow:6px 6px 0 rgba(0,10,20,.9)}
+.hero-copy{padding:38px 40px;background:linear-gradient(145deg,rgba(255,251,235,.98),rgba(244,237,215,.96));color:#173149}
+.hero-copy .eyebrow{color:#725919}.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(43px,5.2vw,68px);line-height:.96;letter-spacing:-2px;color:#123b5c;text-shadow:2px 2px 0 #d4e5eb}.hero h1 span{color:#d09e22}.hero p{color:#496779;font-size:16px}.ladder-mini span{background:#fffdf7;border:2px solid #9f7b25;box-shadow:2px 2px 0 #8a6b22;color:#1d3b51}.ladder-mini .basic{color:#347f59}.ladder-mini .medium{color:#8f6b17}.ladder-mini .hard{color:#a54d4d}.hero-note{color:#60798a}
+.stage{min-height:360px;border-left:2px solid #2f7ba8;background:radial-gradient(circle at 50% 35%,rgba(61,174,224,.28),transparent 30%),linear-gradient(180deg,rgba(11,61,91,.92),rgba(3,26,46,.96)),url('assets/background-space.png') center/cover}
+.stage-grid{background-size:24px 24px;opacity:.18}.pixel-stars{color:#d9f5ff}.show-sign{top:34px;background:linear-gradient(#ffe78a,#e7b83b);border:2px solid #8c6818;color:#102b43;box-shadow:4px 4px 0 #020e1a}
+.stage-avatar{width:170px;height:245px;border-bottom:3px solid #d5ae3e;background:radial-gradient(ellipse at center bottom,rgba(42,202,255,.22),transparent 62%)}
+.stage-avatar img{height:230px;max-width:155px;filter:drop-shadow(5px 6px 0 #020d17)}
+.bubble{background:#f8fbff;color:#173149;border:2px solid #1e425d;box-shadow:4px 4px 0 #020d17}.stage-lights i{background:#ffe071;border-color:#fff2a6;box-shadow:0 0 16px #f5c83d}
+.section-card{padding:19px;margin-top:15px;background:linear-gradient(180deg,rgba(7,43,71,.94),rgba(5,28,48,.94))}.section-heading h2{color:#f4fbff;font-size:25px}.tag{background:#0b385b;border:1px solid #4e9aca;color:#aee5ff}.topic-intro{color:#a4c9dc}.topic-grid{grid-template-columns:repeat(4,1fr);gap:10px}.topic-card{min-height:108px;padding:12px;background:linear-gradient(180deg,#0d4a75,#0a3152);border:2px solid #4b8eb8;box-shadow:3px 3px 0 #021421;color:#effaff}.topic-card:hover{background:linear-gradient(180deg,#135c8e,#0c3c61);border-color:#86dfff}.topic-card.selected{background:linear-gradient(180deg,#1b6f9d,#0f466d);border-color:var(--gold);box-shadow:2px 2px 0 #071522;transform:translate(1px,1px)}.topic-card b{font-size:13px}.topic-card small{color:#b8d8e9}.topic-card em{color:#f5d16a}.topic-selected{background:rgba(2,24,42,.62);border:1px dashed #4d89ad}.topic-selected span{color:#8ebad0}.topic-selected b{color:#ffe27a}.topic-selected small{color:#a5c9dc}
+.setup-grid{grid-template-columns:1fr 1fr;gap:14px;margin-top:15px}.field{padding:18px;background:linear-gradient(180deg,rgba(8,49,79,.94),rgba(5,29,49,.94))}.field label{color:#dff5ff}.field input{background:#061f35;border:2px solid #4b8eb8;color:#f3fbff}.field input::placeholder{color:#7fa8bf}.field input:focus{border-color:#8be0ff;box-shadow:0 0 0 3px rgba(75,176,226,.2)}.field small{color:#91b6ca}.field small b{color:#ffe078}.choice{background:#0a3556;border:2px solid #4b8eb8;color:#e9f8ff}.choice.selected{background:linear-gradient(#ffe88c,#efc74e);border-color:#fff0a2;color:#142d43;box-shadow:2px 2px 0 #755812}
+.avatar-panel{padding:18px}.avatar-grid-v2{display:flex;gap:9px;overflow-x:auto;padding:5px 2px 10px;scrollbar-color:#5aa7d2 #07233a}.avatar-option{flex:0 0 180px;padding:7px;background:linear-gradient(180deg,#0c4269,#082b49);border:2px solid #4c8fb9;box-shadow:3px 3px 0 #021421;color:#f1fbff}.avatar-option:hover{border-color:#86ddff;background:#104e78}.avatar-option.selected{background:linear-gradient(180deg,#1b638e,#0c3c61);border-color:var(--gold);box-shadow:2px 2px 0 #061522}.avatar-art{height:175px;background:radial-gradient(circle at 50% 78%,rgba(49,188,238,.25),transparent 58%),linear-gradient(180deg,#0b4167,#082b48);border:1px solid #4c8fb9}.avatar-art img{height:166px;width:auto;max-width:140px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(3px 4px 0 #02111b)}.avatar-option b{color:#ffe47c}.avatar-option small{color:#9fc5d8}.avatar-status{color:#8fb7cb}.avatar-status b{color:#ffe47c}
+/* Home: the plant remains a decorative accent instead of a separate panel. */
+.home .extras-grid{display:none}.home .extra{display:none}
+.primary{background:linear-gradient(#ffe98b,#e8bd42);border:2px solid #fff0a0;color:#122a40;box-shadow:4px 4px 0 #021321}.primary:hover{filter:brightness(1.06)}.primary.big{margin-top:16px;padding:18px;font-size:11px;max-width:760px;margin-left:auto;margin-right:auto}.primary.big small{color:#6e5415}.secondary{background:#0a3555;border:2px solid #4d8eb8;color:#e8f8ff;box-shadow:2px 2px 0 #021421}.secondary:hover{background:#104c76}
+.gamebar{background:linear-gradient(180deg,rgba(6,41,68,.97),rgba(4,25,43,.97));border-color:#347da9}.player small{color:#8db5c9}.player b{color:#fff}.mini-avatar{background:#082d4a;border:1px solid #4d8fb7}.progress-meta{color:#eaf8ff}.progress-meta span{color:#9dc4d7}.progress{background:#06233a;border:1px solid #477f9e}.progress i{background:linear-gradient(90deg,#36c7ff,#ffe071)}.progress-box>small{color:#8eafc0}.prize{color:#ffe072;text-shadow:2px 2px 0 #03111e}
+.game-layout{gap:13px}.sidebar{background:linear-gradient(180deg,rgba(7,43,70,.97),rgba(4,26,44,.97));border-color:#347da9}.side-head{color:#a7c8d9;border-bottom-color:#2d688d}.side-head b{color:#ffe074}.money-box{background:#062842;border-color:#3f80a4;color:#ffe173}.life{background:#0a3555;border-color:#477f9f;color:#eaf8ff;box-shadow:2px 2px 0 #021421}.life:hover:not(:disabled){background:#104d76}.life small{color:#91b5c7}.life-panel{background:rgba(3,22,38,.62);border-color:#2c6689}.life-panel small{color:#86aabd}.life-hearts{background:linear-gradient(90deg,#ff5964,#ffb15b)}.host-card{background:#082f4d;border-color:#397da5;color:#e9f8ff}.host-card span{color:#8eb5c7}
+.question{background:linear-gradient(180deg,rgba(5,33,54,.98),rgba(3,22,39,.98));border-color:#347da9}.difficulty{background:#0d507b;border-color:#54a4ce;color:#bcecff}.question-topic{color:#9bc1d4}.timer-wrap>span{color:#ffe071}.timer{background:#06243b;border-color:#3d7d9f}.timer i{background:linear-gradient(90deg,#41cfff,#ffe071)}.question-scene{background:radial-gradient(ellipse at center bottom,rgba(32,158,213,.22),transparent 58%)}.scene-podium{background:linear-gradient(#1d739b,#0c3d5e);border-color:#55c8ef;box-shadow:0 0 20px rgba(53,199,255,.22)}.question h2{color:#f2fbff;text-shadow:2px 2px 0 #02101c}.answer{background:#082f4d;border-color:#477f9f;box-shadow:3px 3px 0 #021421;color:#eefaff}.answer:hover:not(:disabled){background:#0e4b73;border-color:#7bdcff}.answer-key{background:#0e476b;border-color:#4d8fb4;color:#c8edff}.answer.correct{background:#0e523d;border-color:#4bc58b}.answer.correct .answer-key{background:#1b7758;border-color:#4bc58b;color:#fff}.answer.wrong{background:#5a2830;border-color:#ed6870}.answer.disabled{opacity:.3}.reaction.good{color:#7ff0b4}.reaction.bad{color:#ff858a}.explanation{background:#082d49;border-left-color:#3da3cf;color:#9fc4d6}.lives{color:#ff7079}
+.page-head h2{color:#f3fbff}.page-head p{color:#9dbecf}.ranking-panel,.settings,.achievement{background:linear-gradient(180deg,rgba(7,43,70,.96),rgba(4,26,44,.96))}.rank-tabs .rank-tab{background:#0a3555;border-color:#4b8eb8;color:#eaf8ff}.rank-tab.active{background:#efc94f;border-color:#fff0a0;color:#172d41}.rank-row{border-bottom-color:#1d506c}.rank-name{color:#f3fbff}.rank-name small,.rank-correct{color:#8eafc0}.rank-score{color:#ffe173}.achievement.unlocked{background:#0b3d5d}.achievement.locked{background:#08283f}.settings label{background:#092f4d;border-color:#346f93;color:#dceff9}.kbd-help{background:#082e4a;border-left-color:#4aa7d2;color:#8fb7ca}.danger{background:#542a31;color:#ffd7d9;border-color:#b9535b}.result{background:linear-gradient(180deg,rgba(7,43,70,.97),rgba(4,26,44,.97));border-color:#347da9}.result h2{color:#fff}.result p{color:#9bbdce}.result-topic{background:#0a3555;border-color:#4c8fb6;color:#bce5f7}.result-stats b{color:#ffe071}.result-stats small{color:#8fb3c5}
+footer{background:rgba(2,16,29,.97);border-top:2px solid var(--gold);color:#d8edf8}.no-motion *{animation:none!important;transition:none!important}
+@media(max-width:980px){.topic-grid{grid-template-columns:repeat(2,1fr)}.avatar-grid-v2{display:grid;grid-template-columns:repeat(2,minmax(150px,1fr));overflow:visible}.avatar-option{flex-basis:auto}.hero{grid-template-columns:1fr}.stage{border-left:0;border-top:2px solid #2f7ba8}}
+@media(max-width:650px){body{background-attachment:scroll}.app{width:95vw}.topbar{min-height:58px}.hero-copy{padding:28px 22px}.hero h1{font-size:38px}.hero p{font-size:14px}.stage{min-height:315px}.stage-avatar{width:130px;height:210px}.stage-avatar img{height:198px;max-width:118px}.bubble{font-size:6px}.setup-grid{grid-template-columns:1fr}.topic-grid{grid-template-columns:1fr}.avatar-grid-v2{grid-template-columns:1fr 1fr}.avatar-art{height:150px}.avatar-art img{height:142px}.primary.big{font-size:9px}.gamebar{grid-template-columns:1fr auto}.sidebar{grid-template-columns:1fr}.question h2{font-size:clamp(23px,7vw,31px)}}
+@media(max-width:390px){.avatar-grid-v2{grid-template-columns:1fr}.stage-avatars{gap:4px}.stage-avatar{width:105px}.bubble{display:none}}
+
+</style>
 </head>
 <body>
+<div class="scanlines" aria-hidden="true"></div>
 <header class="topbar">
-  <a class="brand" href="#" data-nav="home" aria-label="Show do Bilhão">
-    <span class="brand-star">★</span>
-    <span><strong>SHOW DO BILHÃO</strong><small>QUIZ • PIXEL ART • DEMO 1.8</small></span>
-  </a>
-  <nav>
-    <button data-nav="home">INÍCIO</button>
-    <button data-nav="ranking">RANKING</button>
-    <button data-nav="how">COMO JOGAR</button>
+  <button class="brand" data-view="home" aria-label="Voltar ao início"><span class="brand-mark">★</span><span><b>SHOW DO BILHÃO</b><small>QUIZ • PIXEL ART • V2.0</small></span></button>
+  <nav class="nav" aria-label="Menu principal">
+    <button class="nav-btn active" data-view="home">INÍCIO</button>
+    <button class="nav-btn" data-view="ranking">RANKING</button>
+    <button class="nav-btn" data-view="achievements">CONQUISTAS</button>
+    <button class="nav-btn" data-view="config">CONFIG</button>
   </nav>
-  <div class="cash">R$ <span id="topCash">0</span></div>
+  <div class="wallet">R$ <b id="money">0</b></div><button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
 </header>
 
-<main id="app">
-<section id="home" class="view active">
-  <div class="hero">
+<main class="app">
+<section id="home" class="view active-view home">
+  <div class="hero panel">
     <div class="hero-copy">
-      <div class="eyebrow">★ BEM-VINDO AO PALCO ★</div>
-      <h1>Quem vai levar<br>o bilhão?</h1>
-      <p>Escolha nome, tratamento, avatar e tema. O palco agora tem uma identidade pixel-art limpa, clara e responsiva.</p>
-      <div class="milestones"><span>10 • R$ 10 mil</span><span>20 • R$ 100 mil</span><span>30 • R$ 1 milhão</span></div>
+      <span class="eyebrow">★ BEM-VINDO AO PALCO ★</span>
+      <h1>Quem vai levar o <span>bilhão?</span></h1>
+      <p>Escolha seu nome, avatar e tema. Encare 30 perguntas — 10 básicas, 10 médias e 10 avançadas — e tente chegar ao prêmio máximo.</p>
+      <div class="ladder-mini"><span class="basic">● BÁSICA</span><span class="medium">● MÉDIA</span><span class="hard">● AVANÇADA</span></div>
+      <div class="hero-note"><span>15</span> perguntas por tema <i>•</i> ranking local <i>•</i> 3 ajudas</div>
     </div>
-    <div class="stage-preview">
-      <div class="speech">SHOW!</div>
-      <div class="preview-actors">
-        <div class="actor preview-host"><img src="assets/host.svg" alt="Apresentadora"></div>
-        <div class="actor preview-player"><img id="previewAvatar" src="assets/avatar-male.svg" alt="Avatar selecionado"></div>
-      </div>
-      <div class="stars">✦　·　✦　·　✧</div>
+    <div class="stage">
+      <div class="stage-grid"></div><div class="pixel-stars">✦ · ✦ · ✦</div><div class="show-sign">SHOW!</div>
+      <div class="stage-avatars"><div class="stage-avatar"><img id="heroFemale" src="assets/avatar-feminino-v2-normal.png?v=20" alt="Avatar feminino"></div><div class="stage-avatar"><img id="heroMale" src="assets/avatar-masculino-v2-normal.png?v=20" alt="Avatar masculino"></div></div>
+      <div class="bubble left">BORA<br>JOGAR?</div><div class="bubble right">VOCÊ<br>CONSEGUE!</div>
+      <div class="stage-lights"><i></i><i></i><i></i><i></i><i></i></div>
     </div>
+  </div>
+
+  <div class="panel section-card topic-panel">
+    <div class="section-heading"><div><span class="eyebrow">01 • CATEGORIA</span><h2>Escolha o seu tema</h2></div><span class="tag">45 NO BANCO • 30 NA PARTIDA</span></div>
+    <p class="topic-intro">O banco de perguntas muda conforme a categoria. A dificuldade cresce ao longo do palco.</p>
+    <div id="topicGrid" class="topic-grid"></div>
+    <div class="topic-selected"><span>SELECIONADO</span><b id="selectedTopicName">Conhecimentos Gerais</b><small id="selectedTopicDesc"></small></div>
   </div>
 
   <div class="setup-grid">
-    <section class="card">
-      <div class="section-title">1. SEU NOME</div>
-      <input id="nameInput" maxlength="20" placeholder="Ex.: Matheus" autocomplete="nickname">
-      <small>Seu nome aparece no ranking local.</small>
-    </section>
-    <section class="card">
-      <div class="section-title">2. COMO DEVEMOS TE CHAMAR?</div>
-      <div class="segmented" id="tone">
-        <button class="selected" data-tone="Homem">♂ Homem</button>
-        <button data-tone="Mulher">♀ Mulher</button>
-        <button data-tone="Neutro">⊙ Neutro</button>
-      </div>
-      <small>Usado apenas nas reações do jogo.</small>
-    </section>
+    <div class="panel field"><label for="username">02 • SEU NOME</label><input id="username" maxlength="18" autocomplete="nickname" placeholder="Ex.: Matheus"><small>Nome mostrado no ranking local: <b id="namePreview">Jogador</b></small></div>
+    <div class="panel field"><label>03 • COMO DEVEMOS TE CHAMAR?</label><div class="choices"><button class="choice selected" data-gender="masculino">♂ Homem</button><button class="choice" data-gender="feminino">♀ Mulher</button><button class="choice" data-gender="neutro">○ Neutro</button></div><small>Adapta as falas da apresentadora sem mudar as regras.</small></div>
   </div>
 
-  <section class="card avatar-card">
-    <div class="section-head"><div class="section-title">3. ESCOLHA SEU AVATAR</div><span class="tag">PIXEL ART</span></div>
-    <div class="avatar-grid" id="avatars">
-      <button class="avatar-option selected" data-avatar="male"><span class="avatar-frame"><img src="assets/avatar-male.svg" alt="Rapaz clássico"></span><b>RAPAZ</b><small>clássico</small></button>
-      <button class="avatar-option" data-avatar="female"><span class="avatar-frame"><img src="assets/avatar-female.svg" alt="Moça clássica"></span><b>MOÇA</b><small>clássico</small></button>
-      <button class="avatar-option" data-avatar="party-male"><span class="avatar-frame"><img src="assets/avatar-party-male.svg" alt="Rapaz festa"></span><b>RAPAZ • FESTA</b><small>reação alegre</small></button>
-      <button class="avatar-option" data-avatar="party-female"><span class="avatar-frame"><img src="assets/avatar-party-female.svg" alt="Moça alegre"></span><b>MOÇA • OI!</b><small>reação alegre</small></button>
+  <div class="panel section-card avatar-panel">
+    <div class="section-heading"><div><span class="eyebrow">04 • PERSONAGEM</span><h2>Escolha seu avatar</h2></div><span class="tag">PIXEL ART</span></div>
+    <div class="avatar-grid avatar-grid-v2">
+      <button class="avatar-option selected" data-avatar="masculino" data-state="normal"><span class="avatar-art"><img src="assets/avatar-masculino-v2-normal.png?v=20" alt="Rapaz"></span><b>RAPAZ</b><small>clássico</small></button>
+      <button class="avatar-option" data-avatar="feminino" data-state="normal"><span class="avatar-art"><img src="assets/avatar-feminino-v2-normal.png?v=20" alt="Moça"></span><b>MOÇA</b><small>clássico</small></button>
+      <button class="avatar-option" data-avatar="masculino" data-state="happy"><span class="avatar-art"><img src="assets/avatar-masculino-v2-happy.png?v=20" alt="Rapaz sorrindo"></span><b>RAPAZ • FESTA</b><small>reação alegre</small></button>
+      <button class="avatar-option" data-avatar="feminino" data-state="wave"><span class="avatar-art"><img src="assets/avatar-feminino-v2-wave.png?v=20" alt="Moça acenando"></span><b>MOÇA • OI!</b><small>reação aceno</small></button>
     </div>
-  </section>
+    <div class="avatar-status">AVATAR ATUAL: <b id="avatarName">RAPAZ</b> <span>• muda de expressão durante a partida</span></div>
+  </div>
 
-  <section class="card theme-card">
-    <div class="section-head"><div class="section-title">4. ESCOLHA O TEMA</div><span class="tag">45 NO BANCO • 30 POR PARTIDA</span></div>
-    <div class="theme-grid" id="themes"></div>
-    <small>Cada tema tem 15 básicas + 15 médias + 15 avançadas. A partida sorteia 10 de cada nível.</small>
-  </section>
-
-  <section class="luck-strip card">
-    <img src="assets/plant.svg" alt="Planta da sorte" class="plant">
-    <div><div class="section-title">PLANTA DA SORTE</div><p>Ela está de olho em você. Pequenas reações aparecem durante a partida.</p></div>
-  </section>
-
-  <button id="startBtn" class="primary big">▶ ENTRAR NO PALCO</button>
-  <p id="setupError" class="error" role="alert"></p>
+  <div class="extras-grid">
+    <div class="panel extra"><div class="extra-title">🌱 PLANTA DA SORTE <span>ANIMADA</span></div><div class="extra-content"><img src="assets/planta-sorte.gif" alt="Planta carnívora animada"><div><b>Ela está de olho em você.</b><p>Pequenas reações aparecem durante a partida.</p></div></div></div>
+    <div class="panel extra"><div class="extra-title">💰 SACOLAS HC <span>RECOMPENSA</span></div><div class="extra-content"><img src="assets/sacolas-hc.gif" alt="Sacolas HC"><div><b>Prêmios e colecionáveis.</b><p>Base para futuras conquistas e economia do jogo.</p></div></div></div>
+  </div>
+  <button id="startBtn" class="primary big">▶ ENTRAR NO PALCO <small id="startTopic">Conhecimentos Gerais</small></button>
 </section>
 
 <section id="game" class="view">
-  <div class="game-head card">
-    <div class="player-mini"><img id="gameAvatar" src="assets/avatar-male.svg" alt=""><div><small>Boa sorte, <span id="greeting">Jogador</span>!</small><b id="gameName">Jogador</b></div></div>
-    <div class="progress-wrap"><div class="question-label">PERGUNTA <span id="qNumber">1</span>/30</div><div class="progress"><span id="progressBar"></span></div></div>
-    <div class="money-box">R$ <span id="money">0</span></div>
-  </div>
-
-  <div class="game-layout">
-    <aside class="lifelines card">
-      <div class="money-side">R$ <span id="sideMoney">0</span></div>
-      <button id="fiftyBtn">◉ 50:50<small>elimina 2</small></button>
-      <button id="audienceBtn">♟ PLATEIA<small>palpite</small></button>
-      <button id="skipBtn">» PULAR<small>1 vez</small></button>
-      <div class="host-note"><img src="assets/host.svg" alt=""><span id="hostText">A apresentadora está de olho...</span></div>
-      <button id="quitBtn" class="danger">■ SAIR DA PARTIDA</button>
-    </aside>
-
-    <section class="question-card card">
-      <div class="q-top"><span id="difficulty" class="difficulty">BÁSICA</span><span>🔥 <b id="streak">0</b> sequência</span></div>
-      <div class="question-stage">
-        <div class="question-speech" id="questionSpeech">Pergunta</div>
-        <h2 id="questionText">Carregando...</h2>
-        <div class="answers" id="answers"></div>
-      </div>
-      <div class="bottom-stage">
-        <div class="plant-mini"><img src="assets/plant.svg" alt=""></div>
-        <div class="lives" id="lives" aria-label="vidas">♥ ♥ ♥</div>
-        <div class="reaction" id="reaction">A apresentadora está de olho...</div>
-      </div>
-    </section>
-  </div>
+ <div class="gamebar panel">
+   <div class="player"><div class="mini-avatar"><img id="gameAvatar" src="assets/avatar-masculino-v2-normal.png?v=20" alt=""></div><div><small id="greeting">Boa sorte!</small><b id="playerName">Jogador</b></div></div>
+   <div class="progress-box"><div class="progress-meta"><b id="roundLabel">PERGUNTA 1/30</b><span id="gameTopic">Conhecimentos Gerais</span><span id="streak">🔥 0</span><span class="lives" id="lives" aria-label="Vidas">❤❤❤</span></div><div class="progress"><i id="progress"></i></div><small><span id="progressText">0/30</span> • próximo: <b id="prizeNext">R$ 1.000</b></span> <b id="errors">ERROS 0/3</b></small></div>
+   <div class="prize">R$ <b id="prize">0</b></div>
+ </div>
+ <div class="game-layout">
+  <aside class="sidebar panel">
+   <div class="side-head"><span>PAINEL</span><b>AJUDAS</b></div><div class="money-box">R$ <b id="sidePrize">0</b></div><div class="life-panel"><b>VIDAS</b><div class="life-hearts" id="lifeBar" style="width:100%"></div><small>3 erros encerram a partida</small></div>
+   <button class="life" id="hint50"><span>50:50</span><small>elimina 2</small></button><button class="life" id="hintAudience"><span>👥 PLATEIA</span><small>palpite</small></button><button class="life" id="hintSkip"><span>⏭ PULAR</span><small>1 vez</small></button>
+   <div class="host-card"><img id="hostAvatar" src="assets/avatar-feminino-v2-normal.png?v=20" alt="Apresentadora"><div><b>APRESENTADORA</b><span id="hostLine">A apresentadora está de olho...</span></div></div>
+   <button class="secondary" id="quitBtn">⏹ SAIR DA PARTIDA</button>
+  </aside>
+  <article class="question panel">
+   <div class="question-top"><div><span class="difficulty" id="difficulty">BÁSICA</span><span class="question-topic" id="questionTopic">Conhecimentos Gerais</span></div><div class="timer-wrap"><span id="timer">⏱ 30s</span><div class="timer"><i id="timerBar"></i></div></div></div>
+   <div class="question-scene"><div class="q-avatar"><img id="questionAvatar" src="assets/avatar-masculino-v2-normal.png?v=20" alt="Seu avatar"></div><div class="scene-podium"></div><img class="q-plant" src="assets/planta-sorte.gif" alt="Planta da sorte"></div>
+   <h2 id="question">Pergunta</h2><div id="answers" class="answers"></div>
+   <div id="reaction" class="reaction" aria-live="polite"></div><div id="explanation" class="explanation" aria-live="polite"></div>
+   <button id="nextBtn" class="primary next hidden">PRÓXIMA ▶</button>
+  </article>
+ </div>
 </section>
 
-<section id="ranking" class="view">
-  <div class="simple-page card">
-    <div class="eyebrow">★ PLACAR LOCAL</div><h2>Ranking</h2>
-    <p>Resultados ficam somente neste dispositivo.</p>
-    <div id="rankingList"></div>
-    <button class="primary" data-nav="home">JOGAR NOVAMENTE</button>
-  </div>
-</section>
-
-<section id="how" class="view">
-  <div class="simple-page card">
-    <div class="eyebrow">★ REGRAS</div><h2>Como jogar</h2>
-    <div class="rules">
-      <div><b>30 perguntas</b><span>10 básicas + 10 médias + 10 avançadas.</span></div>
-      <div><b>Prêmios</b><span>10 perguntas → R$ 10 mil · 20 → R$ 100 mil · 30 → R$ 1 milhão.</span></div>
-      <div><b>3 vidas</b><span>Ao errar três vezes, a partida termina. Você pode tentar novamente.</span></div>
-      <div><b>Ajuda</b><span>50:50, Plateia e Pular, uma vez cada.</span></div>
-    </div>
-    <button class="primary" data-nav="home">VOLTAR</button>
-  </div>
-</section>
+<section id="ranking" class="view"><div class="page-head"><span class="eyebrow">PLACAR LOCAL</span><h2>Ranking</h2><p>Resultados ficam salvos somente neste navegador.</p></div><div class="panel ranking-panel"><div class="rank-tabs"><button class="rank-tab active" data-rank="all">GERAL</button><button class="rank-tab" data-rank="perfect">30/30</button></div><div id="rankingList"></div></div></section>
+<section id="achievements" class="view"><div class="page-head"><span class="eyebrow">COLEÇÃO</span><h2>Conquistas</h2><p>Medalhas por acertos, sequência e prêmio.</p></div><div id="achievementGrid" class="achievement-grid"></div></section>
+<section id="config" class="view"><div class="page-head"><span class="eyebrow">PREFERÊNCIAS</span><h2>Configurações</h2><p>Ajuste o palco ao seu dispositivo.</p></div><div class="panel settings"><label><input type="checkbox" id="soundToggle" checked> Sons e efeitos</label><label><input type="checkbox" id="motionToggle" checked> Animações pixel art</label><label><input type="checkbox" id="compactToggle"> Interface compacta</label><label><input type="checkbox" id="timerToggle" checked> Cronômetro por pergunta</label><label class="timer-setting">Tempo: <input type="number" id="timerSeconds" min="10" max="60" step="5" value="30"> segundos</label><p class="kbd-help">Teclado: <b>1–4</b> escolhe uma alternativa. No celular/tablet, toque normalmente.</p><button id="clearData" class="danger">LIMPAR RANKING LOCAL</button></div></section>
+<section id="result" class="view"><div class="result panel"><img src="assets/sacolas-hc.gif" alt="Sacolas HC"><span class="eyebrow">FIM DE JOGO</span><h2 id="resultTitle">Resultado</h2><p id="resultText"></p><div class="result-topic" id="resultTopic">Conhecimentos Gerais</div><div class="result-stats"><div><b id="resultPrize">R$ 0</b><small>prêmio</small></div><div><b id="resultCorrect">0/30</b><small>acertos</small></div><div><b id="resultErrors">0/3</b><small>erros</small></div><div><b id="resultBest">0</b><small>sequência</small></div></div><div class="result-actions"><button id="retryBtn" class="primary">↻ TENTAR DE NOVO</button><button id="restartBtn" class="secondary">⌂ VOLTAR AO INÍCIO</button><button class="secondary" data-view="ranking">🏆 VER RANKING</button></div></div></section>
 </main>
+<footer><span>★ CONHECIMENTO TAMBÉM É PODER!</span><span>SHOW DO BILHÃO v2.0 • PIXEL ART</span></footer>
+<script id="gameScript">
+const PRIZES=[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000,15000,25000,35000,45000,55000,65000,75000,85000,95000,100000,150000,250000,350000,450000,550000,650000,750000,850000,900000,1000000];
+const raw={
+'Conhecimentos Gerais':[
+['BÁSICA','Qual é o maior planeta do Sistema Solar?',['Terra','Júpiter','Marte','Vênus'],1],
+['BÁSICA','Qual é a capital do Brasil?',['Rio de Janeiro','Brasília','Salvador','São Paulo'],1],
+['BÁSICA','Quantos lados tem um triângulo?',['2','3','4','5'],1],
+['BÁSICA','Qual animal é conhecido popularmente como “rei da selva”?',['Tigre','Leão','Lobo','Onça'],1],
+['BÁSICA','Qual é o resultado de 7 × 8?',['54','56','64','48'],1],
+['MÉDIA','Qual é o símbolo químico do ferro?',['Fe','Ir','F','Fr'],0],
+['MÉDIA','Qual é a unidade básica de informação digital?',['Byte','Bit','Pixel','Hertz'],1],
+['MÉDIA','Qual é a raiz quadrada de 144?',['10','11','12','14'],2],
+['MÉDIA','Qual é o maior oceano da Terra?',['Atlântico','Índico','Pacífico','Ártico'],2],
+['MÉDIA','Qual órgão bombeia o sangue pelo corpo?',['Pulmão','Fígado','Coração','Rim'],2],
+['AVANÇADA','Qual é o número atômico do carbono?',['6','8','12','14'],0],
+['AVANÇADA','Qual princípio afirma que a energia não é criada nem destruída, apenas transformada?',['Inércia','Conservação da energia','Arquimedes','Exclusão de Pauli'],1],
+['AVANÇADA','Qual é a unidade SI de resistência elétrica?',['Volt','Watt','Ohm','Ampere'],2],
+['AVANÇADA','Em genética, qual molécula normalmente armazena a informação hereditária?',['ATP','DNA','Lipídio','Glicogênio'],1],
+['AVANÇADA','Qual instrumento mede a pressão atmosférica?',['Termômetro','Barômetro','Higrômetro','Anemômetro'],1]],
+'Música':[
+['BÁSICA','Qual instrumento tem teclas pretas e brancas?',['Violino','Piano','Flauta','Trompete'],1],
+['BÁSICA','Quantas cordas tem um violão tradicional?',['4','5','6','7'],2],
+['BÁSICA','Qual símbolo indica silêncio na música?',['Pausa','Clave','Nota','Andamento'],0],
+['BÁSICA','Qual destes é um gênero musical brasileiro?',['Samba','Blues','Country','Reggae'],0],
+['BÁSICA','Quem é conhecido como “Rei do Pop”?',['Elvis Presley','Michael Jackson','Frank Sinatra','Bob Dylan'],1],
+['MÉDIA','Qual compositor escreveu a Nona Sinfonia?',['Mozart','Beethoven','Bach','Vivaldi'],1],
+['MÉDIA','Qual instrumento pertence à família das madeiras?',['Trompete','Violino','Flauta','Tímpano'],2],
+['MÉDIA','O que significa BPM na música?',['Batidas por minuto','Baixos por melodia','Balanço por minuto','Batidas por música'],0],
+['MÉDIA','Qual gênero nasceu no delta do Mississippi e influenciou o rock?',['Blues','Sertanejo','Tango','Fado'],0],
+['MÉDIA','Qual compositor brasileiro escreveu “Aquarela do Brasil”?',['Ary Barroso','Heitor Villa-Lobos','Tom Jobim','Pixinguinha'],0],
+['AVANÇADA','Qual compositor é associado às Variações Goldberg?',['Bach','Chopin','Wagner','Debussy'],0],
+['AVANÇADA','Em harmonia, qual intervalo contém três tons inteiros?',['Terça menor','Trítono','Quinta justa','Oitava'],1],
+['AVANÇADA','Qual é a tonalidade maior sem sustenidos nem bemóis na armadura?',['Dó maior','Ré maior','Sol maior','Lá maior'],0],
+['AVANÇADA','Qual compositor brasileiro foi autor de “Bachianas Brasileiras”?',['Villa-Lobos','Carlos Gomes','Pixinguinha','Cartola'],0],
+['AVANÇADA','Qual movimento musical do século XX ficou associado a compositores como Schoenberg?',['Impressionismo','Expressionismo','Classicismo','Barroco'],1]],
+'Cinema & TV':[
+['BÁSICA','Qual personagem vive em Gotham City?',['Superman','Batman','Homem-Aranha','Hulk'],1],
+['BÁSICA','Qual filme apresenta um parque com dinossauros clonados?',['Jurassic Park','Titanic','Avatar','Matrix'],0],
+['BÁSICA','Quem é o ogro protagonista de Shrek?',['Fiona','Shrek','Burro','Gato de Botas'],1],
+['BÁSICA','Qual é o nome da escola de Harry Potter?',['Hogwarts','Camelot','Nárnia','Arkham'],0],
+['BÁSICA','Em qual saga aparece o personagem Darth Vader?',['Star Wars','Star Trek','Matrix','Alien'],0],
+['MÉDIA','Qual diretor dirigiu “Pulp Fiction”?',['Steven Spielberg','Quentin Tarantino','Christopher Nolan','James Cameron'],1],
+['MÉDIA','Qual filme brasileiro ganhou o Urso de Ouro em Berlim em 2024?',['Ainda Estou Aqui','Central do Brasil','Tropa de Elite','Cidade de Deus'],0],
+['MÉDIA','Qual série acompanha uma família chamada Simpson?',['Friends','The Simpsons','Lost','The Office'],1],
+['MÉDIA','Qual ator interpretou Jack em Titanic?',['Tom Hanks','Leonardo DiCaprio','Brad Pitt','Matt Damon'],1],
+['MÉDIA','Qual estúdio criou Toy Story?',['Pixar','Studio Ghibli','DreamWorks','Aardman'],0],
+['AVANÇADA','Qual filme venceu a Palma de Ouro em Cannes em 1994?',['Pulp Fiction','Forrest Gump','Clube da Luta','Seven'],0],
+['AVANÇADA','Quem dirigiu “2001: Uma Odisseia no Espaço”?',['Stanley Kubrick','Ridley Scott','George Lucas','Francis Ford Coppola'],0],
+['AVANÇADA','Qual movimento cinematográfico italiano surgiu no pós-Segunda Guerra?',['Neorrealismo italiano','Nouvelle Vague','Expressionismo alemão','Dogma 95'],0],
+['AVANÇADA','Qual diretor ficou associado ao cinema de animação do Studio Ghibli?',['Hayao Miyazaki','Akira Kurosawa','Satoshi Kon','Isao Takahata'],0],
+['AVANÇADA','Qual filme de Orson Welles é frequentemente citado como marco da linguagem cinematográfica?',['Cidadão Kane','Janela Indiscreta','O Poderoso Chefão','Metropolis'],0]],
+'História':[
+['BÁSICA','Em que ano começou a Revolução Francesa?',['1492','1789','1815','1914'],1],
+['BÁSICA','Quem foi o primeiro imperador do Brasil?',['Pedro I','Pedro II','Getúlio Vargas','Deodoro da Fonseca'],0],
+['BÁSICA','Qual civilização construiu Machu Picchu?',['Maia','Asteca','Inca','Fenícia'],2],
+['BÁSICA','Qual povo construiu as pirâmides de Gizé?',['Romanos','Egípcios','Gregos','Persas'],1],
+['BÁSICA','A Independência do Brasil foi proclamada em qual ano?',['1808','1822','1889','1891'],1],
+['MÉDIA','Qual tratado encerrou formalmente a Primeira Guerra Mundial com a Alemanha?',['Tordesilhas','Versalhes','Utrecht','Brest-Litovsk'],1],
+['MÉDIA','A Revolução Industrial começou primeiro em qual país?',['França','Alemanha','Inglaterra','Itália'],2],
+['MÉDIA','Qual cidade foi capital do Império Romano do Oriente?',['Atenas','Constantinopla','Alexandria','Cartago'],1],
+['MÉDIA','Quem liderou a expedição que chegou à América em 1492 sob a Coroa espanhola?',['Cristóvão Colombo','Vasco da Gama','Fernão de Magalhães','Pedro Álvares Cabral'],0],
+['MÉDIA','Qual acontecimento marcou o início convencional da Idade Média no Ocidente?',['Queda do Império Romano do Ocidente','Revolução Francesa','Queda de Constantinopla','Descoberta da América'],0],
+['AVANÇADA','Qual civilização desenvolveu a escrita cuneiforme na Mesopotâmia?',['Suméria','Inca','Minoica','Maia'],0],
+['AVANÇADA','Qual dinastia chinesa construiu grande parte da Cidade Proibida?',['Han','Ming','Tang','Qing'],1],
+['AVANÇADA','Qual conferência de 1884–1885 estabeleceu regras para a ocupação colonial europeia na África?',['Conferência de Viena','Conferência de Berlim','Congresso de Paris','Tratado de Versalhes'],1],
+['AVANÇADA','Qual acordo de 1494 dividiu áreas de exploração entre Portugal e Espanha?',['Tratado de Utrecht','Tratado de Tordesilhas','Tratado de Madri','Paz de Westfália'],1],
+['AVANÇADA','Qual batalha de 1815 marcou a derrota definitiva de Napoleão Bonaparte?',['Austerlitz','Waterloo','Leipzig','Trafalgar'],1]],
+'Ciência & Tecnologia':[
+['BÁSICA','Qual gás é mais abundante na atmosfera terrestre?',['Oxigênio','Nitrogênio','CO₂','Hélio'],1],
+['BÁSICA','A água ferve, ao nível do mar, aproximadamente a:',['50 °C','80 °C','100 °C','120 °C'],2],
+['BÁSICA','Qual planeta é conhecido como Planeta Vermelho?',['Vênus','Marte','Mercúrio','Netuno'],1],
+['BÁSICA','Qual órgão humano é responsável principalmente pela troca gasosa?',['Coração','Pulmão','Rim','Estômago'],1],
+['BÁSICA','Qual unidade mede corrente elétrica?',['Volt','Watt','Ampere','Ohm'],2],
+['MÉDIA','Qual processo produz ATP principalmente nas mitocôndrias?',['Fotossíntese','Respiração celular','Transcrição','Digestão'],1],
+['MÉDIA','Qual elemento tem símbolo O?',['Ouro','Oxigênio','Ósmio','Oganessônio'],1],
+['MÉDIA','Qual tecnologia é usada para determinar posição por satélites?',['GPS','USB','HDMI','NFC'],0],
+['MÉDIA','Qual partícula possui carga elétrica negativa?',['Próton','Nêutron','Elétron','Fóton'],2],
+['MÉDIA','Qual camada da atmosfera contém a maior parte do ozônio estratosférico?',['Troposfera','Estratosfera','Mesosfera','Termosfera'],1],
+['AVANÇADA','Qual é a segunda lei da termodinâmica associada ao aumento da entropia em processos espontâneos?',['Lei da inércia','Segunda lei da termodinâmica','Lei de Coulomb','Lei de Hooke'],1],
+['AVANÇADA','Qual cientista formulou as equações clássicas do eletromagnetismo?',['James Clerk Maxwell','Gregor Mendel','Louis Pasteur','Niels Bohr'],0],
+['AVANÇADA','Qual é a unidade SI de capacitância elétrica?',['Tesla','Farad','Henry','Weber'],1],
+['AVANÇADA','Em computação, qual estrutura segue o princípio LIFO?',['Fila','Pilha','Árvore','Grafo'],1],
+['AVANÇADA','Qual método permite estimar a idade de materiais orgânicos usando o carbono-14?',['Datação radiocarbônica','Espectroscopia Raman','Cromatografia','Difração de raios X'],0]],
+'Geografia & Brasil':[
+['BÁSICA','Qual é o maior país da América do Sul em território?',['Argentina','Brasil','Peru','Colômbia'],1],
+['BÁSICA','Qual oceano banha a costa leste do Brasil?',['Pacífico','Índico','Atlântico','Ártico'],2],
+['BÁSICA','Qual é a capital do Maranhão?',['Teresina','São Luís','Belém','Fortaleza'],1],
+['BÁSICA','Em qual continente fica o Egito?',['Europa','África','Ásia','Oceania'],1],
+['BÁSICA','Qual linha imaginária divide a Terra em hemisférios Norte e Sul?',['Trópico de Câncer','Meridiano de Greenwich','Linha do Equador','Trópico de Capricórnio'],2],
+['MÉDIA','Qual é o rio mais extenso inteiramente em território brasileiro?',['São Francisco','Paraná','Amazonas','Tocantins'],0],
+['MÉDIA','Qual bioma ocupa grande parte da região Centro-Oeste do Brasil?',['Caatinga','Cerrado','Pampa','Mata Atlântica'],1],
+['MÉDIA','Qual país não faz fronteira terrestre com o Brasil?',['Chile','Bolívia','Peru','Colômbia'],0],
+['MÉDIA','Qual é a cordilheira que se estende pela costa oeste da América do Sul?',['Alpes','Andes','Himalaias','Rochosas'],1],
+['MÉDIA','Qual é a maior ilha do mundo?',['Groenlândia','Madagascar','Bornéu','Nova Guiné'],0],
+['AVANÇADA','Qual é o ponto mais alto do Brasil?',['Pico da Neblina','Pico da Bandeira','Monte Roraima','Pico das Agulhas Negras'],0],
+['AVANÇADA','Qual corrente oceânica quente influencia fortemente a costa leste do Brasil?',['Corrente do Brasil','Corrente de Humboldt','Corrente de Benguela','Corrente de Labrador'],0],
+['AVANÇADA','Qual país possui a maior extensão territorial da África?',['Argélia','Sudão','Líbia','República Democrática do Congo'],0],
+['AVANÇADA','Qual estreito separa a Europa da África entre Espanha e Marrocos?',['Bósforo','Gibraltar','Ormuz','Malaca'],1],
+['AVANÇADA','Qual é a capital nacional localizada mais próxima da Linha do Equador entre as capitais brasileiras?',['Macapá','Belém','Boa Vista','Manaus'],0]]
+};
 
-<div id="modal" class="modal" hidden>
-  <div class="modal-box">
-    <div id="modalIcon" class="modal-icon">★</div>
-    <h2 id="modalTitle">Fim de jogo</h2>
-    <p id="modalText"></p>
-    <div class="modal-actions" id="modalActions"></div>
-  </div>
-</div>
-<script>
-window.QUESTION_BANK = {"Conhecimentos Gerais": [["Qual é o maior planeta do Sistema Solar?", ["Terra", "Júpiter", "Marte", "Vênus"], 1], ["Qual é a capital do Japão?", ["Seul", "Pequim", "Tóquio", "Kyoto"], 2], ["Qual é o símbolo químico do ouro?", ["Ag", "Au", "Gd", "Go"], 1], ["Quantos lados tem um hexágono?", ["5", "6", "7", "8"], 1], ["Qual oceano banha a costa leste do Brasil?", ["Índico", "Atlântico", "Pacífico", "Ártico"], 1], ["Qual é o maior mamífero conhecido?", ["Elefante-africano", "Baleia-azul", "Girafa", "Orca"], 1], ["Qual planeta é conhecido como Planeta Vermelho?", ["Marte", "Saturno", "Mercúrio", "Netuno"], 0], ["Qual é a unidade básica da vida?", ["Átomo", "Tecido", "Célula", "Órgão"], 2], ["Qual gás é mais abundante na atmosfera terrestre?", ["Oxigênio", "Nitrogênio", "Hélio", "CO₂"], 1], ["Quantos minutos há em duas horas?", ["100", "110", "120", "140"], 2], ["Qual é o maior continente em área?", ["África", "Europa", "Ásia", "América do Sul"], 2], ["Qual instrumento mede a temperatura?", ["Barômetro", "Termômetro", "Higrômetro", "Altímetro"], 1], ["Qual é a língua mais falada nativamente no mundo?", ["Inglês", "Espanhol", "Mandarim", "Português"], 2], ["Qual metal é líquido em temperatura ambiente?", ["Ferro", "Mercúrio", "Cobre", "Alumínio"], 1], ["Quantos graus tem um ângulo reto?", ["45°", "60°", "90°", "180°"], 2], ["Qual é a fórmula química da água?", ["CO₂", "H₂O", "O₂", "NaCl"], 1], ["Qual é o menor número primo?", ["0", "1", "2", "3"], 2], ["Qual país tem a maior área territorial?", ["Canadá", "China", "Rússia", "Brasil"], 2], ["Qual é a montanha mais alta acima do nível do mar?", ["K2", "Everest", "Aconcágua", "Denali"], 1], ["Quem formulou as leis do movimento e da gravitação clássica?", ["Newton", "Darwin", "Faraday", "Pasteur"], 0], ["Qual camada atmosférica contém a maior parte do ozônio?", ["Troposfera", "Estratosfera", "Mesosfera", "Exosfera"], 1], ["O que mede a escala Richter tradicionalmente?", ["Temperatura", "Magnitude de terremotos", "Umidade", "Velocidade do vento"], 1], ["Qual vitamina é produzida na pele com exposição à luz solar?", ["Vitamina A", "Vitamina C", "Vitamina D", "Vitamina K"], 2], ["Qual é o maior órgão do corpo humano?", ["Fígado", "Pele", "Pulmão", "Coração"], 1], ["Qual é a unidade SI de força?", ["Joule", "Pascal", "Newton", "Watt"], 2], ["Qual planeta tem os anéis mais proeminentes?", ["Saturno", "Marte", "Terra", "Mercúrio"], 0], ["Qual é a velocidade aproximada da luz no vácuo?", ["30 mil km/s", "300 mil km/s", "3 milhões km/s", "3 mil km/s"], 1], ["Qual é o pH aproximado de uma solução neutra a 25 °C?", ["0", "5", "7", "14"], 2], ["Qual continente é atravessado pelo rio Amazonas?", ["África", "Ásia", "América do Sul", "Europa"], 2], ["Qual é o maior deserto quente do mundo?", ["Gobi", "Saara", "Atacama", "Kalahari"], 1], ["Qual ciência estuda os seres vivos?", ["Geologia", "Biologia", "Astronomia", "Física"], 1], ["Qual é o satélite natural da Terra?", ["Fobos", "Lua", "Europa", "Titã"], 1], ["Qual é a unidade de frequência no SI?", ["Hertz", "Volt", "Ohm", "Tesla"], 0], ["Qual país é conhecido por ter o formato de uma bota?", ["Grécia", "Itália", "Portugal", "Croácia"], 1], ["Qual é o nome do processo pelo qual plantas produzem matéria orgânica usando luz?", ["Respiração", "Fermentação", "Fotossíntese", "Digestão"], 2], ["Qual elemento químico tem número atômico 1?", ["Hélio", "Hidrogênio", "Carbono", "Oxigênio"], 1], ["Qual é o maior bioma brasileiro em extensão territorial?", ["Cerrado", "Amazônia", "Caatinga", "Pampa"], 1], ["Qual aparelho registra ondas sísmicas?", ["Sismógrafo", "Telescópio", "Anemômetro", "Bússola"], 0], ["Qual é o nome da galáxia que abriga o Sistema Solar?", ["Andrômeda", "Via Láctea", "Triângulo", "Sombrero"], 1], ["Qual é o número de lados de um dodecágono?", ["10", "11", "12", "14"], 2], ["Qual é o estado físico do gelo?", ["Gasoso", "Plasma", "Líquido", "Sólido"], 3], ["Qual é a estrela mais próxima da Terra?", ["Sirius", "Sol", "Vega", "Betelgeuse"], 1], ["Qual é a principal moeda do Japão?", ["Won", "Yuan", "Iene", "Baht"], 2], ["Qual é o nome da ciência que estuda os astros?", ["Astronomia", "Anatomia", "Ecologia", "Linguística"], 0], ["Qual gás é essencial à respiração aeróbica humana?", ["Oxigênio", "Hélio", "Neônio", "Argônio"], 0]], "História": [["Em que ano começou a Revolução Francesa?", ["1689", "1776", "1789", "1815"], 2], ["Quem foi o primeiro imperador romano?", ["Nero", "Augusto", "Trajano", "Constantino"], 1], ["Qual civilização construiu Machu Picchu?", ["Maia", "Inca", "Asteca", "Olmeca"], 1], ["A queda da Bastilha ocorreu em qual país?", ["França", "Espanha", "Itália", "Áustria"], 0], ["Em que ano terminou a Segunda Guerra Mundial?", ["1943", "1944", "1945", "1946"], 2], ["Qual navegador chegou à América em 1492 em uma expedição espanhola?", ["Cristóvão Colombo", "Vasco da Gama", "Fernão de Magalhães", "Pedro Álvares Cabral"], 0], ["Qual império tinha Constantinopla como capital?", ["Bizantino", "Mongol", "Persa", "Mali"], 0], ["A Magna Carta foi selada em qual século?", ["XI", "XII", "XIII", "XIV"], 1], ["Qual cidade foi soterrada pela erupção do Vesúvio em 79 d.C.?", ["Pompeia", "Atenas", "Cartago", "Siracusa"], 0], ["Quem liderou a independência da Índia por meio da resistência não violenta?", ["Mahatma Gandhi", "Sun Yat-sen", "Ho Chi Minh", "Atatürk"], 0], ["Qual tratado encerrou formalmente a Primeira Guerra Mundial com a Alemanha?", ["Versalhes", "Tordesilhas", "Utrecht", "Brest-Litovsk"], 0], ["Qual civilização desenvolveu a escrita cuneiforme na Mesopotâmia?", ["Suméria", "Inca", "Egípcia", "Fenícia"], 0], ["Quem foi o primeiro presidente do Brasil?", ["Floriano Peixoto", "Deodoro da Fonseca", "Prudente de Morais", "Campos Sales"], 1], ["Em que ano o Brasil declarou independência de Portugal?", ["1808", "1822", "1831", "1889"], 1], ["Qual evento de 1889 encerrou a monarquia brasileira?", ["Revolução de 1930", "Proclamação da República", "Independência", "Diretas Já"], 1], ["Quem foi o faraó associado à tumba KV62?", ["Ramsés II", "Tutancâmon", "Quéops", "Akhenaton"], 1], ["Qual cidade foi centro político da Grécia Antiga e célebre por sua democracia?", ["Esparta", "Atenas", "Corinto", "Tebas"], 1], ["Qual foi o principal centro do Império Asteca?", ["Tenochtitlán", "Cusco", "Chichén Itzá", "Teotihuacan"], 0], ["Quem foi conhecido como 'O Libertador' de várias regiões da América do Sul?", ["Simón Bolívar", "José Martí", "Artigas", "San Martín"], 0], ["Qual revolução começou na Rússia em 1917 e levou os bolcheviques ao poder?", ["Revolução Mexicana", "Revolução Russa", "Revolução Gloriosa", "Revolução Haitiana"], 1], ["Qual império foi governado por Genghis Khan em sua origem?", ["Mongol", "Romano", "Otomano", "Sassânida"], 0], ["A Guerra Civil Americana ocorreu principalmente entre quais anos?", ["1775–1783", "1812–1815", "1861–1865", "1914–1918"], 2], ["Qual movimento brasileiro ocorreu em 1922 e marcou a cultura modernista?", ["Semana de Arte Moderna", "Inconfidência Mineira", "Revolta da Vacina", "Diretas Já"], 0], ["Quem escreveu a Declaração de Independência dos EUA como principal redator?", ["Thomas Jefferson", "George Washington", "Benjamin Franklin", "John Adams"], 0], ["Qual foi o nome do período de domínio romano sobre grande parte da Britânia?", ["Britannia romana", "Nova Roma", "Caledônia romana", "Britannia Magna"], 0], ["Qual dinastia governou a China durante a construção de grande parte da Cidade Proibida?", ["Ming", "Han", "Tang", "Qin"], 0], ["Qual era o nome da rota comercial que ligava China, Ásia Central e Europa?", ["Rota da Seda", "Rota do Ouro", "Rota do Índigo", "Rota Boreal"], 0], ["Qual batalha em 1066 marcou a conquista normanda da Inglaterra?", ["Hastings", "Waterloo", "Agincourt", "Crécy"], 0], ["Quem foi o líder sul-africano que passou 27 anos preso durante o apartheid?", ["Nelson Mandela", "Desmond Tutu", "Steve Biko", "F. W. de Klerk"], 0], ["Qual epidemia devastou a Europa no século XIV?", ["Peste Negra", "Varíola Atlântica", "Gripe Espanhola", "Cólera Medieval"], 0], ["Qual faraó mandou construir a Grande Pirâmide de Gizé?", ["Quéops", "Ramsés III", "Tutmés I", "Hatshepsut"], 0], ["Qual guerra ocorreu entre Atenas e Esparta no século V a.C.?", ["Guerra do Peloponeso", "Guerras Médicas", "Guerra Púnica", "Guerra de Corinto"], 0], ["Qual dinastia foi derrubada pela Revolução de 1911 na China?", ["Qing", "Ming", "Tang", "Song"], 0], ["Qual conferência de 1884–85 estabeleceu regras europeias para a partilha colonial da África?", ["Conferência de Berlim", "Conferência de Viena", "Congresso de Paris", "Conferência de Bandung"], 0], ["Quem liderou a expedição que completou a primeira circum-navegação, após a morte de Magalhães?", ["Juan Sebastián Elcano", "Vasco da Gama", "Bartolomeu Dias", "Américo Vespúcio"], 0], ["Em que ano caiu o Muro de Berlim?", ["1987", "1988", "1989", "1991"], 2], ["Qual civilização criou um dos primeiros códigos legais conhecidos, associado a Hamurábi?", ["Babilônica", "Romana", "Persa", "Fenícia"], 0], ["Qual guerra ficou conhecida como conflito entre casas Lancaster e York?", ["Guerra das Rosas", "Guerra dos Cem Anos", "Guerra Civil Inglesa", "Guerra de Sucessão Espanhola"], 0], ["Qual documento brasileiro de 1988 é conhecido como Constituição Cidadã?", ["Constituição Federal de 1988", "Constituição de 1967", "Ato Institucional nº 5", "Código Civil"], 0], ["Qual acontecimento ocorreu em 1453?", ["Queda de Constantinopla", "Descoberta do Brasil", "Queda de Roma Ocidental", "Revolução Francesa"], 0], ["Qual império pré-colombiano tinha capital em Cusco?", ["Inca", "Maia", "Asteca", "Muisca"], 0], ["Qual movimento intelectual europeu valorizou razão, ciência e crítica no século XVIII?", ["Iluminismo", "Romantismo", "Realismo", "Surrealismo"], 0], ["Qual evento é tradicionalmente usado para marcar o início da Idade Média na periodização ocidental?", ["Queda do Império Romano do Ocidente", "Queda de Constantinopla", "Revolução Francesa", "Descoberta da América"], 0], ["Qual tratado de 1494 dividiu áreas de exploração entre Portugal e Espanha?", ["Tordesilhas", "Versalhes", "Utrecht", "Paris"], 0], ["Qual país lançou o Sputnik 1 em 1957?", ["EUA", "URSS", "China", "França"], 1]], "Cinema": [["Quem dirigiu Pulp Fiction?", ["Quentin Tarantino", "Martin Scorsese", "Francis Ford Coppola", "David Lynch"], 0], ["Qual diretor realizou 2001: Uma Odisseia no Espaço?", ["Stanley Kubrick", "Akira Kurosawa", "Ingmar Bergman", "Federico Fellini"], 0], ["Qual filme de Coppola acompanha a família Corleone?", ["O Poderoso Chefão", "Apocalypse Now", "Drácula", "A Conversação"], 0], ["Quem dirigiu Taxi Driver?", ["Martin Scorsese", "Brian De Palma", "Sidney Lumet", "Paul Schrader"], 0], ["Qual diretor japonês realizou Os Sete Samurais?", ["Akira Kurosawa", "Yasujirō Ozu", "Kenji Mizoguchi", "Takashi Miike"], 0], ["Quem dirigiu Persona?", ["Ingmar Bergman", "Andrei Tarkovsky", "Luis Buñuel", "Jean Renoir"], 0], ["Qual filme de Tarantino se passa parcialmente em Los Angeles e entrelaça várias histórias?", ["Pulp Fiction", "Kill Bill", "Django Livre", "Os Oito Odiados"], 0], ["Qual é o título do filme de Wong Kar-wai sobre um romance contido em Hong Kong?", ["Amor à Flor da Pele", "2046", "Chungking Express", "Anjos Caídos"], 0], ["Qual filme venceu o Oscar de Melhor Filme em 1973?", ["O Poderoso Chefão", "O Exorcista", "Golpe de Mestre", "O Franco Atirador"], 0], ["Qual diretor criou a trilogia O Senhor dos Anéis no cinema?", ["Peter Jackson", "George Lucas", "James Cameron", "Ridley Scott"], 0], ["Em qual filme aparece o personagem Travis Bickle?", ["Taxi Driver", "Touro Indomável", "Os Bons Companheiros", "Cassino"], 0], ["Qual filme de Kurosawa inspirou elementos de westerns de Hollywood?", ["Yojimbo", "Rashomon", "Ikiru", "Ran"], 0], ["Quem dirigiu Apocalypse Now?", ["Francis Ford Coppola", "Michael Cimino", "Oliver Stone", "Brian De Palma"], 0], ["Qual filme de Bergman acompanha um cavaleiro jogando xadrez com a Morte?", ["O Sétimo Selo", "Persona", "Morangos Silvestres", "Gritos e Sussurros"], 0], ["Qual filme de Scorsese retrata a ascensão e queda de Henry Hill?", ["Os Bons Companheiros", "Cassino", "O Irlandês", "Gangues de Nova York"], 0], ["Quem dirigiu Cidade de Deus?", ["Fernando Meirelles", "Walter Salles", "José Padilha", "Kleber Mendonça Filho"], 0], ["Qual filme de Tarantino se passa durante a Segunda Guerra Mundial com uma história alternativa?", ["Bastardos Inglórios", "Django Livre", "Kill Bill", "Jackie Brown"], 0], ["Qual diretor fez O Iluminado?", ["Stanley Kubrick", "John Carpenter", "David Cronenberg", "Roman Polanski"], 0], ["Qual filme de Wong Kar-wai é conhecido pelo título original Chungking Express?", ["Chungking Express", "2046", "Fallen Angels", "Days of Being Wild"], 0], ["Qual filme de Kurosawa venceu o Leão de Ouro em Veneza e ajudou a projetar o cinema japonês internacionalmente?", ["Rashomon", "Ran", "Kagemusha", "Trono Manchado de Sangue"], 0], ["Qual filme de Coppola acompanha o coronel Kurtz?", ["Apocalypse Now", "O Poderoso Chefão II", "A Conversação", "Peggy Sue"], 0], ["Quem dirigiu O Silêncio dos Inocentes?", ["Jonathan Demme", "Brian De Palma", "David Fincher", "Michael Mann"], 0], ["Qual filme é frequentemente associado ao movimento neorrealista italiano?", ["Ladrões de Bicicleta", "Oito e Meio", "A Doce Vida", "A Estrada"], 0], ["Quem dirigiu A Doce Vida?", ["Federico Fellini", "Vittorio De Sica", "Michelangelo Antonioni", "Luchino Visconti"], 0], ["Qual filme de Scorsese acompanha Jake LaMotta?", ["Touro Indomável", "Taxi Driver", "Cabo do Medo", "A Última Tentação de Cristo"], 0], ["Qual diretor realizou Mulholland Drive?", ["David Lynch", "David Fincher", "Terrence Malick", "Paul Thomas Anderson"], 0], ["Qual filme de Tarantino tem como protagonistas Uma Thurman e David Carradine?", ["Kill Bill", "Jackie Brown", "À Prova de Morte", "Cães de Aluguel"], 0], ["Qual filme de Bergman tem como protagonistas uma atriz e uma enfermeira?", ["Persona", "Sonata de Outono", "A Hora do Lobo", "Vergonha"], 0], ["Qual diretor realizou Stalker?", ["Andrei Tarkovsky", "Serguei Eisenstein", "Elem Klimov", "Aleksandr Sokurov"], 0], ["Qual filme de Kurosawa é ambientado em um Japão feudal e baseado em Rei Lear?", ["Ran", "Kagemusha", "Yojimbo", "Sanjuro"], 0], ["Qual filme de Coppola é centrado no personagem Michael Corleone?", ["O Poderoso Chefão Parte II", "A Conversação", "Rumble Fish", "Drácula de Bram Stoker"], 0], ["Qual filme de Scorsese acompanha o mundo dos cassinos de Las Vegas?", ["Cassino", "Os Bons Companheiros", "O Aviador", "Silêncio"], 0], ["Quem dirigiu O Labirinto do Fauno?", ["Guillermo del Toro", "Alejandro González Iñárritu", "Alfonso Cuarón", "Pedro Almodóvar"], 0], ["Qual filme de Tarantino apresenta a personagem Jackie Brown?", ["Jackie Brown", "Cães de Aluguel", "Django Livre", "Era Uma Vez em Hollywood"], 0], ["Qual filme de Wong Kar-wai se passa em parte no futuro e retoma personagens de Amor à Flor da Pele?", ["2046", "Fallen Angels", "Happy Together", "Days of Being Wild"], 0], ["Quem dirigiu O Sétimo Selo?", ["Ingmar Bergman", "Carl Theodor Dreyer", "Fritz Lang", "Orson Welles"], 0], ["Qual filme de Kurosawa gira em torno de três versões conflitantes de um mesmo acontecimento?", ["Rashomon", "Ikiru", "Ran", "Kagemusha"], 0], ["Qual filme de Scorsese tem o personagem Travis Bickle como protagonista?", ["Taxi Driver", "Cassino", "O Rei da Comédia", "Depois de Horas"], 0], ["Quem dirigiu O Poderoso Chefão?", ["Francis Ford Coppola", "William Friedkin", "Sergio Leone", "Sidney Lumet"], 0], ["Qual filme de Bergman é associado ao tema da morte e do silêncio?", ["O Sétimo Selo", "Persona", "Fanny e Alexander", "Morangos Silvestres"], 0], ["Qual filme de Tarantino se passa em grande parte no Japão e envolve a personagem A Noiva?", ["Kill Bill Vol. 1", "Pulp Fiction", "Django Livre", "Os Oito Odiados"], 0], ["Qual diretor fez O Homem que Copiava?", ["Jorge Furtado", "Fernando Meirelles", "Guel Arraes", "José Padilha"], 0], ["Qual filme é dirigido por Alfonso Cuarón?", ["Filhos da Esperança", "Clube da Luta", "A Origem", "O Farol"], 0], ["Qual filme de Coppola foi lançado em 1979 e retrata a Guerra do Vietnã?", ["Apocalypse Now", "O Poderoso Chefão", "Rumble Fish", "Drácula"], 0], ["Qual cineasta sul-coreano dirigiu Parasita?", ["Bong Joon-ho", "Park Chan-wook", "Kim Jee-woon", "Lee Chang-dong"], 0]], "Música": [["Qual banda lançou o álbum Toxicity?", ["System of a Down", "Slipknot", "Korn", "Deftones"], 0], ["Qual banda lançou o álbum Ten?", ["Pearl Jam", "Nirvana", "Soundgarden", "Alice in Chains"], 0], ["Quem é o vocalista clássico do Guns N' Roses?", ["Axl Rose", "Eddie Vedder", "Corey Taylor", "Serj Tankian"], 0], ["Qual banda tem a música Chop Suey!?", ["System of a Down", "Slipknot", "Avenged Sevenfold", "Tool"], 0], ["Qual banda lançou o álbum Iowa?", ["Slipknot", "Korn", "Marilyn Manson", "Limp Bizkit"], 0], ["Qual banda tem M. Shadows como vocalista?", ["Avenged Sevenfold", "Metallica", "Disturbed", "Muse"], 0], ["Qual cantor lançou o álbum Come Over When You're Sober?", ["Lil Peep", "Lil Wayne", "Drake", "Post Malone"], 0], ["Qual artista é associado ao álbum Tha Carter III?", ["Lil Wayne", "Drake", "Future", "Lil Peep"], 0], ["Qual artista lançou Take Care?", ["Drake", "Lil Wayne", "The Weeknd", "Travis Scott"], 0], ["Quem é o vocalista do Pearl Jam?", ["Eddie Vedder", "Chris Cornell", "Layne Staley", "Kurt Cobain"], 0], ["Qual banda lançou o álbum Mezmerize?", ["System of a Down", "Rage Against the Machine", "Tool", "Muse"], 0], ["Qual banda ficou conhecida por usar dois bateristas em sua formação ao vivo por um período?", ["Slipknot", "Pearl Jam", "Guns N' Roses", "Avenged Sevenfold"], 0], ["Qual banda lançou Nightmare?", ["Avenged Sevenfold", "Slipknot", "System of a Down", "Pearl Jam"], 0], ["Qual banda lançou Appetite for Destruction?", ["Guns N' Roses", "Aerosmith", "Motley Crue", "Bon Jovi"], 0], ["Qual cantora lançou o álbum 1989?", ["Taylor Swift", "Lady Gaga", "Katy Perry", "Rihanna"], 0], ["Qual cantora é conhecida pela música Bad Guy?", ["Billie Eilish", "Adele", "Dua Lipa", "Sia"], 0], ["Qual cantora lançou Future Nostalgia?", ["Dua Lipa", "Ariana Grande", "Lady Gaga", "Kesha"], 0], ["Qual cantora lançou o álbum Lemonade?", ["Beyoncé", "Rihanna", "Alicia Keys", "SZA"], 0], ["Qual artista é conhecido como 'The Weeknd'?", ["Abel Tesfaye", "Aubrey Graham", "Dwayne Carter", "Gustav Åhr"], 0], ["Qual é o nome de nascimento de Lil Wayne?", ["Dwayne Carter", "Aubrey Graham", "Gustav Åhr", "Michael Carter"], 0], ["Qual é o nome de nascimento de Drake?", ["Aubrey Graham", "Dwayne Carter", "Gustav Åhr", "Kendrick Duckworth"], 0], ["Qual era o nome artístico de Gustav Åhr?", ["Lil Peep", "Lil Wayne", "Juice WRLD", "XXXTentacion"], 0], ["Qual banda lançou o álbum Black Album?", ["Metallica", "Pearl Jam", "Megadeth", "Slayer"], 0], ["Qual banda lançou Nevermind?", ["Nirvana", "Pearl Jam", "Soundgarden", "Alice in Chains"], 0], ["Qual banda lançou Superunknown?", ["Soundgarden", "Pearl Jam", "Nirvana", "Stone Temple Pilots"], 0], ["Qual cantora lançou Back to Black?", ["Amy Winehouse", "Adele", "Lana Del Rey", "Duffy"], 0], ["Qual cantora lançou Born This Way?", ["Lady Gaga", "Madonna", "Katy Perry", "Christina Aguilera"], 0], ["Qual cantora lançou Teenage Dream?", ["Katy Perry", "Taylor Swift", "Rihanna", "Britney Spears"], 0], ["Qual cantora lançou Good 4 U?", ["Olivia Rodrigo", "Billie Eilish", "Dua Lipa", "Miley Cyrus"], 0], ["Qual banda tem a música Welcome to the Black Parade?", ["My Chemical Romance", "Fall Out Boy", "Green Day", "Paramore"], 0], ["Qual banda lançou Meteora?", ["Linkin Park", "Green Day", "Evanescence", "Muse"], 0], ["Qual banda lançou Hybrid Theory?", ["Linkin Park", "Limp Bizkit", "Deftones", "Korn"], 0], ["Qual banda tem Serj Tankian como vocalista?", ["System of a Down", "Tool", "Rammstein", "Muse"], 0], ["Qual banda tem Corey Taylor como vocalista?", ["Slipknot", "Korn", "Limp Bizkit", "Disturbed"], 0], ["Qual banda lançou Waking the Fallen?", ["Avenged Sevenfold", "Bullet for My Valentine", "Trivium", "Killswitch Engage"], 0], ["Qual banda lançou Pearl Jam?", ["Pearl Jam", "Nirvana", "Soundgarden", "Stone Temple Pilots"], 0], ["Qual cantora lançou Future Nostalgia em 2020?", ["Dua Lipa", "Ariana Grande", "Doja Cat", "Halsey"], 0], ["Qual cantora é associada ao álbum Norman Fucking Rockwell!?", ["Lana Del Rey", "Lorde", "SZA", "FKA twigs"], 0], ["Qual rapper lançou o álbum Nothing Was the Same?", ["Drake", "Lil Wayne", "Kanye West", "J. Cole"], 0], ["Qual álbum de Lil Wayne foi lançado em 2008?", ["Tha Carter III", "Tha Carter I", "Dedication 2", "Funeral"], 0], ["Qual banda britânica lançou OK Computer?", ["Radiohead", "Oasis", "Blur", "The Smiths"], 0], ["Qual banda lançou The Dark Side of the Moon?", ["Pink Floyd", "Led Zeppelin", "Queen", "Genesis"], 0], ["Qual banda lançou Led Zeppelin IV?", ["Led Zeppelin", "Deep Purple", "Black Sabbath", "The Who"], 0], ["Qual cantora lançou o álbum The Fame?", ["Lady Gaga", "Beyoncé", "Rihanna", "Britney Spears"], 0], ["Qual cantora lançou Anti?", ["Rihanna", "Beyoncé", "SZA", "Nicki Minaj"], 0]], "Literatura": [["Quem escreveu Dom Casmurro?", ["Machado de Assis", "José de Alencar", "Eça de Queirós", "Lima Barreto"], 0], ["Quem escreveu Hamlet?", ["William Shakespeare", "John Milton", "Dante Alighieri", "Geoffrey Chaucer"], 0], ["Quem escreveu Grande Sertão: Veredas?", ["Guimarães Rosa", "Machado de Assis", "Graciliano Ramos", "Jorge Amado"], 0], ["Quem escreveu O Livro do Desassossego?", ["Fernando Pessoa", "José Saramago", "Eça de Queirós", "Camilo Castelo Branco"], 0], ["Qual heterônimo de Fernando Pessoa escreveu poesia pastoril?", ["Alberto Caeiro", "Álvaro de Campos", "Ricardo Reis", "Bernardo Soares"], 0], ["Quem escreveu Cem Anos de Solidão?", ["Gabriel García Márquez", "Gabriel García Lorca", "Jorge Luis Borges", "Mario Vargas Llosa"], 0], ["Quem escreveu Bodas de Sangue?", ["Federico García Lorca", "Pablo Neruda", "Miguel de Cervantes", "Octavio Paz"], 0], ["Qual personagem é o narrador de Dom Casmurro?", ["Bentinho", "Brás Cubas", "Quincas Borba", "Rubião"], 0], ["Qual personagem de Shakespeare é príncipe da Dinamarca?", ["Hamlet", "Macbeth", "Otelo", "Lear"], 0], ["Quem escreveu Macbeth?", ["William Shakespeare", "Christopher Marlowe", "Ben Jonson", "Thomas More"], 0], ["Qual romance de Machado é narrado por um defunto-autor?", ["Memórias Póstumas de Brás Cubas", "Quincas Borba", "Esaú e Jacó", "Helena"], 0], ["Qual é o nome do cavaleiro de Dom Quixote?", ["Dom Quixote", "Sancho Pança", "Rocinante", "Dulcineia"], 0], ["Quem escreveu Dom Quixote?", ["Miguel de Cervantes", "Lope de Vega", "Calderón", "Góngora"], 0], ["Qual obra de Dante descreve uma viagem pelo Inferno, Purgatório e Paraíso?", ["Divina Comédia", "Vita Nuova", "De Monarchia", "Convivio"], 0], ["Quem escreveu A Divina Comédia?", ["Dante Alighieri", "Petrarca", "Boccaccio", "Ariosto"], 0], ["Qual autor brasileiro escreveu Vidas Secas?", ["Graciliano Ramos", "Jorge Amado", "Érico Veríssimo", "José Lins do Rego"], 0], ["Qual autora escreveu A Hora da Estrela?", ["Clarice Lispector", "Rachel de Queiroz", "Cecília Meireles", "Lygia Fagundes Telles"], 0], ["Qual personagem é protagonista de O Estrangeiro, de Camus?", ["Meursault", "Raskólnikov", "Gregor Samsa", "Joseph K."], 0], ["Quem escreveu Crime e Castigo?", ["Fiódor Dostoiévski", "Tolstói", "Tchékhov", "Turguêniev"], 0], ["Quem escreveu O Processo?", ["Franz Kafka", "Thomas Mann", "Hermann Hesse", "Robert Musil"], 0], ["Qual personagem de Kafka acorda transformado em um inseto?", ["Gregor Samsa", "Josef K.", "Karl Rossmann", "O Agrimensor"], 0], ["Quem escreveu Orgulho e Preconceito?", ["Jane Austen", "Emily Brontë", "Charlotte Brontë", "George Eliot"], 0], ["Qual romance é protagonizado por Elizabeth Bennet?", ["Orgulho e Preconceito", "Jane Eyre", "Middlemarch", "Persuasão"], 0], ["Quem escreveu Jane Eyre?", ["Charlotte Brontë", "Emily Brontë", "Jane Austen", "George Eliot"], 0], ["Quem escreveu O Morro dos Ventos Uivantes?", ["Emily Brontë", "Charlotte Brontë", "Jane Austen", "Mary Shelley"], 0], ["Qual autor escreveu O Amor nos Tempos do Cólera?", ["Gabriel García Márquez", "Mario Vargas Llosa", "Julio Cortázar", "Jorge Luis Borges"], 0], ["Qual poeta português escreveu 'Mensagem'?", ["Fernando Pessoa", "Luís de Camões", "Eça de Queirós", "Florbela Espanca"], 0], ["Qual obra de Shakespeare acompanha dois jovens amantes de Verona?", ["Romeu e Julieta", "Rei Lear", "A Tempestade", "Ricardo III"], 0], ["Qual peça de Shakespeare tem o personagem Iago?", ["Otelo", "Hamlet", "Macbeth", "Júlio César"], 0], ["Qual romance de Machado tem os personagens Brás Cubas e Quincas Borba?", ["Memórias Póstumas de Brás Cubas", "Dom Casmurro", "Esaú e Jacó", "Helena"], 0], ["Qual autor escreveu O Aleph?", ["Jorge Luis Borges", "Pablo Neruda", "Julio Cortázar", "Gabriel García Márquez"], 0], ["Quem escreveu Rayuela (O Jogo da Amarelinha)?", ["Julio Cortázar", "Jorge Luis Borges", "Pablo Neruda", "Carlos Fuentes"], 0], ["Qual poeta chileno escreveu Vinte Poemas de Amor e uma Canção Desesperada?", ["Pablo Neruda", "Octavio Paz", "César Vallejo", "Vicente Huidobro"], 0], ["Qual escritor russo escreveu Anna Kariênina?", ["Liev Tolstói", "Dostoiévski", "Gógol", "Nabokov"], 0], ["Qual personagem de Dostoiévski protagoniza Crime e Castigo?", ["Raskólnikov", "Ivan Karamázov", "Míchkin", "Stavróguin"], 0], ["Qual autor escreveu O Grande Gatsby?", ["F. Scott Fitzgerald", "Ernest Hemingway", "John Steinbeck", "William Faulkner"], 0], ["Qual romance de George Orwell apresenta Winston Smith?", ["1984", "A Revolução dos Bichos", "Na Pior em Paris e Londres", "Homenagem à Catalunha"], 0], ["Quem escreveu A Revolução dos Bichos?", ["George Orwell", "Aldous Huxley", "Ray Bradbury", "H. G. Wells"], 0], ["Qual autor escreveu Admirável Mundo Novo?", ["Aldous Huxley", "George Orwell", "Philip K. Dick", "Anthony Burgess"], 0], ["Quem escreveu O Som e a Fúria?", ["William Faulkner", "Ernest Hemingway", "John Steinbeck", "T. S. Eliot"], 0], ["Qual autora escreveu Frankenstein?", ["Mary Shelley", "Mary Wollstonecraft", "Bram Stoker", "Ann Radcliffe"], 0], ["Quem escreveu Drácula?", ["Bram Stoker", "Oscar Wilde", "Robert Louis Stevenson", "H. P. Lovecraft"], 0], ["Qual personagem de O Senhor dos Anéis carrega o Um Anel até Mordor?", ["Frodo Bolseiro", "Aragorn", "Gandalf", "Samwise Gamgee"], 0], ["Quem escreveu O Senhor dos Anéis?", ["J. R. R. Tolkien", "C. S. Lewis", "George R. R. Martin", "Terry Pratchett"], 0], ["Qual autor brasileiro escreveu Capitães da Areia?", ["Jorge Amado", "Graciliano Ramos", "José Lins do Rego", "Jorge de Lima"], 0]], "Política e Mundo": [["Quem foi presidente do Brasil de 1995 a 2002?", ["Fernando Henrique Cardoso", "Luiz Inácio Lula da Silva", "José Sarney", "Itamar Franco"], 0], ["Quem foi presidente do Brasil de 2003 a 2010?", ["Luiz Inácio Lula da Silva", "Fernando Collor", "Fernando Henrique Cardoso", "Michel Temer"], 0], ["Quem foi presidente do Brasil entre 1985 e 1990?", ["José Sarney", "Tancredo Neves", "Itamar Franco", "Fernando Collor"], 0], ["Qual cargo ocupou John F. Kennedy nos EUA?", ["Presidente", "Vice-presidente", "Secretário de Estado", "Senador vitalício"], 0], ["Quem foi Fidel Castro?", ["Líder político cubano", "Presidente mexicano", "Rei espanhol", "Primeiro-ministro canadense"], 0], ["Quem foi Che Guevara?", ["Revolucionário argentino-cubano", "Presidente chileno", "General mexicano", "Diplomata uruguaio"], 0], ["Qual organização é conhecida pela sigla ONU?", ["Organização das Nações Unidas", "Organização Nacional Universal", "Ordem das Nações Unidas", "Organização Naval Unificada"], 0], ["Onde fica a sede principal da ONU?", ["Nova York", "Genebra", "Paris", "Londres"], 0], ["Qual país tem Brasília como capital?", ["Brasil", "Argentina", "Colômbia", "Peru"], 0], ["Qual é a capital da Argentina?", ["Buenos Aires", "Córdoba", "Rosário", "Mendoza"], 0], ["Qual é a capital da França?", ["Paris", "Lyon", "Marselha", "Nice"], 0], ["Qual é a capital do Reino Unido?", ["Londres", "Edimburgo", "Manchester", "Liverpool"], 0], ["Qual país tem Moscou como capital?", ["Rússia", "Ucrânia", "Polônia", "Belarus"], 0], ["Qual país tem Pequim como capital?", ["China", "Coreia do Sul", "Mongólia", "Japão"], 0], ["Qual é a capital da Índia?", ["Nova Délhi", "Mumbai", "Calcutá", "Bangalore"], 0], ["Qual órgão da ONU é responsável pela manutenção da paz e segurança internacionais?", ["Conselho de Segurança", "UNESCO", "OMS", "Assembleia Geral exclusivamente"], 0], ["Qual instituição internacional tem sede em Washington e atua em questões monetárias internacionais?", ["FMI", "OMS", "OIT", "UNESCO"], 0], ["Qual organização tem sede em Genebra e atua em saúde pública internacional?", ["OMS", "OMC", "FMI", "OTAN"], 0], ["O que significa OTAN?", ["Organização do Tratado do Atlântico Norte", "Organização Territorial da Ásia Norte", "Ordem Transatlântica de Nações", "Organização Técnica do Atlântico Norte"], 0], ["Qual país foi sede dos Jogos Olímpicos de 2016?", ["Brasil", "Grécia", "China", "Reino Unido"], 0], ["Quem foi Nelson Mandela?", ["Líder sul-africano contra o apartheid e presidente da África do Sul", "Presidente do Quênia", "Rei do Lesoto", "Primeiro-ministro da Índia"], 0], ["Qual país foi liderado por Margaret Thatcher como primeira-ministra?", ["Reino Unido", "Canadá", "Austrália", "Nova Zelândia"], 0], ["Quem foi Mikhail Gorbachev?", ["Líder soviético no período final da URSS", "Presidente dos EUA", "Chanceler alemão", "Rei da Rússia"], 0], ["Qual foi o nome do bloco liderado pela União Soviética durante a Guerra Fria?", ["Bloco Oriental", "Bloco Atlântico", "Benelux", "Pacto do Pacífico"], 0], ["Qual país liderou o Plano Marshall como principal financiador?", ["Estados Unidos", "França", "Reino Unido", "Alemanha"], 0], ["Qual tratado criou a União Europeia em sua forma moderna?", ["Tratado de Maastricht", "Tratado de Roma", "Tratado de Lisboa", "Tratado de Paris"], 0], ["Qual é a moeda usada por muitos países da União Europeia?", ["Euro", "Franco", "Libra", "Marco"], 0], ["Qual país deixou formalmente a União Europeia em 2020?", ["Reino Unido", "Noruega", "Suíça", "Islândia"], 0], ["Qual é a capital política da União Europeia mais associada às instituições comunitárias?", ["Bruxelas", "Berlim", "Madri", "Viena"], 0], ["Quem foi Margaret Thatcher?", ["Primeira-ministra britânica", "Presidente francesa", "Chanceler alemã", "Primeira-ministra italiana"], 0], ["Quem foi Charles de Gaulle?", ["Presidente francês e líder da França Livre", "Primeiro-ministro britânico", "Presidente mexicano", "Rei belga"], 0], ["Qual país tem o maior número de estados nos EUA?", ["EUA", "Canadá", "México", "Brasil"], 0], ["Qual é o sistema político do Brasil definido pela Constituição de 1988?", ["República federativa presidencialista", "Monarquia parlamentar", "República unitária parlamentar", "Federação monárquica"], 0], ["Qual poder no Brasil é responsável por elaborar leis?", ["Legislativo", "Executivo", "Judiciário", "Ministério Público"], 0], ["Qual poder no Brasil exerce a função jurisdicional?", ["Judiciário", "Executivo", "Legislativo", "Tribunal de Contas"], 0], ["Qual é a casa alta do Congresso Nacional brasileiro?", ["Senado Federal", "Câmara dos Deputados", "Assembleia Nacional", "Conselho Federal"], 0], ["Qual é a casa baixa do Congresso Nacional brasileiro?", ["Câmara dos Deputados", "Senado Federal", "Câmara Federal de Estados", "Conselho da República"], 0], ["Quem foi Ulysses Guimarães?", ["Presidente da Assembleia Nacional Constituinte de 1987–1988", "Presidente do STF em 1988", "Ministro da Fazenda", "Governador de São Paulo em 1988"], 0], ["Qual evento político brasileiro ocorreu em 1964?", ["Golpe de Estado que derrubou João Goulart", "Proclamação da República", "Diretas Já", "Constituinte de 1988"], 0], ["Qual movimento brasileiro reivindicou eleições diretas para presidente na década de 1980?", ["Diretas Já", "Queremismo", "Tenentismo", "Coluna Prestes"], 0], ["Quem foi João Goulart?", ["Presidente do Brasil deposto em 1964", "Primeiro presidente civil após 1985", "Presidente da Argentina", "Ministro da Justiça de Vargas"], 0], ["Qual organização econômica reúne Brasil, Rússia, Índia, China e África do Sul em sua sigla original?", ["BRICS", "G7", "G20", "Mercosul"], 0], ["Qual bloco econômico sul-americano foi criado pelo Tratado de Assunção de 1991?", ["Mercosul", "ALBA", "Pacto Andino", "Unasul"], 0], ["Qual país é membro permanente do Conselho de Segurança da ONU?", ["França", "Brasil", "Índia", "Alemanha"], 0], ["Qual é a capital de Cuba?", ["Havana", "Santiago de Cuba", "Camagüey", "Santa Clara"], 0]]};
+/* SHOW DO BILHÃO — DEMO 1.6
+   Foco: estabilidade, UX, microinterações e acessibilidade.
+*/
+
+const EXTRA={
+'Conhecimentos Gerais':[
+['BÁSICA','Qual é o continente com maior área territorial?',['Ásia','África','Europa','Oceania'],0],['BÁSICA','Qual é a língua mais falada no mundo por número de falantes nativos?',['Inglês','Espanhol','Mandarim','Hindi'],2],['BÁSICA','Qual metal é líquido em temperatura ambiente?',['Ferro','Mercúrio','Cobre','Alumínio'],1],['BÁSICA','Quantos dias tem um ano bissexto?',['365','366','364','360'],1],['BÁSICA','Qual é o símbolo químico do ouro?',['Ag','Au','Gd','Or'],1],['MÉDIA','Qual país é conhecido como Terra do Sol Nascente?',['China','Coreia do Sul','Japão','Tailândia'],2],['MÉDIA','Qual é o menor número primo?',['0','1','2','3'],2],['MÉDIA','Qual camada da Terra é formada principalmente por ferro e níquel?',['Crosta','Manto','Núcleo','Litosfera'],2],['MÉDIA','Qual vitamina é produzida pela pele com exposição solar?',['A','B12','C','D'],3],['MÉDIA','Qual é a moeda oficial do Japão?',['Won','Yuan','Iene','Rupia'],2],['AVANÇADA','Qual filósofo escreveu A República?',['Aristóteles','Platão','Sócrates','Epicuro'],1],['AVANÇADA','Qual elemento possui número atômico 79?',['Prata','Ouro','Platina','Mercúrio'],1],['AVANÇADA','Qual é a velocidade aproximada da luz no vácuo?',['30 mil km/s','300 mil km/s','3 milhões km/s','3 mil km/s'],1],['AVANÇADA','Qual linguagem é conhecida por seu papel histórico na criação do Unix?',['C','Python','Ruby','Lua'],0],['AVANÇADA','Qual civilização utilizava o sistema de escrita hieroglífica no antigo Egito?',['Egípcia','Romana','Persa','Viking'],0],
+['BÁSICA','Qual é o maior mamífero conhecido?',['Elefante africano','Baleia-azul','Girafa','Orca'],1],['BÁSICA','Qual planeta é o terceiro a partir do Sol?',['Marte','Terra','Vênus','Júpiter'],1],['BÁSICA','Quantos minutos há em uma hora?',['30','45','60','90'],2],['BÁSICA','Qual é a cor resultante da mistura de azul e amarelo?',['Roxo','Verde','Laranja','Marrom'],1],['BÁSICA','Qual oceano fica entre a África e a Austrália?',['Atlântico','Pacífico','Índico','Ártico'],2],['MÉDIA','Qual país tem a cidade de Marrakech?',['Marrocos','Egito','Tunísia','Argélia'],0],['MÉDIA','Qual é a unidade de frequência no SI?',['Newton','Hertz','Joule','Pascal'],1],['MÉDIA','Quem pintou Guernica?',['Dalí','Picasso','Miró','Goya'],1],['MÉDIA','Qual é a maior floresta tropical do mundo?',['Congo','Amazônia','Bornéu','Daintree'],1],['MÉDIA','Qual órgão produz insulina?',['Fígado','Pâncreas','Baço','Tireoide'],1],['AVANÇADA','Qual teorema relaciona os lados de um triângulo retângulo?',['Tales','Pitágoras','Fermat','Gauss'],1],['AVANÇADA','Qual cientista propôs a seleção natural junto a Darwin?',['Wallace','Faraday','Hubble','Fleming'],0],['AVANÇADA','Qual é a unidade SI de força?',['Joule','Watt','Newton','Pascal'],2],['AVANÇADA','Qual império tinha Tenochtitlán como capital?',['Inca','Asteca','Maia','Olmeca'],1],['AVANÇADA','Qual campo estuda a distribuição das populações no espaço?',['Demografia','Cartografia','Geologia','Taxonomia'],0]
+],
+'Música':[
+['BÁSICA','Qual banda lançou “Smells Like Teen Spirit”?',['Nirvana','Pearl Jam','Soundgarden','Alice in Chains'],0],['BÁSICA','Qual banda gravou “Sweet Child o’ Mine”?',['Guns N’ Roses','Metallica','Aerosmith','Bon Jovi'],0],['BÁSICA','Qual cantor lançou o álbum “Views”?',['Drake','Lil Wayne','Lil Peep','Travis Scott'],0],['BÁSICA','Qual banda é conhecida pela música “Chop Suey!”?',['Slipknot','System of a Down','Korn','Deftones'],1],['BÁSICA','Qual cantora lançou “...Baby One More Time”?',['Madonna','Britney Spears','Adele','Beyoncé'],1],['MÉDIA','Qual banda lançou “Black” no álbum Ten?',['Pearl Jam','Nirvana','R.E.M.','Radiohead'],0],['MÉDIA','Qual grupo tem os irmãos Gallagher em sua formação histórica?',['Oasis','Blur','Pulp','Suede'],0],['MÉDIA','Qual rapper lançou “Lollipop” em 2008?',['Drake','Lil Wayne','Lil Peep','Eminem'],1],['MÉDIA','Qual artista é associado ao emo rap e ao álbum Come Over When You’re Sober, Pt. 1?',['Lil Peep','Drake','Post Malone','Future'],0],['MÉDIA','Qual banda lançou o álbum “City of Evil”?',['Avenged Sevenfold','Slipknot','Tool','Muse'],0],['AVANÇADA','Qual álbum do System of a Down contém “Aerials”?',['Toxicity','Mezmerize','Hypnotize','Steal This Album!'],0],['AVANÇADA','Qual álbum do Guns N’ Roses foi lançado em 1987?',['Appetite for Destruction','Use Your Illusion I','Chinese Democracy','G N’ R Lies'],0],['AVANÇADA','Qual músico foi baterista original do Nirvana antes de Dave Grohl?',['Chad Channing','Jimmy Chamberlin','Matt Cameron','Taylor Hawkins'],0],['AVANÇADA','Qual álbum do Pearl Jam foi lançado em 1993 e inclui “Daughter”?',['Vs.','Vitalogy','Yield','Binaural'],0],['AVANÇADA','Qual banda lançou “Psychosocial”?',['Slipknot','Korn','Disturbed','Avenged Sevenfold'],0],
+['BÁSICA','Qual cantora é conhecida pelo álbum “1989”?',['Taylor Swift','Lady Gaga','Rihanna','Katy Perry'],0],['BÁSICA','Qual banda é famosa por “Enter Sandman”?',['Metallica','Megadeth','Slayer','Anthrax'],0],['BÁSICA','Qual cantor canadense lançou “Hotline Bling”?',['Drake','The Weeknd','Justin Bieber','Shawn Mendes'],0],['BÁSICA','Qual grupo tem a música “Bat Country”?',['Avenged Sevenfold','Slipknot','System of a Down','Limp Bizkit'],0],['BÁSICA','Qual cantora lançou “Rolling in the Deep”?',['Adele','Sia','Dua Lipa','Lorde'],0],['MÉDIA','Qual álbum do Nirvana foi lançado em 1991?',['Nevermind','In Utero','Bleach','MTV Unplugged'],0],['MÉDIA','Qual banda lançou o álbum “Toxicity” em 2001?',['System of a Down','Tool','Korn','Rage Against the Machine'],0],['MÉDIA','Qual cantor lançou o álbum “Tha Carter III”?',['Lil Wayne','Drake','Kendrick Lamar','Future'],0],['MÉDIA','Qual cantora lançou “Bad Guy”?',['Billie Eilish','Lana Del Rey','Ariana Grande','Miley Cyrus'],0],['MÉDIA','Qual banda ficou conhecida por “Duality”?',['Slipknot','Deftones','Muse','Placebo'],0],['AVANÇADA','Qual diretor de videoclipes dirigiu “November Rain” para Guns N’ Roses?',['Andy Morahan','David Fincher','Spike Jonze','Michel Gondry'],0],['AVANÇADA','Qual álbum do Pearl Jam contém “Jeremy”?',['Ten','Vs.','Yield','No Code'],0],['AVANÇADA','Qual álbum de Lil Peep foi lançado postumamente em 2019?',['Everybody’s Everything','Hellboy','Come Over When You’re Sober Pt. 1','Crybaby'],0],['AVANÇADA','Qual álbum do Avenged Sevenfold inclui “A Little Piece of Heaven”?',['Avenged Sevenfold','Nightmare','City of Evil','The Stage'],0],['AVANÇADA','Qual artista pop lançou o álbum “Future Nostalgia”?',['Dua Lipa','Ariana Grande','Lady Gaga','Olivia Rodrigo'],0]
+],
+'Cinema & TV':[
+['BÁSICA','Quem dirigiu Pulp Fiction?',['Quentin Tarantino','Martin Scorsese','Francis Ford Coppola','David Lynch'],0],['BÁSICA','Quem dirigiu Taxi Driver?',['Martin Scorsese','Tarantino','Coppola','Brian De Palma'],0],['BÁSICA','Quem dirigiu O Poderoso Chefão?',['Francis Ford Coppola','Scorsese','Spielberg','George Lucas'],0],['BÁSICA','Quem dirigiu O Anjo Exterminador?',['Luis Buñuel','Ingmar Bergman','Akira Kurosawa','Federico Fellini'],0],['BÁSICA','Quem dirigiu Sete Samurais?',['Akira Kurosawa','Yasujiro Ozu','Bergman','Kieslowski'],0],['MÉDIA','Qual filme de Tarantino acompanha uma noiva em busca de vingança?',['Kill Bill','Jackie Brown','Reservoir Dogs','Django Livre'],0],['MÉDIA','Qual filme de Scorsese se passa principalmente entre mafiosos de Nova York?',['Os Bons Companheiros','O Aviador','Silêncio','Hugo'],0],['MÉDIA','Qual filme de Coppola acompanha a família Corleone?',['O Poderoso Chefão','Apocalypse Now','A Conversação','Drácula'],0],['MÉDIA','Qual diretor fez “Amor à Flor da Pele”?',['Wong Kar-wai','Kurosawa','Bergman','Fellini'],0],['MÉDIA','Qual cineasta sueco dirigiu “O Sétimo Selo”?',['Ingmar Bergman','Victor Sjöström','Lars von Trier','Roy Andersson'],0],['AVANÇADA','Qual filme de Wong Kar-wai é associado a Chow Mo-wan e Su Li-zhen?',['Amor à Flor da Pele','2046','Anjos Caídos','Chungking Express'],0],['AVANÇADA','Qual filme de Kurosawa apresenta uma história contada por diferentes perspectivas?',['Rashomon','Ikiru','Ran','Kagemusha'],0],['AVANÇADA','Qual filme de Bergman acompanha uma atriz e uma enfermeira em uma relação de identidade?',['Persona','Fanny e Alexander','Morangos Silvestres','Gritos e Sussurros'],0],['AVANÇADA','Qual filme de Scorsese é protagonizado por Travis Bickle?',['Taxi Driver','Touro Indomável','Cassino','A Última Tentação de Cristo'],0],['AVANÇADA','Qual filme de Coppola retrata a Guerra do Vietnã com a jornada do capitão Willard?',['Apocalypse Now','The Conversation','Peggy Sue','Rumble Fish'],0],
+['BÁSICA','Qual filme cult de 1999 foi dirigido por David Fincher e baseado em Chuck Palahniuk?',['Clube da Luta','Seven','Zodíaco','A Rede Social'],0],['BÁSICA','Qual diretor fez “O Iluminado”?',['Stanley Kubrick','Ridley Scott','David Lynch','Roman Polanski'],0],['BÁSICA','Qual filme apresenta o personagem Donnie Darko?',['Donnie Darko','Memento','Oldboy','Eraserhead'],0],['BÁSICA','Qual diretor fez “Eraserhead”?',['David Lynch','John Carpenter','Terry Gilliam','Cronenberg'],0],['BÁSICA','Qual filme de Kubrick é sobre um hotel isolado?',['O Iluminado','Laranja Mecânica','Barry Lyndon','Nascido para Matar'],0],['MÉDIA','Qual diretor dirigiu “Chungking Express”?',['Wong Kar-wai','John Woo','Park Chan-wook','Edward Yang'],0],['MÉDIA','Qual filme de Kurosawa acompanha um senhor que reflete sobre sua vida após descobrir estar doente?',['Ikiru','Rashomon','Ran','Yojimbo'],0],['MÉDIA','Qual filme de Bergman trata de uma família teatral no início do século XX?',['Fanny e Alexander','Persona','O Silêncio','A Fonte da Donzela'],0],['MÉDIA','Qual filme de Tarantino mistura artes marciais, vingança e Uma Thurman?',['Kill Bill','Pulp Fiction','Jackie Brown','Os Oito Odiados'],0],['MÉDIA','Qual filme de Scorsese acompanha o boxeador Jake LaMotta?',['Touro Indomável','Cassino','O Rei da Comédia','Ilha do Medo'],0],['AVANÇADA','Qual diretor dirigiu “O Eclipse” e “A Aventura”?',['Michelangelo Antonioni','Fellini','Visconti','Pasolini'],0],['AVANÇADA','Qual filme de Wong Kar-wai se passa em parte em um futuro de memórias e hotéis?',['2046','Happy Together','Days of Being Wild','As Tears Go By'],0],['AVANÇADA','Qual filme de Kurosawa é uma adaptação de Macbeth?',['Trono Manchado de Sangue','Ran','Yojimbo','Dersu Uzala'],0],['AVANÇADA','Qual filme de Bergman inclui o encontro com a Morte em uma partida de xadrez?',['O Sétimo Selo','Persona','A Hora do Lobo','Sonata de Outono'],0],['AVANÇADA','Qual filme de Coppola é uma adaptação do romance de Bram Stoker?',['Drácula de Bram Stoker','Apocalypse Now','Cotton Club','Tucker'],0]
+],
+'História':[
+['BÁSICA','Em que ano caiu o Muro de Berlim?',['1987','1989','1991','1975'],1],['BÁSICA','Em que ano terminou a Segunda Guerra Mundial?',['1943','1944','1945','1946'],2],['BÁSICA','Em que ano foi proclamada a República no Brasil?',['1822','1888','1889','1891'],2],['BÁSICA','Em que ano começou a Primeira Guerra Mundial?',['1912','1914','1918','1939'],1],['BÁSICA','Em que ano ocorreu a chegada portuguesa ao Brasil tradicionalmente datada?',['1492','1500','1530','1549'],1],['MÉDIA','Em que ano ocorreu a Revolução Russa de Outubro?',['1905','1914','1917','1922'],2],['MÉDIA','Em que ano foi assinada a Magna Carta?',['1066','1215','1453','1492'],1],['MÉDIA','Em que ano caiu Constantinopla?',['1204','1453','1492','1517'],1],['MÉDIA','Qual evento marcou o início da Reforma Protestante em 1517?',['Publicação das 95 Teses','Concílio de Trento','Paz de Augsburgo','Dieta de Worms'],0],['MÉDIA','Qual conferência reorganizou a Europa após as guerras napoleônicas?',['Viena','Berlim','Paris','Genebra'],0],['AVANÇADA','Em que ano foi assinada a Paz de Westfália?',['1618','1648','1688','1713'],1],['AVANÇADA','Qual batalha naval de 1571 foi decisiva contra a frota otomana?',['Lepanto','Trafalgar','Actium','Salamina'],0],['AVANÇADA','Qual dinastia governava a China durante a chegada de Matteo Ricci?',['Ming','Tang','Han','Song'],0],['AVANÇADA','Em que ano foi abolida a escravidão no Brasil pela Lei Áurea?',['1871','1885','1888','1889'],2],['AVANÇADA','Qual revolução começou em 1776 com a Declaração de Independência dos EUA?',['Revolução Francesa','Revolução Americana','Revolução Haitiana','Revolução Industrial'],1],
+['BÁSICA','Qual foi o nome da pandemia de 1918?',['Gripe Espanhola','Peste Negra','Cólera Asiática','Gripe Suína'],0],['BÁSICA','Quem foi o primeiro presidente do Brasil?',['Deodoro da Fonseca','Floriano Peixoto','Prudente de Morais','Campos Sales'],0],['BÁSICA','Qual império tinha Roma como centro?',['Romano','Bizantino','Persa','Mongol'],0],['BÁSICA','Qual cidade foi destruída pela erupção do Vesúvio em 79 d.C.?',['Pompeia','Cartago','Tebas','Esparta'],0],['BÁSICA','Qual país lançou as bombas atômicas sobre Hiroshima e Nagasaki?',['URSS','Estados Unidos','Japão','Reino Unido'],1],['MÉDIA','Qual líder sul-africano foi preso por décadas e depois presidiu o país?',['Nelson Mandela','Desmond Tutu','Thabo Mbeki','Jomo Kenyatta'],0],['MÉDIA','Qual tratado de 1957 criou a Comunidade Econômica Europeia?',['Roma','Maastricht','Lisboa','Nice'],0],['MÉDIA','Qual país foi dividido em dois Estados em 1949?',['Alemanha','Coreia','Vietnã','Índia'],0],['MÉDIA','Qual foi a capital do Império Bizantino?',['Roma','Constantinopla','Antioquia','Alexandria'],1],['MÉDIA','Qual dinastia francesa foi derrubada na Revolução de 1789?',['Bourbon','Tudor','Habsburgo','Hohenzollern'],0],['AVANÇADA','Qual batalha de 732 é tradicionalmente associada à contenção do avanço omíada na Gália?',['Tours/Poitiers','Hastings','Manzikert','Agincourt'],0],['AVANÇADA','Qual documento inglês de 1689 limitou poderes da Coroa e reforçou o Parlamento?',['Bill of Rights','Petition of Right','Habeas Corpus Act','Act of Union'],0],['AVANÇADA','Qual revolução haitiana culminou na independência em 1804?',['Revolução Haitiana','Revolução Mexicana','Revolução Cubana','Revolução de 1848'],0],['AVANÇADA','Qual conferência de 1945 reuniu Roosevelt, Churchill e Stalin?',['Yalta','Versalhes','Bretton Woods','Bandung'],0],['AVANÇADA','Em que ano a Índia tornou-se independente do Reino Unido?',['1945','1947','1950','1952'],1]
+],
+'Ciência & Tecnologia':[
+['BÁSICA','Qual cientista é associado à teoria da evolução por seleção natural?',['Darwin','Newton','Tesla','Pasteur'],0],['BÁSICA','Qual é o símbolo químico do sódio?',['So','Na','S','Sd'],1],['BÁSICA','Qual planeta possui anéis muito visíveis?',['Marte','Saturno','Mercúrio','Vênus'],1],['BÁSICA','Qual aparelho mede temperatura?',['Barômetro','Termômetro','Altímetro','Higrômetro'],1],['BÁSICA','Qual é a unidade de massa no SI?',['Quilo','Quilograma','Grama','Tonelada'],1],['MÉDIA','Qual cientista descobriu a penicilina?',['Alexander Fleming','Watson','Crick','Lavoisier'],0],['MÉDIA','Qual é o componente básico de uma célula eucariótica que contém o DNA?',['Núcleo','Ribossomo','Lisossomo','Centríolo'],0],['MÉDIA','Qual tecnologia converte luz em eletricidade em painéis solares?',['Efeito fotovoltaico','Indução magnética','Efeito Doppler','Fissão'],0],['MÉDIA','Qual é a unidade SI de energia?',['Newton','Joule','Watt','Volt'],1],['MÉDIA','Qual empresa criou o sistema operacional Android originalmente?',['Android Inc.','IBM','Nokia','Sun'],0],['AVANÇADA','Qual princípio quântico diz que não se pode conhecer simultaneamente posição e momento com precisão arbitrária?',['Incerteza de Heisenberg','Princípio de Pascal','Exclusão de Pauli','Equivalência'],0],['AVANÇADA','Qual cientista formulou a relatividade geral?',['Einstein','Bohr','Planck','Dirac'],0],['AVANÇADA','Qual partícula mediadora da força eletromagnética é prevista no Modelo Padrão?',['Fóton','Glúon','Nêutron','Múon'],0],['AVANÇADA','Qual algoritmo é classicamente associado à ordenação por divisão e conquista?',['Quicksort','Busca linear','BFS','Dijkstra'],0],['AVANÇADA','Qual linguagem foi criada por Guido van Rossum?',['Python','Java','C#','Go'],0],
+['BÁSICA','Qual força nos mantém sobre a superfície da Terra?',['Gravidade','Atrito','Magnetismo','Pressão'],0],['BÁSICA','Qual órgão filtra o sangue e produz urina?',['Rim','Pulmão','Fígado','Pâncreas'],0],['BÁSICA','Qual gás é essencial à respiração aeróbica humana?',['Oxigênio','Hidrogênio','Hélio','Argônio'],0],['BÁSICA','Qual é o planeta mais próximo do Sol?',['Mercúrio','Vênus','Terra','Marte'],0],['BÁSICA','Qual dispositivo armazena dados de forma não volátil?',['SSD','RAM','Cache','Registrador'],0],['MÉDIA','Qual organela é conhecida como “usina de energia” da célula?',['Mitocôndria','Ribossomo','Golgi','Núcleo'],0],['MÉDIA','Qual fenômeno explica a mudança aparente de frequência causada pelo movimento relativo?',['Doppler','Compton','Fotoelétrico','Fissão'],0],['MÉDIA','Qual protocolo é fundamental para transferir páginas web?',['HTTP','FTP','SMTP','SSH'],0],['MÉDIA','Qual unidade mede potência?',['Watt','Joule','Newton','Ohm'],0],['MÉDIA','Qual componente eletrônico armazena carga em um campo elétrico?',['Capacitor','Resistor','Diodo','Transistor'],0],['AVANÇADA','Qual experimento confirmou a deflexão da luz por gravidade prevista pela relatividade geral?',['Eclipse de 1919','Michelson-Morley','Dupla fenda','Cavendish'],0],['AVANÇADA','Qual estrutura de dados usa o princípio FIFO?',['Fila','Pilha','Heap','Árvore'],0],['AVANÇADA','Qual sistema numérico é a base da computação digital moderna?',['Binário','Decimal','Octal','Romano'],0],['AVANÇADA','Qual é o nome do conjunto de instruções de um processador?',['ISA','API','GUI','ABI'],0],['AVANÇADA','Qual cientista propôs a ideia de um universo em expansão a partir de observações de galáxias?',['Edwin Hubble','Kepler','Tycho Brahe','Feynman'],0]
+],
+'Geografia & Brasil':[
+['BÁSICA','Qual estado brasileiro tem a maior área territorial?',['Amazonas','Pará','Mato Grosso','Bahia'],0],['BÁSICA','Qual é a capital do Japão?',['Kyoto','Tóquio','Osaka','Nara'],1],['BÁSICA','Qual país é atravessado pelo rio Nilo em seu trecho mais conhecido?',['Egito','Espanha','Índia','México'],0],['BÁSICA','Qual é o ponto mais alto do Brasil?',['Pico da Neblina','Pico da Bandeira','Aconcágua','Monte Roraima'],0],['BÁSICA','Qual região brasileira abriga a maior parte da Amazônia Legal?',['Norte','Sul','Sudeste','Centro-Oeste'],0],['MÉDIA','Qual estado brasileiro possui o Pantanal em grande parte de seu território?',['Mato Grosso','Paraná','Ceará','Espírito Santo'],0],['MÉDIA','Qual país sul-americano não possui litoral?',['Bolívia','Chile','Peru','Uruguai'],0],['MÉDIA','Qual é a capital do Pará?',['Macapá','Belém','Manaus','Santarém'],1],['MÉDIA','Qual corrente marítima quente influencia a costa leste brasileira?',['Corrente do Brasil','Corrente de Humboldt','Corrente de Benguela','Corrente do Labrador'],0],['MÉDIA','Qual bioma é característico do semiárido nordestino?',['Caatinga','Pampa','Pantanal','Cerrado'],0],['AVANÇADA','Qual é o rio mais longo da América do Sul?',['Amazonas','Paraná','Orinoco','São Francisco'],0],['AVANÇADA','Qual país possui a maior extensão territorial da África?',['Argélia','Sudão','Líbia','República Democrática do Congo'],0],['AVANÇADA','Qual estreito separa a Ásia da América do Norte?',['Bering','Gibraltar','Malaca','Ormuz'],0],['AVANÇADA','Qual é a capital da Mongólia?',['Astana','Ulan Bator','Tashkent','Bishkek'],1],['AVANÇADA','Qual formação geográfica marca parte da fronteira entre Chile e Argentina?',['Andes','Alpes','Himalaia','Cárpatos'],0],
+['BÁSICA','Qual é o menor estado brasileiro em área?',['Sergipe','Alagoas','Rio de Janeiro','Espírito Santo'],0],['BÁSICA','Qual cidade é conhecida como capital do Amazonas?',['Belém','Manaus','Boa Vista','Rio Branco'],1],['BÁSICA','Qual oceano banha a costa oeste da África?',['Atlântico','Pacífico','Índico','Ártico'],0],['BÁSICA','Qual país tem Lisboa como capital?',['Portugal','Espanha','Itália','Grécia'],0],['BÁSICA','Qual continente possui o deserto do Saara?',['África','Ásia','Austrália','América'],0],['MÉDIA','Qual país possui a maior população da América do Sul?',['Brasil','Argentina','Colômbia','Peru'],0],['MÉDIA','Qual é a capital do Chile?',['Santiago','Valparaíso','Lima','La Paz'],0],['MÉDIA','Qual cadeia montanhosa atravessa vários países da América do Sul?',['Andes','Rochosas','Alpes','Atlas'],0],['MÉDIA','Qual rio atravessa Paris?',['Sena','Tâmisa','Danúbio','Reno'],0],['MÉDIA','Qual país tem a região da Transilvânia?',['Romênia','Hungria','Polônia','Sérvia'],0],['AVANÇADA','Qual é o lago de água doce por área mais extenso do mundo?',['Superior','Vitória','Baikal','Tanganica'],0],['AVANÇADA','Qual canal liga o Mediterrâneo ao Mar Vermelho?',['Suez','Panamá','Kiel','Corinto'],0],['AVANÇADA','Qual rio forma parte da fronteira entre México e Estados Unidos?',['Rio Grande','Colorado','Mississippi','Yukon'],0],['AVANÇADA','Qual capital europeia está às margens do Danúbio e é dividida historicamente por Buda e Peste?',['Budapeste','Viena','Praga','Bratislava'],0],['AVANÇADA','Qual é o bioma brasileiro predominante no extremo sul do país?',['Pampa','Caatinga','Cerrado','Amazônia'],0]
+],
+'Literatura':[
+['BÁSICA','Quem escreveu Dom Casmurro?',['Machado de Assis','José de Alencar','Eça de Queirós','Graciliano Ramos'],0],['BÁSICA','Quem escreveu Hamlet?',['Shakespeare','Milton','Dante','Goethe'],0],['BÁSICA','Quem escreveu Dom Quixote?',['Cervantes','Borges','Neruda','Lorca'],0],['BÁSICA','Quem escreveu O Pequeno Príncipe?',['Saint-Exupéry','Camus','Proust','Hugo'],0],['BÁSICA','Quem é o autor de Grande Sertão: Veredas?',['Guimarães Rosa','Clarice Lispector','Drummond','Jorge Amado'],0],['MÉDIA','Qual personagem narra Dom Casmurro?',['Bentinho','Brás Cubas','Quincas Borba','Eugênio'],0],['MÉDIA','Qual peça de Shakespeare apresenta o príncipe da Dinamarca?',['Hamlet','Macbeth','Otelo','Rei Lear'],0],['MÉDIA','Qual obra de Machado é narrada por um defunto autor?',['Memórias Póstumas de Brás Cubas','Quincas Borba','Esaú e Jacó','Helena'],0],['MÉDIA','Qual poeta espanhol escreveu “Romance sonámbulo”?',['Federico García Lorca','Antonio Machado','Cervantes','Unamuno'],0],['MÉDIA','Fernando Pessoa criou qual heterônimo ligado à poesia pastoril?',['Alberto Caeiro','Bernardo Soares','Ricardo Reis','Álvaro de Campos'],0],['AVANÇADA','Qual romance de Machado é marcado pelo narrador Brás Cubas?',['Memórias Póstumas de Brás Cubas','Dom Casmurro','Quincas Borba','Esaú e Jacó'],0],['AVANÇADA','Qual personagem de Shakespeare é um general veneziano?',['Otelo','Hamlet','Macbeth','Puck'],0],['AVANÇADA','Qual heterônimo de Pessoa escreveu “Ode Triunfal”?',['Álvaro de Campos','Ricardo Reis','Alberto Caeiro','Fernando Pessoa ortônimo'],0],['AVANÇADA','Qual obra de Lorca é uma tragédia sobre uma mãe e seus filhos em conflito com normas sociais?',['Yerma','Poeta em Nova York','Romanceiro Gitano','Impressões'],0],['AVANÇADA','Qual romance de Gabriel García Márquez acompanha várias gerações da família Buendía?',['Cem Anos de Solidão','O Amor nos Tempos do Cólera','Crônica de uma Morte Anunciada','O General em Seu Labirinto'],0],
+['BÁSICA','Qual autor escreveu Crime e Castigo?',['Dostoiévski','Tolstói','Tchékhov','Turguêniev'],0],['BÁSICA','Quem escreveu A Divina Comédia?',['Dante Alighieri','Petrarca','Boccaccio','Virgílio'],0],['BÁSICA','Quem escreveu Orgulho e Preconceito?',['Jane Austen','Emily Brontë','George Eliot','Virginia Woolf'],0],['BÁSICA','Quem escreveu 1984?',['George Orwell','Aldous Huxley','Ray Bradbury','Philip K. Dick'],0],['BÁSICA','Quem escreveu Cem Anos de Solidão?',['Gabriel García Márquez','Mario Vargas Llosa','Borges','Cortázar'],0],['MÉDIA','Qual personagem é associado à obra Moby-Dick?',['Capitão Ahab','Jay Gatsby','Holden Caulfield','Raskólnikov'],0],['MÉDIA','Qual romance de Kafka acompanha Gregor Samsa?',['A Metamorfose','O Processo','O Castelo','Amerika'],0],['MÉDIA','Qual poeta escreveu Os Lusíadas?',['Luís de Camões','Fernando Pessoa','Eça de Queirós','Antero de Quental'],0],['MÉDIA','Qual personagem de Dom Quixote acompanha o protagonista?',['Sancho Pança','Hamlet','Lazarillo','Escamillo'],0],['MÉDIA','Qual obra de Dante descreve Inferno, Purgatório e Paraíso?',['Divina Comédia','Vita Nuova','Decameron','Il Canzoniere'],0],['AVANÇADA','Qual romance de James Joyce acompanha um dia na vida de Leopold Bloom?',['Ulisses','Finnegans Wake','Dublinenses','Retrato do Artista'],0],['AVANÇADA','Qual autor argentino escreveu “Ficções”?',['Jorge Luis Borges','Cortázar','Sabato','Bioy Casares'],0],['AVANÇADA','Qual romance de Virginia Woolf acompanha a personagem Clarissa Dalloway?',['Mrs Dalloway','Ao Farol','Orlando','As Ondas'],0],['AVANÇADA','Qual obra de Albert Camus apresenta Meursault?',['O Estrangeiro','A Peste','A Queda','O Mito de Sísifo'],0],['AVANÇADA','Qual autor peruano escreveu A Cidade e os Cachorros?',['Mario Vargas Llosa','García Márquez','Borges','Paz'],0]
+],
+'Política & Mundo':[
+['BÁSICA','Quem foi presidente dos Estados Unidos durante grande parte da Crise dos Mísseis de Cuba?',['John F. Kennedy','Richard Nixon','Lyndon Johnson','Harry Truman'],0],['BÁSICA','Quem foi líder revolucionário cubano e governou Cuba por décadas?',['Fidel Castro','Fulgencio Batista','José Martí','Che Guevara'],0],['BÁSICA','Che Guevara nasceu em qual país?',['Argentina','Cuba','Bolívia','Uruguai'],0],['BÁSICA','Quem foi presidente do Brasil entre 1995 e 2002?',['Fernando Henrique Cardoso','José Sarney','Itamar Franco','Lula'],0],['BÁSICA','Quem presidiu o Brasil de 1985 a 1990?',['José Sarney','Tancredo Neves','Collor','FHC'],0],['MÉDIA','Qual foi o principal cargo de Che Guevara no governo revolucionário cubano antes de suas campanhas internacionais?',['Ministro da Indústria','Presidente','Chanceler','Prefeito de Havana'],0],['MÉDIA','Qual presidente brasileiro lançou o Plano Real durante seu governo?',['Itamar Franco','FHC','Sarney','Collor'],0],['MÉDIA','Qual presidente brasileiro venceu a eleição de 2002?',['Luiz Inácio Lula da Silva','Fernando Henrique Cardoso','José Serra','Itamar Franco'],0],['MÉDIA','Qual organização internacional foi criada em 1945?',['ONU','OTAN','UE','OEA'],0],['MÉDIA','Qual crise de 1962 envolveu mísseis soviéticos em Cuba?',['Crise dos Mísseis de Cuba','Crise de Suez','Crise do Congo','Crise de Berlim'],0],['AVANÇADA','Qual acordo encerrou formalmente a Guerra do Vietnã para os Estados Unidos em 1973?',['Acordos de Paz de Paris','Acordos de Camp David','Tratado de Tordesilhas','Acordos de Oslo'],0],['AVANÇADA','Qual presidente dos EUA anunciou a Doutrina Truman em 1947?',['Harry Truman','Kennedy','Eisenhower','Nixon'],0],['AVANÇADA','Qual líder soviético iniciou a política de glasnost e perestroika?',['Mikhail Gorbachev','Brejnev','Stalin','Khrushchev'],0],['AVANÇADA','Qual tratado criou formalmente a União Europeia em 1993?',['Tratado de Maastricht','Tratado de Roma','Tratado de Lisboa','Tratado de Nice'],0],['AVANÇADA','Qual conferência de 1955 é associada ao início do Movimento dos Países Não Alinhados?',['Bandung','Yalta','Bretton Woods','Potsdam'],0],
+['BÁSICA','Quem foi presidente dos EUA durante o Watergate?',['Richard Nixon','Jimmy Carter','Gerald Ford','Ronald Reagan'],0],['BÁSICA','Quem foi o primeiro presidente eleito diretamente após a ditadura militar brasileira?',['Fernando Collor','Tancredo Neves','José Sarney','Itamar Franco'],0],['BÁSICA','Qual líder sul-africano tornou-se presidente em 1994 após o fim do apartheid?',['Nelson Mandela','F.W. de Klerk','Desmond Tutu','Thabo Mbeki'],0],['BÁSICA','Qual país teve Mao Zedong como principal líder revolucionário?',['China','Vietnã','Coreia do Norte','Mongólia'],0],['BÁSICA','Quem foi primeiro-ministro britânico durante grande parte da Segunda Guerra Mundial?',['Winston Churchill','Clement Attlee','Neville Chamberlain','Harold Macmillan'],0],['MÉDIA','Qual presidente dos EUA foi assassinado em Dallas em 1963?',['John F. Kennedy','Robert Kennedy','Abraham Lincoln','William McKinley'],0],['MÉDIA','Qual líder egípcio nacionalizou o Canal de Suez em 1956?',['Gamal Abdel Nasser','Anwar Sadat','Hosni Mubarak','Farouk'],0],['MÉDIA','Qual líder indiano foi associado à independência por meio da resistência não violenta?',['Mahatma Gandhi','Nehru','Jinnah','Tagore'],0],['MÉDIA','Qual primeiro-ministro britânica liderou o país na Guerra das Malvinas/Falklands?',['Margaret Thatcher','Theresa May','Clement Attlee','Harold Wilson'],0],['MÉDIA','Qual país foi governado por Augusto Pinochet após o golpe de 1973?',['Chile','Argentina','Peru','Uruguai'],0],['AVANÇADA','Qual documento de 1948 estabeleceu uma referência internacional para direitos humanos após a Segunda Guerra?',['Declaração Universal dos Direitos Humanos','Carta do Atlântico','Tratado de Roma','Convenção de Viena'],0],['AVANÇADA','Qual acordo de 1978 mediado pelos EUA tratou da paz entre Egito e Israel?',['Camp David','Oslo','Dayton','Lausanne'],0],['AVANÇADA','Qual líder iraniano retornou do exílio em 1979 durante a Revolução Iraniana?',['Ruhollah Khomeini','Mohammad Reza Pahlavi','Ali Khamenei','Mosaddegh'],0],['AVANÇADA','Qual presidente francês liderou a França Livre durante a Segunda Guerra Mundial?',['Charles de Gaulle','Georges Pompidou','François Mitterrand','René Coty'],0],['AVANÇADA','Qual líder chinês lançou as reformas econômicas a partir do fim dos anos 1970?',['Deng Xiaoping','Mao Zedong','Zhou Enlai','Hu Jintao'],0]
+]};
+
+EXTRA['Literatura'].push(
+['BÁSICA','Quem escreveu O Alienista?',['Machado de Assis','Lima Barreto','Eça de Queirós','Aluísio Azevedo'],0],['BÁSICA','Qual personagem é protagonista de O Processo, de Kafka?',['Josef K.','Gregor Samsa','Raskólnikov','Meursault'],0],['BÁSICA','Quem escreveu Madame Bovary?',['Gustave Flaubert','Victor Hugo','Balzac','Stendhal'],0],['BÁSICA','Qual poeta português é autor de Mensagem?',['Fernando Pessoa','Camões','Eça de Queirós','Saramago'],0],['BÁSICA','Quem escreveu O Morro dos Ventos Uivantes?',['Emily Brontë','Charlotte Brontë','Jane Austen','George Eliot'],0],
+['MÉDIA','Qual personagem de Machado é conhecido como Quincas Borba?',['Filósofo e amigo de Brás Cubas','Imperador','Detetive','Poeta'],0],['MÉDIA','Qual peça de Shakespeare apresenta as personagens Rosalinda e Orlando?',['Como Gostais','A Tempestade','Júlio César','Coriolano'],0],['MÉDIA','Qual romance de García Márquez trata de uma epidemia de insônia em Macondo?',['Cem Anos de Solidão','O General em Seu Labirinto','O Amor nos Tempos do Cólera','Crônica de uma Morte Anunciada'],0],['MÉDIA','Qual autor escreveu O Som e a Fúria?',['William Faulkner','Hemingway','Fitzgerald','Steinbeck'],0],['MÉDIA','Qual romance de Tolstói acompanha Anna e seu casamento?',['Anna Kariênina','Guerra e Paz','Ressurreição','A Morte de Ivan Ilitch'],0],
+['AVANÇADA','Qual heterônimo de Fernando Pessoa escreveu “Tabacaria”?',['Álvaro de Campos','Alberto Caeiro','Ricardo Reis','Bernardo Soares'],0],['AVANÇADA','Qual romance de Machado de Assis apresenta os gêmeos Pedro e Paulo?',['Esaú e Jacó','Helena','Quincas Borba','Ressurreição'],0],['AVANÇADA','Qual obra de Shakespeare tem a personagem Lady Macbeth?',['Macbeth','Rei Lear','Otelo','Ricardo III'],0],['AVANÇADA','Qual romance de García Márquez narra uma morte anunciada de Santiago Nasar?',['Crônica de uma Morte Anunciada','Cem Anos de Solidão','O Outono do Patriarca','Notícia de um Sequestro'],0],['AVANÇADA','Qual obra de Lorca é ambientada em uma casa sob o domínio de Bernarda?',['A Casa de Bernarda Alba','Yerma','Bodas de Sangue','Mariana Pineda'],0]);
+EXTRA['Política & Mundo'].push(
+['BÁSICA','Quem foi presidente do Brasil de 2003 a 2010?',['Luiz Inácio Lula da Silva','FHC','José Sarney','Itamar Franco'],0],['BÁSICA','Quem foi presidente dos EUA durante a Guerra do Golfo de 1991?',['George H. W. Bush','Bill Clinton','Ronald Reagan','Jimmy Carter'],0],['BÁSICA','Qual líder soviético governou durante a Crise dos Mísseis de Cuba?',['Nikita Khrushchev','Gorbachev','Stalin','Brejnev'],0],['BÁSICA','Qual país teve Fidel Castro como principal líder revolucionário?',['Cuba','Nicarágua','México','Chile'],0],['BÁSICA','Quem foi presidente brasileiro durante o impeachment de 1992?',['Fernando Collor','Itamar Franco','Sarney','FHC'],0],
+['MÉDIA','Qual presidente brasileiro assumiu após a renúncia de Jânio Quadros em 1961?',['João Goulart','Juscelino Kubitschek','Castelo Branco','Tancredo Neves'],0],['MÉDIA','Qual líder cubano era aliado próximo de Che Guevara na Revolução Cubana?',['Fidel Castro','Batista','Kennedy','Nasser'],0],['MÉDIA','Qual presidente dos EUA iniciou o mandato em janeiro de 1961?',['John F. Kennedy','Lyndon Johnson','Eisenhower','Nixon'],0],['MÉDIA','Qual país adotou a política de abertura econômica associada a Deng Xiaoping?',['China','Japão','Coreia do Sul','Vietnã'],0],['MÉDIA','Qual organização militar foi criada em 1949 no Atlântico Norte?',['OTAN','ONU','OEA','Pacto de Varsóvia'],0],
+['AVANÇADA','Qual presidente brasileiro promulgou a Constituição de 1988 durante seu governo?',['José Sarney','Tancredo Neves','Collor','Itamar Franco'],0],['AVANÇADA','Qual acordo de 1998 ajudou a encerrar décadas de conflito na Irlanda do Norte?',['Acordo de Belfast','Acordo de Oslo','Tratado de Maastricht','Acordo de Dayton'],0],['AVANÇADA','Qual líder palestino assinou os Acordos de Oslo com Israel como representante da OLP?',['Yasser Arafat','Anwar Sadat','Hafez al-Assad','Gamal Nasser'],0],['AVANÇADA','Qual presidente americano ficou associado à política de détente com a URSS e à abertura para a China nos anos 1970?',['Richard Nixon','John Kennedy','Harry Truman','Jimmy Carter'],0],['AVANÇADA','Qual conferência de 1954 encerrou a guerra da Indochina francesa?',['Genebra','Bandung','Yalta','Potsdam'],0]);
+for(const [k,v] of Object.entries(EXTRA)){if(raw[k]) raw[k].push(...v); else raw[k]=v;}
+const TOPICS={
+ 'Conhecimentos Gerais':['🧠','Conhecimentos Gerais','Variedade geral: ciência, cultura, geografia e curiosidades.'],
+ 'Música':['🎵','Música','Instrumentos, gêneros, compositores, teoria e cultura musical.'],
+ 'Cinema & TV':['🎬','Cinema & TV','Filmes, séries, animação, personagens e linguagem audiovisual.'],
+ 'História':['🏛️','História','Brasil e mundo: civilizações, eventos, ideias e personagens históricos.'],
+ 'Ciência & Tecnologia':['🔬','Ciência & Tecnologia','Biologia, física, química, espaço, computação e invenções.'],
+ 'Geografia & Brasil':['🌎','Geografia & Brasil','Território, mapas, natureza, cidades e geografia brasileira.']
+,
+ 'Literatura':['📚','Literatura','Machado, Shakespeare, Pessoa, Lorca, clássicos e autores cult.'],
+ 'Política & Mundo':['🌐','Política & Mundo','Personagens, líderes e acontecimentos da história política mundial e brasileira.']
+};
+const AV={masculino:{normal:'avatar-masculino-v2-normal.png',wave:'avatar-masculino-v2-wave.png',happy:'avatar-masculino-v2-happy.png',sad:'avatar-masculino-v2-sad.png',think:'avatar-masculino-v2-think.png'},feminino:{normal:'avatar-feminino-v2-normal.png',wave:'avatar-feminino-v2-wave.png',happy:'avatar-feminino-v2-happy.png',sad:'avatar-feminino-v2-sad.png',think:'avatar-feminino-v2-think.png'}};
+const REACTIONS={
+ good:['GÊNIO! Já pode jogar na Mega-Sena.','AÍ SIM! A plateia foi à loucura!','ACERTOU! O bilhão continua vivo.','Mandou bem!','Boa! Até a planta carnívora comemorou.'],
+ bad:['ERROU! Ih... essa doeu.','Quase! A plateia fez “eeeeh...”.','OPA! Essa passou longe.','Não foi dessa vez.','A planta carnívora julgou silenciosamente.'],
+ end:['Belo jogo! O palco agradece.','Você encarou o desafio. Respeito!','Resultado registrado no placar local.']
+};
+const KEY='sdb16-ranking';
+const SETTINGS='sdb16-settings';
+const $=id=>document.getElementById(id);
+const money=n=>Number(n||0).toLocaleString('pt-BR');
+const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+let audioCtx=null, timerId=null;
+let state={index:0,correct:0,errors:0,lives:3,prize:0,streak:0,best:0,gender:'masculino',avatar:'masculino',avatarState:'normal',name:'Jogador',topic:'Conhecimentos Gerais',used50:false,usedSkip:false,usedAudience:false,answered:false,finished:false,questions:[],timeLeft:0};
+
+function getSettings(){try{return {...{sound:true,motion:true,timer:true,timerSeconds:30,compact:false},...JSON.parse(localStorage.getItem(SETTINGS)||'{}')}}catch{return {sound:true,motion:true,timer:true,timerSeconds:30,compact:false}}}
+function saveSettings(patch){const s={...getSettings(),...patch};localStorage.setItem(SETTINGS,JSON.stringify(s));return s}
+function getRanking(){try{const all=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem('sdb15-ranking')||localStorage.getItem('sdb14-ranking')||'[]');return Array.isArray(all)?all:[]}catch{return []}}
+function setRanking(v){localStorage.setItem(KEY,JSON.stringify(v))}
+function avatarSrc(g,s='normal'){
+  const file=AV[g]?.[s]||AV[g]?.normal||AV.masculino.normal;
+  return `assets/${file}?v=20`;
+}
+function avatarFallback(img,g){
+  if(!img || img.dataset.avatarFallback==='1') return;
+  img.dataset.avatarFallback='1';
+  img.src=g==='feminino'?'assets/avatar-feminino-v2-normal.png?v=20':'assets/avatar-masculino-v2-normal.png?v=20';
+}
+function bindAvatarFallbacks(){
+  document.querySelectorAll('img[id*="Avatar"], .avatar-art img, .stage-avatar img').forEach(img=>{
+    if(img.dataset.avatarBound==='1') return;
+    img.dataset.avatarBound='1';
+    img.addEventListener('error',()=>{
+      const g=img.id==='hostAvatar' ? 'feminino' : (state.avatar||'masculino');
+      avatarFallback(img,g);
+    });
+  });
+}
+function escapeHtml(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function validBanks(){
+ const topics=Object.keys(TOPICS);
+ if(topics.length<1||PRIZES.length!==30)return false;
+ if(PRIZES[9]!==10000||PRIZES[19]!==100000||PRIZES[29]!==1000000)return false;
+ return topics.every(t=>{
+   const bank=raw[t];
+   if(!Array.isArray(bank)||bank.length!==45)return false;
+   for(const d of ['BÁSICA','MÉDIA','AVANÇADA']){
+     const rows=bank.filter(x=>x[0]===d);
+     if(rows.length!==15)return false;
+     for(const x of rows){
+       if(!Array.isArray(x)||typeof x[1]!=='string'||!Array.isArray(x[2])||x[2].length!==4)return false;
+       if(new Set(x[2].map(String)).size!==4)return false;
+       if(!Number.isInteger(x[3])||x[3]<0||x[3]>3)return false;
+     }
+   }
+   return true;
+ });
+}
+function buildGameQuestions(topic){
+ const bank=raw[topic];if(!Array.isArray(bank))return [];
+ const out=[];for(const d of ['BÁSICA','MÉDIA','AVANÇADA']) shuffle(bank.filter(x=>x[0]===d)).slice(0,10).forEach(x=>{const opts=shuffle(x[2].map((text,i)=>({text,i})));out.push({topic,d:x[0],q:x[1],a:opts.map(o=>o.text),c:opts.findIndex(o=>o.i===x[3]),p:PRIZES[out.length]})});
+ return out;
+}
+function renderTopics(){const box=$('topicGrid');box.innerHTML=Object.entries(TOPICS).map(([k,v])=>`<button type="button" class="topic-card" data-topic="${escapeHtml(k)}"><span class="topic-icon">${v[0]}</span><b>${v[1]}</b><small>${v[2]}</small><em>45 perguntas no banco • 30 na partida</em></button>`).join('');box.querySelectorAll('.topic-card').forEach(b=>b.onclick=()=>selectTopic(b.dataset.topic));selectTopic(state.topic)}
+function selectTopic(topic){if(!TOPICS[topic])return;state.topic=topic;document.querySelectorAll('.topic-card').forEach(b=>b.classList.toggle('selected',b.dataset.topic===topic));$('selectedTopicName').textContent=TOPICS[topic][1];$('selectedTopicDesc').textContent=TOPICS[topic][2];$('startTopic').textContent=TOPICS[topic][1]}
+function selectAvatar(g,s='normal'){if(!AV[g])g='masculino';state.avatar=g;state.avatarState=s;document.querySelectorAll('.avatar-option').forEach(x=>x.classList.toggle('selected',x.dataset.avatar===g&&x.dataset.state===s));syncAvatars()}
+function syncAvatars(){bindAvatarFallbacks();const s=state.avatarState;[['heroFemale','feminino','normal'],['heroMale','masculino','normal'],['gameAvatar',state.avatar,s],['questionAvatar',state.avatar,s],['hostAvatar',state.gender==='feminino'?'masculino':'feminino','normal']].forEach(([id,g,st])=>{if($(id))$(id).src=avatarSrc(g,st)});$('avatarName').textContent=state.avatar==='feminino'?'MOÇA':'RAPAZ'}
+function greeting(){return state.gender==='feminino'?`Boa sorte, ${state.name}, garota!`:state.gender==='masculino'?`Boa sorte, ${state.name}, rapaz!`:`Boa sorte, ${state.name}!`}
+function navigate(id){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active-view'));$(id)?.classList.add('active-view');document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===id));if(id==='ranking')renderRanking();if(id==='achievements')renderAchievements();window.scrollTo({top:0,behavior:getSettings().motion?'smooth':'auto'});document.querySelector('.nav')?.classList.remove('open')}
+function tone(freq=440,duration=.09){if(!getSettings().sound)return;try{audioCtx ||= new (window.AudioContext||window.webkitAudioContext)();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type='square';o.frequency.value=freq;g.gain.setValueAtTime(.035,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+duration);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+duration)}catch(e){}}
+function react(kind,text){$('reaction').textContent=text;$('reaction').className=`reaction show ${kind}`}
+function updatePrize(){const v=money(state.prize);$('prize').textContent=v;$('sidePrize').textContent=v;$('money').textContent=v}
+function updateLives(){const n=state.lives;$('lives').textContent='❤'.repeat(n)+'♡'.repeat(3-n);$('errors').textContent=`ERROS ${state.errors}/3`;$('lifeBar').style.width=`${(n/3)*100}%`}
+function updateLifelines(){[['hint50',state.used50],['hintAudience',state.usedAudience],['hintSkip',state.usedSkip]].forEach(([id,used])=>$(id).disabled=used||state.answered);}
+function updateMeter(){const pct=((state.index)/state.questions.length)*100;$('progress').style.width=`${pct}%`;$('progressText').textContent=`${state.index}/${state.questions.length}`}
+function startTimer(){clearInterval(timerId);const s=getSettings();if(!s.timer){$('timer').classList.add('off');$('timer').textContent='SEM TEMPO';return}state.timeLeft=s.timerSeconds;$('timer').classList.remove('off','danger');paintTimer();timerId=setInterval(()=>{if(state.answered||state.finished)return;state.timeLeft--;paintTimer();if(state.timeLeft<=0){clearInterval(timerId);timeoutAnswer()}},1000)}
+function paintTimer(){const s=getSettings();const pct=clamp(state.timeLeft/s.timerSeconds*100,0,100);$('timer').textContent=`⏱ ${state.timeLeft}s`;$('timerBar').style.width=`${pct}%`;$('timer').classList.toggle('danger',state.timeLeft<=5)}
+function timeoutAnswer(){if(state.answered)return;const q=state.questions[state.index];state.answered=true;document.querySelectorAll('.answer').forEach(b=>b.disabled=true);document.querySelectorAll('.answer')[q.c]?.classList.add('correct');state.streak=0;state.errors++;state.lives=Math.max(0,3-state.errors);syncStateAvatar('sad');react('bad',state.errors>=3?'TEMPO ESGOTADO! 3 erros. Fim de jogo.':'TEMPO ESGOTADO! A planta estava mais rápida.');tone(130,.2);$('nextBtn').classList.remove('hidden');updateLifelines();updateLives()}
+function syncStateAvatar(s){state.avatarState=s;syncAvatars()}
+function loadQuestion(){
+ const q=state.questions[state.index];if(!q){finish();return}state.answered=false;clearInterval(timerId);syncStateAvatar('normal');
+ $('roundLabel').textContent=`PERGUNTA ${state.index+1}/${state.questions.length}`;$('difficulty').textContent=q.d;$('questionTopic').textContent=TOPICS[q.topic][1];$('question').textContent=q.q;$('reaction').className='reaction';$('reaction').textContent='';$('nextBtn').classList.add('hidden');$('streak').textContent=`🔥 ${state.streak}`;$('prizeNext').textContent=`R$ ${money(q.p)}`;updateMeter();updatePrize();updateLifelines();updateLives();
+ const wrap=$('answers');wrap.innerHTML='';q.a.forEach((text,i)=>{const b=document.createElement('button');b.type='button';b.className='answer';b.innerHTML=`<span class="answer-key">${String.fromCharCode(65+i)}</span><span>${escapeHtml(text)}</span>`;b.onclick=()=>answer(i,b);wrap.appendChild(b)});startTimer();
+}
+function answer(i,btn){if(state.answered||state.finished)return;state.answered=true;clearInterval(timerId);const q=state.questions[state.index],buttons=[...document.querySelectorAll('.answer')];buttons.forEach(b=>b.disabled=true);
+ if(i===q.c){tone(720,.11);btn.classList.add('correct');state.correct++;state.streak++;state.best=Math.max(state.best,state.streak);state.prize=q.p;syncStateAvatar('happy');react('good',REACTIONS.good[Math.floor(Math.random()*REACTIONS.good.length)]);}
+ else{tone(180,.16);btn.classList.add('wrong');buttons[q.c]?.classList.add('correct');state.streak=0;state.errors++;state.lives=Math.max(0,3-state.errors);syncStateAvatar('sad');react('bad',state.errors>=3?'ERROU! 3 erros. Fim de jogo.':REACTIONS.bad[Math.floor(Math.random()*REACTIONS.bad.length)]);}
+ $('explanation').textContent=q.e||'Resposta registrada. Continue para a próxima pergunta.';$('explanation').classList.add('show');$('nextBtn').classList.remove('hidden');$('progress').style.width=`${((state.index+1)/state.questions.length)*100}%`;updatePrize();updateLifelines();updateLives();
+}
+function startGame(){
+ if(!validBanks()){alert('O banco de perguntas está incompleto.');return}const questions=buildGameQuestions(state.topic);if(questions.length!==30){alert('Não foi possível montar esta partida.');return}
+ const name=($('username').value.trim()||'Jogador').replace(/\s+/g,' ').slice(0,18);state={...state,index:0,correct:0,errors:0,lives:3,prize:0,streak:0,best:0,used50:false,usedSkip:false,usedAudience:false,answered:false,finished:false,name,avatarState:'normal',questions};
+ $('playerName').textContent=name;$('greeting').textContent=greeting();$('gameTopic').textContent=TOPICS[state.topic][1];$('resultTopic').textContent=TOPICS[state.topic][1];syncAvatars();navigate('game');loadQuestion();
+}
+function finish(gameOver=false){if(state.finished)return;clearInterval(timerId);state.finished=true;tone(880,.14);const total=state.questions.length||30;const data=getRanking();data.push({name:state.name,score:state.prize,correct:state.correct,errors:state.errors,best:state.best,date:Date.now(),gender:state.gender,avatar:state.avatar,topic:state.topic,total});data.sort((a,b)=>b.score-a.score||b.correct-a.correct||b.best-a.best||b.date-a.date);setRanking(data.slice(0,50));$('resultPrize').textContent=`R$ ${money(state.prize)}`;$('resultCorrect').textContent=`${state.correct}/${total}`;$('resultErrors').textContent=`${state.errors}/3`;$('resultBest').textContent=state.best;$('resultTitle').textContent=gameOver?'3 ERROS — FIM DE JOGO':state.correct===total?'VOCÊ DOMINOU O PALCO!':state.correct>=20?'MANDOU MUITO BEM!':state.correct>=5?'BOM JOGO!':'VALEU A TENTATIVA!';$('resultText').textContent=gameOver?'Você chegou ao limite de 3 erros. Respira, tenta de novo e busca o milhão!':REACTIONS.end[Math.floor(Math.random()*REACTIONS.end.length)];navigate('result')}
+function renderRanking(filter='all'){const box=$('rankingList');let data=getRanking();if(filter==='perfect')data=data.filter(x=>Number(x.correct)===Number(x.total||30));if(!data.length){box.innerHTML='<div class="empty">Ainda não há resultados. Seja o primeiro a subir no placar!</div>';return}box.innerHTML=data.slice(0,20).map((x,i)=>`<div class="rank-row"><span class="rank-pos">#${i+1}</span><span class="rank-name"><span>${escapeHtml(x.name)}</span><small>${escapeHtml(TOPICS[x.topic]?.[1]||x.topic||'Geral')}</small></span><span class="rank-score">R$ ${money(x.score)}</span><span class="rank-correct">${x.correct}/${x.total||30}</span></div>`).join('')}
+function renderAchievements(){const data=getRanking(),best=Math.max(0,...data.map(x=>Number(x.correct)||0));const defs=[['👶','Primeiro passo','Faça sua primeira partida',data.length>0],['🎯','10 acertos','Acerte pelo menos 10 perguntas',best>=10],['🔥','Sequência quente','Acerte 10 perguntas seguidas',data.some(x=>Number(x.best)>=10)],['💎','Quase bilionário','Acerte pelo menos 12 perguntas',best>=12],['👑','Lenda do palco','Acerte as 15 perguntas',data.some(x=>Number(x.correct)>=30&&Number(x.total||30)===30)],['💰','Caçador de prêmio','Chegue a R$ 1.000.000',data.some(x=>Number(x.score)>=1000000)]];$('achievementGrid').innerHTML=defs.map(x=>`<div class="panel achievement ${x[3]?'unlocked':'locked'}"><div class="icon">${x[0]}</div><b>${x[1]}</b><small>${x[2]}</small><span>${x[3]?'✓ DESBLOQUEADA':'🔒 BLOQUEADA'}</span></div>`).join('')}
+function setGender(g){state.gender=g;document.querySelectorAll('.choice').forEach(x=>x.classList.toggle('selected',x.dataset.gender===g));if(g==='feminino')selectAvatar('feminino');else if(g==='masculino')selectAvatar('masculino')}
+function init(){
+ renderTopics();selectAvatar('masculino');
+ document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>navigate(b.dataset.view)));
+ $('menuToggle')?.addEventListener('click',()=>document.querySelector('.nav').classList.toggle('open'));
+ document.querySelectorAll('.choice').forEach(b=>b.onclick=()=>setGender(b.dataset.gender));document.querySelectorAll('.avatar-option').forEach(b=>b.onclick=()=>selectAvatar(b.dataset.avatar,b.dataset.state));
+ $('startBtn').onclick=startGame;$('nextBtn').onclick=()=>{if(!state.answered)return;if(state.errors>=3){finish(true);return}if(state.index>=state.questions.length-1)finish(false);else{state.index++;loadQuestion()}};
+ $('hint50').onclick=()=>{if(state.used50||state.answered)return;state.used50=true;const q=state.questions[state.index],buttons=[...document.querySelectorAll('.answer')];shuffle([0,1,2,3].filter(i=>i!==q.c)).slice(0,2).forEach(i=>{buttons[i].disabled=true;buttons[i].classList.add('disabled')});tone(330,.08);react('good','50:50! Duas alternativas saíram do jogo.');updateLifelines()};
+ $('hintAudience').onclick=()=>{if(state.usedAudience||state.answered)return;state.usedAudience=true;const q=state.questions[state.index];let pick=Math.random()<.78?q.c:Math.floor(Math.random()*4);react('good',`A plateia votou: alternativa ${String.fromCharCode(65+pick)}!`);tone(440,.08);updateLifelines()};
+ $('hintSkip').onclick=()=>{if(state.usedSkip||state.answered)return;state.usedSkip=true;state.answered=true;clearInterval(timerId);react('good','PULOU! A próxima vem aí.');tone(330,.08);updateLifelines();setTimeout(()=>{if(state.index>=state.questions.length-1)finish(false);else{state.index++;loadQuestion()}},500)};
+ $('quitBtn').onclick=()=>{if(confirm('Sair da partida? O progresso atual será perdido.')){clearInterval(timerId);state.finished=true;navigate('home')}};
+ document.querySelectorAll('.rank-tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.rank-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderRanking(b.dataset.rank)});
+ $('restartBtn').onclick=()=>{state.finished=false;navigate('home')};
+ $('retryBtn')?.addEventListener('click',()=>{state.finished=false;startGame()});
+ $('clearData').onclick=()=>{if(confirm('Apagar todo o ranking local?')){localStorage.removeItem(KEY);localStorage.removeItem('sdb15-ranking');localStorage.removeItem('sdb14-ranking');renderRanking()}};
+ const s=getSettings();$('soundToggle').checked=s.sound;$('motionToggle').checked=s.motion;$('compactToggle').checked=s.compact;$('timerToggle').checked=s.timer;$('timerSeconds').value=s.timerSeconds;document.body.classList.toggle('no-motion',!s.motion);document.body.classList.toggle('compact',s.compact);
+ $('soundToggle').onchange=e=>saveSettings({sound:e.target.checked});$('motionToggle').onchange=e=>{saveSettings({motion:e.target.checked});document.body.classList.toggle('no-motion',!e.target.checked)};$('compactToggle').onchange=e=>{saveSettings({compact:e.target.checked});document.body.classList.toggle('compact',e.target.checked)};$('timerToggle').onchange=e=>saveSettings({timer:e.target.checked});$('timerSeconds').onchange=e=>saveSettings({timerSeconds:clamp(Number(e.target.value)||30,10,60)});
+ $('username').addEventListener('input',()=>{$('namePreview').textContent=$('username').value.trim()||'Jogador'});
+ document.addEventListener('keydown',e=>{if(!$('game').classList.contains('active-view')||state.answered)return;const n=Number(e.key);if(n>=1&&n<=4)document.querySelectorAll('.answer')[n-1]?.click()});
+}
+init();
+
 </script>
-<script src="script.js"></script>
-</body>
-</html>
+</body></html>
