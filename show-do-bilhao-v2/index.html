@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Show do Bilhão — Desafio Cult</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+<header><div class="brand">★ <b>SHOW DO BILHÃO</b><small>Quiz pixel • edição Cult</small></div><div id="headerMoney">R$ 0</div></header>
+<main>
+<section id="home" class="screen active">
+<div class="card hero">
+<div class="orb">?</div><h1>Show do Bilhão</h1><p>Escolha seu modo e prove seus conhecimentos.</p>
+<div class="avatars">
+<button class="avatarPick selected" data-gender="masculino"><span class="avatar male">M</span>Rapaz</button>
+<button class="avatarPick" data-gender="feminino"><span class="avatar female">F</span>Moça</button>
+</div>
+<label>Username<input id="username" maxlength="18" placeholder="Digite seu nome"></label>
+<div class="modes">
+<button id="classic"><b>🎮 Modo Clássico</b><small>30 perguntas • R$ 1 milhão</small></button>
+<button id="cult"><b>🧠 Desafio Cult</b><small>40 perguntas • nenhuma fácil</small></button>
+</div>
+</div>
+</section>
+<section id="game" class="screen">
+<div class="layout">
+<aside class="side">
+<div class="player"><span id="gameAvatar" class="avatar male">M</span><div><b id="playerName">Jogador</b><small id="mode">Clássico</small></div></div>
+<div id="lives" class="lives">♥ ♥ ♥</div>
+<div class="prog"><span id="progress">1/30</span><i><em id="fill"></em></i></div>
+<div class="helps"><button id="fifty">50:50</button><button id="audience">👥 Plateia</button><button id="skip">⏭ Pular</button></div>
+<button id="quit" class="secondary">Sair</button>
+</aside>
+<section class="stage">
+<div class="stageTop"><b id="number">PERGUNTA 1</b><span id="timer">60</span><b id="streak">CLÁSSICO</b></div>
+<div class="question"><small id="category">Categoria</small><h2 id="text">Carregando...</h2></div>
+<div id="answers" class="answers"></div><div id="feedback" class="feedback"></div>
+</section>
+</div>
+</section>
+<section id="result" class="screen"><div class="card result"><div id="icon">🏆</div><h2 id="title"></h2><p id="message"></p>
+<div class="stats"><div>Prêmio<strong id="money">R$ 0</strong></div><div>Acertos<strong id="correct">0</strong></div><div>Erros<strong id="wrong">0</strong></div></div>
+<button id="retry">Tentar novamente</button><button id="home" class="secondary">Menu principal</button></div></section>
+</main>
+<footer>Show do Bilhão • GitHub Pages</footer>
+</div>
+<script src="js/questions.js"></script><script src="js/game.js"></script>
+</body></html>

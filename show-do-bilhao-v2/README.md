@@ -1,0 +1,13 @@
+# Show do Bilhão — V2
+
+Versão pronta para GitHub Pages.
+
+- Modo Clássico: 30 perguntas, 10 básicas + 10 médias + 10 avançadas.
+- Desafio Cult: 40 perguntas difíceis, sem bloco fácil.
+- Cronômetro: 60 segundos por pergunta.
+- 3 vidas/erros.
+- 50:50, Plateia e Pular.
+- Avatares masculino/feminino em CSS como placeholders, substituíveis por PNG/GIF.
+- Layout responsivo para desktop, tablet e celular.
+
+Abra `index.html` para testar localmente ou publique a pasta na raiz do GitHub Pages.

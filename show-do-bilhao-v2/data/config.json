@@ -1,0 +1,8 @@
+{
+  "version": "2.0",
+  "timerSeconds": 60,
+  "classicQuestions": 30,
+  "cultQuestions": 40,
+  "lives": 3,
+  "cultDifficulty": "hard"
+}
