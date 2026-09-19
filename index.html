@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0d2033">
+<meta name="version" content="Show do Bilhão v2.3 — Desafio Cult">
 <meta name="description" content="Show do Bilhão — quiz em pixel art, demo 2.0">
-<title>Show do Bilhão — Demo 2.0</title>
+<title>Show do Bilhão — Desafio Cult v2.3</title>
 <style id="gameStyles">
 :root{--navy:#0c1b2a;--navy2:#132b40;--blue:#dcecf4;--blue2:#c9e0ec;--cream:#fff8e8;--paper:#fffdf5;--ink:#17283a;--muted:#617384;--gold:#d4aa4c;--gold2:#f1cf78;--line:#486b82;--green:#4e946a;--red:#b75b5b;--shadow:#173049;--pixel:2px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(#d7e8f0,#cbdfe9);color:var(--ink);font-family:Arial,Helvetica,sans-serif;font-size:15px;min-height:100vh}.scanlines{position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.035) 0,rgba(255,255,255,.035) 1px,transparent 1px,transparent 4px);mix-blend-mode:soft-light}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:18px;padding:9px max(14px,3vw);min-height:58px;background:var(--navy);border-bottom:3px solid var(--gold);color:#fff;box-shadow:0 3px 0 #08131f}.brand{display:flex;align-items:center;gap:10px;background:none;border:0;color:#fff;padding:0;text-align:left;cursor:pointer}.brand-mark{display:grid;place-items:center;width:36px;height:36px;border:2px solid var(--gold);color:var(--gold2);font-size:17px}.brand b{display:block;font:14px 'Press Start 2P',monospace;letter-spacing:.5px}.brand small{display:block;margin-top:4px;font:6px 'Press Start 2P',monospace;color:#b9cbd8}.nav{display:flex;gap:5px;margin-left:auto}.nav-btn,.menu-toggle{border:1px solid #6d8799;background:#152f45;color:#fff;padding:9px 10px;font:7px 'Press Start 2P',monospace;cursor:pointer}.nav-btn:hover,.nav-btn.active{background:#274b65;border-color:var(--gold2);color:#fff}.wallet{font:9px 'Press Start 2P',monospace;color:var(--gold2);white-space:nowrap}.menu-toggle{display:none}.app{width:min(1120px,94vw);margin:22px auto 35px}.view{display:none}.active-view{display:block}.panel{background:var(--paper);border:2px solid #29455a;box-shadow:6px 6px 0 var(--shadow)}.hero{display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden;min-height:360px}.hero-copy{padding:42px 40px;background:linear-gradient(135deg,#fffaf0,#f6edda)}.eyebrow{font:8px 'Press Start 2P',monospace;letter-spacing:.2px;color:#8a671c}.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.02;margin:18px 0;color:#17364e}.hero h1 span{color:#9b711e}.hero p{max-width:650px;font-size:17px;line-height:1.55;color:#516879}.ladder-mini{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 12px}.ladder-mini span{padding:8px 10px;border:1px solid #7d8f9b;font:8px 'Press Start 2P',monospace;background:#fff}.ladder-mini .basic{color:#43845e}.ladder-mini .medium{color:#9a761c}.ladder-mini .hard{color:#a74e4e}.hero-note{font:8px 'Press Start 2P',monospace;color:#65788a}.hero-note span{color:#9a731c}.hero-note i{font-style:normal;color:#aaa;margin:0 5px}.stage{position:relative;overflow:hidden;background:linear-gradient(#1a344c,#0e2234);display:flex;align-items:flex-end;justify-content:center;min-height:360px;border-left:2px solid #29455a}.stage-grid{position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:22px 22px;opacity:.55}.pixel-stars{position:absolute;top:22px;color:#e9c76e;font:13px 'Press Start 2P',monospace}.show-sign{position:absolute;top:52px;padding:12px 22px;background:#f7d774;color:#193147;border:3px solid #9b7721;box-shadow:5px 5px 0 #07131f;font:10px 'Press Start 2P',monospace}.stage-avatars{position:absolute;bottom:0;display:flex;gap:35px;align-items:end;z-index:2}.stage-avatar{width:145px;height:235px;display:flex;align-items:end;justify-content:center;background:linear-gradient(90deg,transparent 0 15%,rgba(255,255,255,.06) 15% 85%,transparent 85%);border-bottom:5px solid #b28c3e}.stage-avatar img{width:132px;height:220px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(5px 6px 0 #091522)}.bubble{position:absolute;z-index:3;padding:10px 13px;min-width:100px;background:#fff7dc;border:2px solid #1b3041;box-shadow:4px 4px 0 #091522;text-align:center;font:7px/1.5 'Press Start 2P',monospace;color:#173047}.bubble.left{left:5%;top:38%}.bubble.right{right:5%;top:28%}.stage-lights{position:absolute;bottom:10px;left:12px;right:12px;display:flex;justify-content:space-around}.stage-lights i{width:13px;height:13px;background:#e8c765;border:2px solid #fff1b0;box-shadow:0 0 14px #d9b747}.section-card{padding:24px;margin-top:18px}.section-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.section-heading h2{font-size:27px;margin:8px 0 0;color:#1c3d55}.tag{padding:7px 9px;background:#e8f1f5;border:1px solid #8196a3;color:#597080;font:7px 'Press Start 2P',monospace;white-space:nowrap}.topic-intro{margin:8px 0 17px;color:var(--muted)}.topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}.topic-card{position:relative;display:grid;grid-template-columns:48px 1fr;grid-template-rows:auto auto auto;gap:4px 9px;min-height:112px;padding:14px;text-align:left;background:#f9f7ef;border:2px solid #7b919f;box-shadow:4px 4px 0 #bdc9cf;color:var(--ink);cursor:pointer;transition:transform .12s,background .12s,border-color .12s}.topic-card:hover{transform:translateY(-2px);background:#edf6fa}.topic-card.selected{transform:translate(2px,2px);background:#dcecf4;border-color:#315b76;box-shadow:1px 1px 0 #aab9c2}.topic-icon{grid-row:1/4;font-size:29px;display:grid;place-items:center}.topic-card b{font-size:14px}.topic-card small{font-size:11px;line-height:1.35;color:#617384}.topic-card em{font:7px 'Press Start 2P',monospace;color:#8d6b20;font-style:normal}.topic-selected{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px;padding:11px 13px;border:1px dashed #8ca0ac;background:#eef5f6}.topic-selected span{font:7px 'Press Start 2P',monospace;color:#63798a}.topic-selected b{font:9px 'Press Start 2P',monospace;color:#7f601a}.topic-selected small{flex:1;min-width:180px;color:#657989}.setup-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.field{padding:20px}.field label{display:block;font:8px 'Press Start 2P',monospace;color:#304d63;margin-bottom:10px}.field input{width:100%;padding:13px 12px;background:#fffdf5;border:2px solid #6e8798;font-size:16px;color:var(--ink);outline:0}.field input:focus{border-color:#2c5f80;box-shadow:0 0 0 3px #c7dfea}.field small{display:block;margin-top:8px;color:#6a7e8d}.field small b{color:#87651b}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.choice{padding:12px 8px;border:2px solid #7a8e9b;background:#f7f6f0;font-weight:900;cursor:pointer}.choice.selected{background:#f5d56f;border-color:#9a751d;box-shadow:2px 2px 0 #7d5c17}.avatar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px}.avatar-option{padding:8px;background:#f7f6f0;border:2px solid #8396a2;box-shadow:3px 3px 0 #bcc7cc;cursor:pointer;text-align:center;color:var(--ink)}.avatar-option.selected{background:#dcecf4;border-color:#315b76;box-shadow:1px 1px 0 #aab9c2}.avatar-art{height:175px;display:flex;align-items:end;justify-content:center;background:repeating-linear-gradient(0deg,#e8f2f6 0 8px,#e3edf1 8px 9px)}.avatar-art img{width:115px;height:168px;object-fit:contain;image-rendering:pixelated}.avatar-option b{display:block;font-size:11px;margin-top:9px}.avatar-option small{color:#657989}.avatar-status{margin-top:12px;font:8px 'Press Start 2P',monospace;color:#65798a}.avatar-status b{color:#8a681b}.extras-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.extra{padding:15px}.extra-title{font:8px 'Press Start 2P',monospace;color:#2e4e64;padding-bottom:10px;border-bottom:1px solid #cbd4d9}.extra-title span{float:right;color:#8a681b}.extra-content{display:flex;align-items:center;gap:15px;min-height:125px}.extra-content img{width:120px;height:105px;object-fit:contain;image-rendering:pixelated}.extra-content b{font-size:14px}.extra-content p{color:#687d8c;line-height:1.4}.primary,.secondary,.danger{border:2px solid #29475e;cursor:pointer;font-weight:900}.primary{background:#f4cf65;color:#172b3d;padding:12px 18px;box-shadow:4px 4px 0 #18334a}.primary:hover{transform:translateY(-1px)}.primary.big{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;margin-top:18px;padding:17px;font:10px 'Press Start 2P',monospace}.primary.big small{font:7px 'Press Start 2P',monospace;color:#705417}.secondary{background:#e5eef2;color:#233d52;padding:11px}.gamebar{display:grid;grid-template-columns:230px 1fr auto;align-items:center;gap:18px;padding:13px 15px}.player{display:flex;align-items:center;gap:10px}.mini-avatar{width:56px;height:66px;display:grid;place-items:end;background:#d9e9ef;border:1px solid #7e96a4;overflow:hidden}.mini-avatar img{width:53px;height:64px;object-fit:contain;image-rendering:pixelated}.player small{display:block;color:#627687;font-size:11px}.player b{display:block;margin-top:3px;font-size:16px}.progress-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font:8px 'Press Start 2P',monospace}.progress-meta span{color:#6b7f8e}.progress-meta #streak{margin-left:auto;color:#9a741a}.progress{height:10px;margin:8px 0 5px;background:#d9e3e7;border:1px solid #8196a2;overflow:hidden}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#4c8b69,#e2bd54);transition:width .25s}.progress-box>small{color:#6c7e8b}.prize{font:10px 'Press Start 2P',monospace;color:#856316;white-space:nowrap}.game-layout{display:grid;grid-template-columns:190px 1fr;gap:14px;margin-top:14px}.sidebar{padding:12px;display:flex;flex-direction:column;gap:8px;background:#f5f3e9}.side-head{display:flex;justify-content:space-between;font:7px 'Press Start 2P',monospace;color:#5d7180;padding-bottom:5px;border-bottom:1px solid #cbd3d7}.side-head b{color:#8b691c}.money-box{padding:13px;background:#e8f1f5;border:1px solid #849aa7;font:11px 'Press Start 2P',monospace;color:#7f611b}.life{display:flex;justify-content:space-between;align-items:center;text-align:left;padding:12px 10px;background:#fbfaf4;border:1px solid #8499a5;box-shadow:3px 3px 0 #bdc7cc;cursor:pointer;font-weight:900}.life:hover:not(:disabled){background:#e8f3f7}.life small{display:block;color:#758694;font-weight:400}.life:disabled{opacity:.45;cursor:not-allowed;box-shadow:1px 1px 0 #c2cbd0}.host-card{display:flex;gap:8px;align-items:center;min-height:100px;margin-top:5px;padding:8px;background:#dbeaf1;border:1px solid #7d94a2}.host-card img{width:52px;height:80px;object-fit:contain;image-rendering:pixelated}.host-card b{display:block;font:7px 'Press Start 2P',monospace;color:#3d596c;margin-bottom:7px}.host-card span{font-size:11px;line-height:1.35}.sidebar .secondary{margin-top:auto}.question{padding:20px;min-height:560px;position:relative;overflow:hidden}.question-top{display:flex;justify-content:space-between;align-items:flex-start;gap:15px}.difficulty{display:inline-block;padding:7px 9px;border:1px solid #a98a3e;background:#fff0b8;color:#866615;font:7px 'Press Start 2P',monospace}.question-topic{display:inline-block;margin-left:7px;padding:6px 8px;background:#edf4f7;border:1px solid #9aabb5;color:#597080;font:7px 'Press Start 2P',monospace}.timer-wrap{width:155px}.timer-wrap>span{display:block;text-align:right;font:8px 'Press Start 2P',monospace;color:#5b7180}.timer-wrap>span.danger{color:#a84848}.timer-wrap>span.off{color:#7e8b92}.timer{height:7px;margin-top:5px;background:#d7e1e5;border:1px solid #8296a1}.timer i{display:block;width:100%;height:100%;background:#5a8c70;transition:width .4s linear}.timer-wrap span.danger+.timer i{background:#b75b5b}.question-scene{height:95px;display:flex;align-items:end;justify-content:center;position:relative;margin:4px 0}.q-avatar{width:74px;height:84px;display:flex;align-items:end;justify-content:center;background:#dcebf1;border:1px solid #8399a5;overflow:hidden;z-index:2}.q-avatar img{width:68px;height:81px;object-fit:contain;image-rendering:pixelated}.scene-podium{position:absolute;bottom:0;width:210px;height:20px;background:#263f53;border:2px solid #6f8795;box-shadow:5px 5px 0 #152b3c}.q-plant{position:absolute;right:2%;bottom:3px;width:70px;height:70px;object-fit:contain;image-rendering:pixelated}.question h2{font-size:clamp(25px,3.3vw,38px);line-height:1.22;text-align:center;max-width:930px;margin:13px auto 22px;color:#152d43}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answer{display:flex;align-items:center;gap:12px;min-height:70px;padding:13px 15px;text-align:left;background:#fcfaf1;border:2px solid #78909e;box-shadow:4px 4px 0 #bdc7cc;color:#172a3b;font-size:16px;font-weight:900;cursor:pointer;transition:.12s}.answer:hover:not(:disabled){transform:translateY(-2px);background:#eaf4f8}.answer:disabled{cursor:default}.answer-key{display:grid;place-items:center;min-width:30px;height:30px;background:#e9f0f3;border:1px solid #879ba6;font:9px 'Press Start 2P',monospace;color:#536a7a}.answer.correct{background:#d9f0df;border-color:#4e966b}.answer.correct .answer-key{background:#a9d7b7;border-color:#4e966b}.answer.wrong{background:#f5dddd;border-color:#b75b5b}.answer.disabled{opacity:.35;filter:grayscale(.3)}.reaction{min-height:35px;margin:14px auto 0;text-align:center;font:9px/1.5 'Press Start 2P',monospace;opacity:0;transform:translateY(4px);transition:.18s}.reaction.show{opacity:1;transform:none}.reaction.good{color:#28754b}.reaction.bad{color:#a34848}.explanation{display:none;max-width:820px;margin:9px auto 0;padding:10px 13px;background:#edf5f6;border-left:4px solid #7694a4;color:#5d7180;font-size:12px;line-height:1.45}.explanation.show{display:block}.next{display:block;margin:12px auto 0}.hidden{display:none!important}.page-head{padding:8px 2px 16px}.page-head h2{font-size:42px;margin:8px 0 4px;color:#193b54}.page-head p{margin:0;color:#5d7281}.ranking-panel{padding:15px}.rank-tabs{display:flex;gap:8px;margin-bottom:8px}.rank-tab{padding:9px 12px;background:#e9f1f4;border:1px solid #78909e;font-weight:900;cursor:pointer}.rank-tab.active{background:#f3d36d;border-color:#9c7720}.rank-row{display:grid;grid-template-columns:55px 1fr 140px 90px;gap:10px;align-items:center;padding:13px 8px;border-bottom:1px solid #d0d9dd}.rank-pos{font:9px 'Press Start 2P',monospace;color:#876719}.rank-name{font-weight:900}.rank-name small{display:block;color:#718492;font-size:10px;font-weight:400;margin-top:3px}.rank-score{text-align:right;font-weight:900;color:#745813}.rank-correct{text-align:right;color:#607687}.empty{text-align:center;padding:38px;color:#667b89}.achievement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.achievement{padding:18px;min-height:160px}.achievement .icon{font-size:36px}.achievement b{display:block;margin:10px 0 5px}.achievement small{display:block;color:#6c7f8c;min-height:34px}.achievement span{display:inline-block;margin-top:11px;font:7px 'Press Start 2P',monospace}.achievement.unlocked{background:#f9f4df}.achievement.locked{filter:grayscale(.8);opacity:.55}.achievement.unlocked span{color:#39805a}.settings{padding:22px;display:flex;flex-direction:column;gap:12px}.settings label{font-weight:900;padding:13px;background:#f5f2e8;border:1px solid #b6c3ca}.settings input[type=checkbox]{accent-color:#315b76;margin-right:9px}.settings input[type=number]{margin-left:8px;width:85px;padding:7px;border:1px solid #879ba6}.kbd-help{padding:12px;background:#edf4f6;border-left:4px solid #8ba0ad;color:#617582}.danger{align-self:flex-start;background:#f5dddd;color:#803d3d;padding:11px}.result{max-width:720px;margin:20px auto;text-align:center;padding:34px}.result>img{width:190px;height:105px;object-fit:contain}.result h2{font-size:38px;margin:13px 0 7px;color:#183b55}.result p{color:#5d7180}.result-topic{display:inline-block;padding:7px 10px;background:#e6f0f4;border:1px solid #8da1ad;color:#536b7c;font:8px 'Press Start 2P',monospace}.result-stats{display:flex;justify-content:center;gap:45px;margin:25px 0}.result-stats div{display:flex;flex-direction:column;gap:6px}.result-stats b{font:12px 'Press Start 2P',monospace;color:#866317}.result-stats small{color:#687d8b}.result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}footer{display:flex;justify-content:space-between;gap:15px;padding:13px 4vw;background:#0c1b2a;color:#dbe7ee;border-top:3px solid var(--gold);font:7px 'Press Start 2P',monospace}.no-motion *{animation:none!important;transition:none!important}
@@ -298,12 +299,119 @@ footer{background:rgba(2,16,29,.97);border-top:2px solid var(--gold);color:#d8ed
 @media(max-width:650px){body{background-attachment:scroll}.app{width:95vw}.topbar{min-height:58px}.hero-copy{padding:28px 22px}.hero h1{font-size:38px}.hero p{font-size:14px}.stage{min-height:315px}.stage-avatar{width:130px;height:210px}.stage-avatar img{height:198px;max-width:118px}.bubble{font-size:6px}.setup-grid{grid-template-columns:1fr}.topic-grid{grid-template-columns:1fr}.avatar-grid-v2{grid-template-columns:1fr 1fr}.avatar-art{height:150px}.avatar-art img{height:142px}.primary.big{font-size:9px}.gamebar{grid-template-columns:1fr auto}.sidebar{grid-template-columns:1fr}.question h2{font-size:clamp(23px,7vw,31px)}}
 @media(max-width:390px){.avatar-grid-v2{grid-template-columns:1fr}.stage-avatars{gap:4px}.stage-avatar{width:105px}.bubble{display:none}}
 
+
+/* v2.3 — Desafio Cult visual integration */
+.topic-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+.topic-card.cult-topic{
+  grid-column:2 / span 2;
+  background:linear-gradient(135deg,#241448 0%,#39206c 52%,#142d56 100%);
+  border:2px solid #d7ad4d;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 5px 0 #071522;
+  position:relative;
+  overflow:hidden;
+}
+.topic-card.cult-topic::before{
+  content:"★ DESAFIO HARD ★";
+  position:absolute;
+  top:9px; right:10px;
+  font-size:9px;
+  letter-spacing:1px;
+  color:#ffe38a;
+  font-weight:900;
+}
+.topic-card.cult-topic .topic-icon{filter:drop-shadow(0 0 6px rgba(255,211,91,.65));}
+.topic-card.cult-topic b{color:#fff3bd;}
+.topic-card.cult-topic em{color:#ffe28a;}
+.topic-card.cult-topic.selected{
+  border-color:#ffe07a;
+  background:linear-gradient(135deg,#3a1d68,#1b4270);
+  box-shadow:0 0 0 2px rgba(255,224,122,.22),0 5px 0 #071522;
+}
+@media(max-width:1050px){
+  .topic-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .topic-card.cult-topic{grid-column:2 / span 2;}
+}
+@media(max-width:760px){
+  .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .topic-card.cult-topic{grid-column:1 / -1;}
+}
+@media(max-width:520px){
+  .topic-grid{grid-template-columns:1fr;}
+  .topic-card.cult-topic{grid-column:1;}
+}
+
+
+
+
+/* DESAFIO CULT — destaque visual e identidade própria */
+.topic-card.cult-topic{
+  grid-column:span 2;
+  min-height:126px;
+  background:linear-gradient(135deg,#24164b 0%,#123f67 58%,#0b6b83 100%);
+  border:2px solid #f0c95d;
+  box-shadow:4px 4px 0 #061522, inset 0 0 0 1px rgba(255,255,255,.12);
+  color:#fff;
+  overflow:hidden;
+}
+.topic-card.cult-topic:before{
+  content:'DESAFIO HARD';
+  position:absolute;
+  top:8px;
+  right:10px;
+  padding:5px 7px;
+  border:1px solid #f0c95d;
+  background:#111a32;
+  color:#ffe27a;
+  font:6px 'Press Start 2P',monospace;
+  letter-spacing:.4px;
+}
+.topic-card.cult-topic:after{
+  content:'✦';
+  position:absolute;
+  right:18px;
+  bottom:-34px;
+  font-size:120px;
+  line-height:1;
+  color:rgba(255,255,255,.055);
+  transform:rotate(-12deg);
+  pointer-events:none;
+}
+.topic-card.cult-topic:hover{
+  background:linear-gradient(135deg,#322064 0%,#14537e 58%,#0b8093 100%);
+  border-color:#fff0a4;
+}
+.topic-card.cult-topic.selected{
+  background:linear-gradient(135deg,#3b286f 0%,#17648e 58%,#0e8497 100%);
+  border-color:#ffe071;
+  box-shadow:2px 2px 0 #071522,0 0 18px rgba(255,211,83,.18);
+}
+.topic-card.cult-topic .topic-icon{font-size:36px;color:#ffe071;text-shadow:2px 2px 0 #0b1c2d}
+.topic-card.cult-topic b{font-size:16px;color:#fff3a4;text-shadow:2px 2px 0 #091b2b}
+.topic-card.cult-topic small{color:#d5effc;max-width:650px}
+.topic-card.cult-topic em{color:#ffe071}
+body.cult-selected .topic-selected{
+  border-color:#d7ad3d;
+  background:linear-gradient(90deg,rgba(45,25,84,.72),rgba(7,50,78,.78));
+}
+body.cult-selected .topic-selected b{color:#ffe071}
+body.cult-game .question-panel,
+body.cult-game .question-scene{border-color:#b78c2e}
+body.cult-game .difficulty{background:#39246a;border-color:#e3b947;color:#ffe071}
+body.cult-game .question-topic{color:#b9dcf2}
+body.cult-game .timer{border-color:#e3b947}
+body.cult-game .timer i{background:linear-gradient(90deg,#8d5bd2,#ffe071)}
+body.cult-game .question h2{text-shadow:2px 2px 0 #281746}.topic-card.cult-topic{grid-column:span 2}.topic-card.cult-topic{grid-column:span 1;min-height:120px}.topic-card.cult-topic:before{font-size:5px}.topic-card.cult-topic b{font-size:14px}
+.topic-card.cult-topic{grid-column:span 2;min-height:124px;}
+.topic-card.cult-topic b{letter-spacing:.2px;}
+.topic-card.cult-topic small{line-height:1.45;}
+  .topic-card.cult-topic{grid-column:span 2;}
+  .topic-card.cult-topic{grid-column:span 1;}
 </style>
 </head>
 <body>
 <div class="scanlines" aria-hidden="true"></div>
 <header class="topbar">
-  <button class="brand" data-view="home" aria-label="Voltar ao início"><span class="brand-mark">★</span><span><b>SHOW DO BILHÃO</b><small>QUIZ • PIXEL ART • DEMO 1.9</small></span></button>
+  <button class="brand" data-view="home" aria-label="Voltar ao início"><span class="brand-mark">★</span><span><b>SHOW DO BILHÃO</b><small>QUIZ • PIXEL ART • v2.3</small></span></button>
   <nav class="nav" aria-label="Menu principal">
     <button class="nav-btn active" data-view="home">INÍCIO</button>
     <button class="nav-btn" data-view="ranking">RANKING</button>
@@ -321,7 +429,7 @@ footer{background:rgba(2,16,29,.97);border-top:2px solid var(--gold);color:#d8ed
       <h1>Quem vai levar o <span>bilhão?</span></h1>
       <p>Escolha seu nome, avatar e tema. Encare 30 perguntas — 10 básicas, 10 médias e 10 avançadas — e tente chegar ao prêmio máximo.</p>
       <div class="ladder-mini"><span class="basic">● BÁSICA</span><span class="medium">● MÉDIA</span><span class="hard">● AVANÇADA</span></div>
-      <div class="hero-note"><span>15</span> perguntas por tema <i>•</i> ranking local <i>•</i> 3 ajudas</div>
+      <div class="hero-note"><span>45</span> perguntas por tema <i>•</i> ranking local <i>•</i> 3 ajudas</div>
     </div>
     <div class="stage">
       <div class="stage-grid"></div><div class="pixel-stars">✦ · ✦ · ✦</div><div class="show-sign">SHOW!</div>
@@ -332,9 +440,9 @@ footer{background:rgba(2,16,29,.97);border-top:2px solid var(--gold);color:#d8ed
   </div>
 
   <div class="panel section-card topic-panel">
-    <div class="section-heading"><div><span class="eyebrow">01 • CATEGORIA</span><h2>Escolha o seu tema</h2></div><span class="tag">45 NO BANCO • 30 NA PARTIDA</span></div>
+    <div class="section-heading"><div><span class="eyebrow">01 • CATEGORIA</span><h2>Escolha o seu tema</h2></div><span class="tag">9 TEMAS • CULT: 50 • 30 NA PARTIDA</span></div>
     <p class="topic-intro">O banco de perguntas muda conforme a categoria. A dificuldade cresce ao longo do palco.</p>
-    <div id="topicGrid" class="topic-grid"></div>
+    <div id="topicGrid" class="topic-grid"></div><noscript><div class="topic-selected"><b>Desafio Cult</b> — ative JavaScript para carregar os temas.</div></noscript>
     <div class="topic-selected"><span>SELECIONADO</span><b id="selectedTopicName">Conhecimentos Gerais</b><small id="selectedTopicDesc"></small></div>
   </div>
 
@@ -391,6 +499,7 @@ footer{background:rgba(2,16,29,.97);border-top:2px solid var(--gold);color:#d8ed
 </main>
 <footer><span>★ CONHECIMENTO TAMBÉM É PODER!</span><span>SHOW DO BILHÃO v2.0 • PIXEL ART</span></footer>
 <script id="gameScript">
+
 const PRIZES=[1000,2000,3000,4000,5000,6000,7000,8000,9000,10000,15000,25000,35000,45000,55000,65000,75000,85000,95000,100000,150000,250000,350000,450000,550000,650000,750000,850000,900000,1000000];
 const raw={
 'Conhecimentos Gerais':[
@@ -538,6 +647,60 @@ EXTRA['Política & Mundo'].push(
 ['MÉDIA','Qual presidente brasileiro assumiu após a renúncia de Jânio Quadros em 1961?',['João Goulart','Juscelino Kubitschek','Castelo Branco','Tancredo Neves'],0],['MÉDIA','Qual líder cubano era aliado próximo de Che Guevara na Revolução Cubana?',['Fidel Castro','Batista','Kennedy','Nasser'],0],['MÉDIA','Qual presidente dos EUA iniciou o mandato em janeiro de 1961?',['John F. Kennedy','Lyndon Johnson','Eisenhower','Nixon'],0],['MÉDIA','Qual país adotou a política de abertura econômica associada a Deng Xiaoping?',['China','Japão','Coreia do Sul','Vietnã'],0],['MÉDIA','Qual organização militar foi criada em 1949 no Atlântico Norte?',['OTAN','ONU','OEA','Pacto de Varsóvia'],0],
 ['AVANÇADA','Qual presidente brasileiro promulgou a Constituição de 1988 durante seu governo?',['José Sarney','Tancredo Neves','Collor','Itamar Franco'],0],['AVANÇADA','Qual acordo de 1998 ajudou a encerrar décadas de conflito na Irlanda do Norte?',['Acordo de Belfast','Acordo de Oslo','Tratado de Maastricht','Acordo de Dayton'],0],['AVANÇADA','Qual líder palestino assinou os Acordos de Oslo com Israel como representante da OLP?',['Yasser Arafat','Anwar Sadat','Hafez al-Assad','Gamal Nasser'],0],['AVANÇADA','Qual presidente americano ficou associado à política de détente com a URSS e à abertura para a China nos anos 1970?',['Richard Nixon','John Kennedy','Harry Truman','Jimmy Carter'],0],['AVANÇADA','Qual conferência de 1954 encerrou a guerra da Indochina francesa?',['Genebra','Bandung','Yalta','Potsdam'],0]);
 for(const [k,v] of Object.entries(EXTRA)){if(raw[k]) raw[k].push(...v); else raw[k]=v;}
+
+// DESAFIO CULT — banco separado, sem perguntas fáceis.
+raw['Desafio Cult']=[
+['CULT','Em “Persona”, de Ingmar Bergman, qual atriz interpreta Elisabet Vogler?',['Liv Ullmann','Bibi Andersson','Ingrid Thulin','Harriet Andersson'],0],
+['CULT','Qual filme de Andrei Tarkovsky acompanha Kris Kelvin em uma estação espacial orbitando Solaris?',['Stalker','Solaris','Nostalgia','O Sacrifício'],1],
+['CULT','Em “O Ano Passado em Marienbad”, quem dirigiu o filme?',['Alain Resnais','Éric Rohmer','Jean-Luc Godard','Claude Chabrol'],0],
+['CULT','Qual filme de Luis Buñuel satiriza a burguesia através de um grupo incapaz de concluir um jantar?',['O Discreto Charme da Burguesia','O Anjo Exterminador','Viridiana','Belle de Jour'],0],
+['CULT','Qual cineasta japonês dirigiu “A Mulher da Areia”?',['Hiroshi Teshigahara','Kenji Mizoguchi','Nagisa Oshima','Shohei Imamura'],0],
+['CULT','Qual diretor realizou “Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles”?',['Chantal Akerman','Agnès Varda','Claire Denis','Márta Mészáros'],0],
+['CULT','Quem pintou “Las Meninas”?',['Diego Velázquez','Francisco Goya','El Greco','Bartolomé Esteban Murillo'],0],
+['CULT','A qual movimento é associado o quadro “A Persistência da Memória”, de Salvador Dalí?',['Cubismo','Surrealismo','Futurismo','Dadaísmo'],1],
+['CULT','Quem escreveu o ensaio “A Obra de Arte na Era de sua Reprodutibilidade Técnica”?',['Walter Benjamin','Theodor Adorno','Herbert Marcuse','Max Horkheimer'],0],
+['CULT','Qual artista é associado ao conceito de “readymade” em obras como “Fonte”?',['Marcel Duchamp','Man Ray','Joseph Beuys','Kurt Schwitters'],0],
+['CULT','Qual arquiteta projetou a Casa de Vidro em São Paulo?',['Lina Bo Bardi','Zaha Hadid','Eileen Gray','Charlotte Perriand'],0],
+['CULT','Qual pintor espanhol é autor de “Guernica”?',['Joan Miró','Pablo Picasso','Juan Gris','Antoni Tàpies'],1],
+['CULT','Qual acontecimento de 1618 é tradicionalmente usado como marco inicial da Guerra dos Trinta Anos?',['Defenestração de Praga','Paz de Augsburgo','Paz de Vestfália','Revolta de Flandres'],0],
+['CULT','Qual tratado de 1648 é associado ao encerramento da Guerra dos Trinta Anos?',['Tratado de Utrecht','Paz de Vestfália','Tratado de Tordesilhas','Paz de Cateau-Cambrésis'],1],
+['CULT','Qual império tinha Tenochtitlán como capital antes da conquista espanhola?',['Asteca','Inca','Muisca','Tolteca'],0],
+['CULT','Qual batalha de 732 é tradicionalmente associada à derrota das forças omíadas por Carlos Martel?',['Poitiers/Tours','Hastings','Manzikert','Lechfeld'],0],
+['CULT','Qual dinastia chinesa patrocinou as grandes viagens marítimas de Zheng He no século XV?',['Ming','Han','Tang','Song'],0],
+['CULT','Qual revolta brasileira de 1835, na Bahia, teve forte participação de africanos muçulmanos?',['Revolta dos Malês','Sabinada','Cabanagem','Balaiada'],0],
+['CULT','Qual conferência de 1955 reuniu países afro-asiáticos e ficou associada ao espírito de Bandung?',['Conferência de Bandung','Conferência de Yalta','Conferência de Potsdam','Conferência de Bretton Woods'],0],
+['CULT','Qual acontecimento de 1453 é frequentemente usado como marco final da Idade Média europeia?',['Queda de Constantinopla','Queda de Roma','Descoberta da América','Coroação de Carlos Magno'],0],
+['CULT','Qual romance de Machado de Assis é narrado por um defunto autor?',['Memórias Póstumas de Brás Cubas','Dom Casmurro','Quincas Borba','Esaú e Jacó'],0],
+['CULT','Qual heterônimo de Fernando Pessoa é apresentado como guardador de rebanhos e defensor de uma percepção não metafísica da natureza?',['Alberto Caeiro','Ricardo Reis','Álvaro de Campos','Bernardo Soares'],0],
+['CULT','Qual romance de Italo Calvino apresenta dez histórias de leitura dentro de sua própria estrutura?',['Se um viajante numa noite de inverno','O Barão nas Árvores','As Cidades Invisíveis','O Cavaleiro Inexistente'],0],
+['CULT','Quem escreveu “O Homem sem Qualidades”?',['Robert Musil','Hermann Broch','Thomas Mann','Stefan Zweig'],0],
+['CULT','Qual poeta chileno publicou “Altazor”?',['Vicente Huidobro','Pablo Neruda','Gabriela Mistral','Nicanor Parra'],0],
+['CULT','Em “O Castelo”, de Kafka, qual é a profissão do protagonista K.?',['Agrimensor','Advogado','Médico','Professor'],0],
+['CULT','Qual líder soviético lançou as políticas de glasnost e perestroika na segunda metade dos anos 1980?',['Mikhail Gorbachev','Leonid Brejnev','Nikita Khrushchev','Andrei Gromyko'],0],
+['CULT','Qual acordo de 1978, mediado pelos Estados Unidos, resultou em um tratado de paz entre Egito e Israel em 1979?',['Acordos de Camp David','Acordos de Oslo','Acordos de Dayton','Acordos de Helsinque'],0],
+['CULT','Quem foi presidente do Brasil quando a Constituição de 1988 foi promulgada?',['José Sarney','Tancredo Neves','Fernando Collor','Itamar Franco'],0],
+['CULT','Qual líder sul-africano foi libertado em 1990 após décadas de prisão e tornou-se presidente em 1994?',['Nelson Mandela','Oliver Tambo','Desmond Tutu','F. W. de Klerk'],0],
+['CULT','Qual conferência de 1884–1885 estabeleceu regras europeias para a ocupação colonial da África?',['Conferência de Berlim','Conferência de Viena','Congresso de Paris','Conferência de Bruxelas'],0],
+['CULT','Qual presidente dos Estados Unidos foi associado à Doutrina Truman, anunciada em 1947?',['Harry Truman','Dwight Eisenhower','Franklin D. Roosevelt','John F. Kennedy'],0],
+['CULT','Qual filósofo escreveu “Ser e Tempo”?',['Martin Heidegger','Edmund Husserl','Karl Jaspers','Hans-Georg Gadamer'],0],
+['CULT','Qual obra de Immanuel Kant apresenta a formulação do imperativo categórico como princípio central da moral?',['Fundamentação da Metafísica dos Costumes','Crítica da Razão Pura','Crítica do Juízo','A Religião nos Limites da Simples Razão'],0],
+['CULT','Qual filósofo desenvolveu a noção de “eterno retorno” como um motivo central de sua obra?',['Friedrich Nietzsche','Arthur Schopenhauer','Søren Kierkegaard','Georg Hegel'],0],
+['CULT','Qual pensador escreveu “A Sociedade do Espetáculo”?',['Guy Debord','Michel Foucault','Jean Baudrillard','Pierre Bourdieu'],0],
+['CULT','Na filosofia de Platão, qual diálogo é especialmente associado à alegoria da caverna?',['A República','Fédon','Timeu','Sofista'],0],
+['CULT','Qual filósofa escreveu “A Condição Humana”?',['Hannah Arendt','Simone de Beauvoir','Judith Butler','Edith Stein'],0],
+['CULT','Qual vitamina é necessária para a síntese hepática de vários fatores de coagulação?',['Vitamina K','Vitamina C','Vitamina B1','Vitamina E'],0],
+['CULT','Qual ácido graxo é classificado como essencial porque o organismo humano não o sintetiza em quantidade suficiente?',['Ácido linoleico','Ácido palmítico','Ácido esteárico','Ácido oleico'],0],
+['CULT','Qual componente dos alimentos fornece 4 kcal por grama e é formado por aminoácidos?',['Proteína','Lipídio','Álcool','Água'],0],
+['CULT','A deficiência grave de niacina, vitamina B3, está classicamente associada a qual doença?',['Pelagra','Escorbuto','Beribéri','Raquitismo'],0],
+['CULT','Qual mineral é componente central da molécula de hemoglobina?',['Ferro','Cálcio','Magnésio','Zinco'],0],
+['CULT','Qual processo metabólico converte glicose em piruvato no citosol?',['Glicólise','Ciclo de Krebs','Beta-oxidação','Gliconeogênese'],0],
+['CULT','Qual unidade é usada para medir atividade catalítica de enzimas no Sistema Internacional?',['Katal','Joule','Pascal','Siemens'],0],
+['CULT','Qual fenômeno físico explica a mudança aparente de frequência de uma onda devido ao movimento relativo entre fonte e observador?',['Efeito Doppler','Efeito Compton','Efeito fotoelétrico','Ressonância'],0],
+['CULT','Qual manuscrito medieval ricamente ilustrado é famoso por sua linguagem ainda não decifrada?',['Manuscrito Voynich','Códice Gigas','Livro de Kells','Códice Mendoza'],0],
+['CULT','Qual civilização mesoamericana desenvolveu o conceito de zero de forma independente em sua tradição matemática?',['Maia','Asteca','Olmeca','Tolteca'],0],
+['CULT','Qual compositor escreveu “A Sagração da Primavera”?',['Igor Stravinsky','Claude Debussy','Arnold Schoenberg','Maurice Ravel'],0],
+['CULT','Qual banda lançou o álbum “Mezzanine”, frequentemente associado ao trip hop?',['Massive Attack','Portishead','Cocteau Twins','The Chemical Brothers'],0]
+];
 const TOPICS={
  'Conhecimentos Gerais':['🧠','Conhecimentos Gerais','Variedade geral: ciência, cultura, geografia e curiosidades.'],
  'Música':['🎵','Música','Instrumentos, gêneros, compositores, teoria e cultura musical.'],
@@ -547,7 +710,8 @@ const TOPICS={
  'Geografia & Brasil':['🌎','Geografia & Brasil','Território, mapas, natureza, cidades e geografia brasileira.']
 ,
  'Literatura':['📚','Literatura','Machado, Shakespeare, Pessoa, Lorca, clássicos e autores cult.'],
- 'Política & Mundo':['🌐','Política & Mundo','Personagens, líderes e acontecimentos da história política mundial e brasileira.']
+ 'Política & Mundo':['🌐','Política & Mundo','Personagens, líderes e acontecimentos da história política mundial e brasileira.'],
+ 'Desafio Cult':['🧠','DESAFIO CULT','Cinema, arte, história, literatura, política, filosofia, nutrição e cultura — só perguntas difíceis.']
 };
 const AV={masculino:{normal:'avatar-masculino-v2-normal.png',wave:'avatar-masculino-v2-wave.png',happy:'avatar-masculino-v2-happy.png',sad:'avatar-masculino-v2-sad.png',think:'avatar-masculino-v2-think.png'},feminino:{normal:'avatar-feminino-v2-normal.png',wave:'avatar-feminino-v2-wave.png',happy:'avatar-feminino-v2-happy.png',sad:'avatar-feminino-v2-sad.png',think:'avatar-feminino-v2-think.png'}};
 const REACTIONS={
@@ -594,7 +758,12 @@ function validBanks(){
  if(PRIZES[9]!==10000||PRIZES[19]!==100000||PRIZES[29]!==1000000)return false;
  return topics.every(t=>{
    const bank=raw[t];
-   if(!Array.isArray(bank)||bank.length!==45)return false;
+   if(!Array.isArray(bank))return false;
+   if(t==='Desafio Cult'){
+     if(bank.length<45)return false;
+     return bank.every(x=>Array.isArray(x)&&x[0]==='CULT'&&typeof x[1]==='string'&&Array.isArray(x[2])&&x[2].length===4&&new Set(x[2].map(String)).size===4&&Number.isInteger(x[3])&&x[3]>=0&&x[3]<=3);
+   }
+   if(bank.length!==45)return false;
    for(const d of ['BÁSICA','MÉDIA','AVANÇADA']){
      const rows=bank.filter(x=>x[0]===d);
      if(rows.length!==15)return false;
@@ -609,11 +778,14 @@ function validBanks(){
 }
 function buildGameQuestions(topic){
  const bank=raw[topic];if(!Array.isArray(bank))return [];
+ if(topic==='Desafio Cult'){
+   return shuffle(bank).slice(0,30).map((x,i)=>{const opts=shuffle(x[2].map((text,j)=>({text,j})));return {topic,d:'CULT',q:x[1],a:opts.map(o=>o.text),c:opts.findIndex(o=>o.j===x[3]),p:PRIZES[i]}});
+ }
  const out=[];for(const d of ['BÁSICA','MÉDIA','AVANÇADA']) shuffle(bank.filter(x=>x[0]===d)).slice(0,10).forEach(x=>{const opts=shuffle(x[2].map((text,i)=>({text,i})));out.push({topic,d:x[0],q:x[1],a:opts.map(o=>o.text),c:opts.findIndex(o=>o.i===x[3]),p:PRIZES[out.length]})});
  return out;
 }
-function renderTopics(){const box=$('topicGrid');box.innerHTML=Object.entries(TOPICS).map(([k,v])=>`<button type="button" class="topic-card" data-topic="${escapeHtml(k)}"><span class="topic-icon">${v[0]}</span><b>${v[1]}</b><small>${v[2]}</small><em>45 perguntas no banco • 30 na partida</em></button>`).join('');box.querySelectorAll('.topic-card').forEach(b=>b.onclick=()=>selectTopic(b.dataset.topic));selectTopic(state.topic)}
-function selectTopic(topic){if(!TOPICS[topic])return;state.topic=topic;document.querySelectorAll('.topic-card').forEach(b=>b.classList.toggle('selected',b.dataset.topic===topic));$('selectedTopicName').textContent=TOPICS[topic][1];$('selectedTopicDesc').textContent=TOPICS[topic][2];$('startTopic').textContent=TOPICS[topic][1]}
+function renderTopics(){const box=$('topicGrid');if(!box)return;const entries=Object.entries(TOPICS);box.innerHTML=entries.map(([k,v])=>{const cult=k==='Desafio Cult';return `<button type="button" class="topic-card ${cult?'cult-topic':''}" data-topic="${escapeHtml(k)}" aria-label="${escapeHtml(v[1])}"><span class="topic-icon">${v[0]}</span><b>${v[1]}</b><small>${v[2]}</small><em>${cult?'50 perguntas difíceis • 30 na partida • 60s por pergunta':'45 perguntas no banco • 30 na partida'}</em></button>`}).join('');box.querySelectorAll('.topic-card').forEach(b=>b.onclick=()=>selectTopic(b.dataset.topic));selectTopic(state.topic);document.documentElement.dataset.topicCount=String(entries.length)}
+function selectTopic(topic){if(!TOPICS[topic])return;state.topic=topic;document.querySelectorAll('.topic-card').forEach(b=>b.classList.toggle('selected',b.dataset.topic===topic));$('selectedTopicName').textContent=TOPICS[topic][1];$('selectedTopicDesc').textContent=TOPICS[topic][2];$('startTopic').textContent=TOPICS[topic][1];document.body.classList.toggle('cult-selected',topic==='Desafio Cult')}
 function selectAvatar(g,s='normal'){if(!AV[g])g='masculino';state.avatar=g;state.avatarState=s;document.querySelectorAll('.avatar-option').forEach(x=>x.classList.toggle('selected',x.dataset.avatar===g&&x.dataset.state===s));syncAvatars()}
 function syncAvatars(){bindAvatarFallbacks();const s=state.avatarState;[['heroFemale','feminino','normal'],['heroMale','masculino','normal'],['gameAvatar',state.avatar,s],['questionAvatar',state.avatar,s],['hostAvatar',state.gender==='feminino'?'masculino':'feminino','normal']].forEach(([id,g,st])=>{if($(id))$(id).src=avatarSrc(g,st)});$('avatarName').textContent=state.avatar==='feminino'?'MOÇA':'RAPAZ'}
 function greeting(){return state.gender==='feminino'?`Boa sorte, ${state.name}, garota!`:state.gender==='masculino'?`Boa sorte, ${state.name}, rapaz!`:`Boa sorte, ${state.name}!`}
@@ -624,13 +796,13 @@ function updatePrize(){const v=money(state.prize);$('prize').textContent=v;$('si
 function updateLives(){const n=state.lives;$('lives').textContent='❤'.repeat(n)+'♡'.repeat(3-n);$('errors').textContent=`ERROS ${state.errors}/3`;$('lifeBar').style.width=`${(n/3)*100}%`}
 function updateLifelines(){[['hint50',state.used50],['hintAudience',state.usedAudience],['hintSkip',state.usedSkip]].forEach(([id,used])=>$(id).disabled=used||state.answered);}
 function updateMeter(){const pct=((state.index)/state.questions.length)*100;$('progress').style.width=`${pct}%`;$('progressText').textContent=`${state.index}/${state.questions.length}`}
-function startTimer(){clearInterval(timerId);const s=getSettings();if(!s.timer){$('timer').classList.add('off');$('timer').textContent='SEM TEMPO';return}state.timeLeft=s.timerSeconds;$('timer').classList.remove('off','danger');paintTimer();timerId=setInterval(()=>{if(state.answered||state.finished)return;state.timeLeft--;paintTimer();if(state.timeLeft<=0){clearInterval(timerId);timeoutAnswer()}},1000)}
-function paintTimer(){const s=getSettings();const pct=clamp(state.timeLeft/s.timerSeconds*100,0,100);$('timer').textContent=`⏱ ${state.timeLeft}s`;$('timerBar').style.width=`${pct}%`;$('timer').classList.toggle('danger',state.timeLeft<=5)}
+function startTimer(){clearInterval(timerId);const s=getSettings();const seconds=state.topic==='Desafio Cult'?60:s.timerSeconds;if(state.topic!=='Desafio Cult'&&!s.timer){$('timer').classList.add('off');$('timer').textContent='SEM TEMPO';return}state.timeLeft=seconds;$('timer').classList.remove('off','danger');paintTimer();timerId=setInterval(()=>{if(state.answered||state.finished)return;state.timeLeft--;paintTimer();if(state.timeLeft<=0){clearInterval(timerId);timeoutAnswer()}},1000)}
+function paintTimer(){const s=getSettings();const seconds=state.topic==='Desafio Cult'?60:s.timerSeconds;const pct=clamp(state.timeLeft/seconds*100,0,100);$('timer').textContent=`⏱ ${state.timeLeft}s`;$('timerBar').style.width=`${pct}%`;$('timer').classList.toggle('danger',state.timeLeft<=10)}
 function timeoutAnswer(){if(state.answered)return;const q=state.questions[state.index];state.answered=true;document.querySelectorAll('.answer').forEach(b=>b.disabled=true);document.querySelectorAll('.answer')[q.c]?.classList.add('correct');state.streak=0;state.errors++;state.lives=Math.max(0,3-state.errors);syncStateAvatar('sad');react('bad',state.errors>=3?'TEMPO ESGOTADO! 3 erros. Fim de jogo.':'TEMPO ESGOTADO! A planta estava mais rápida.');tone(130,.2);$('nextBtn').classList.remove('hidden');updateLifelines();updateLives()}
 function syncStateAvatar(s){state.avatarState=s;syncAvatars()}
 function loadQuestion(){
  const q=state.questions[state.index];if(!q){finish();return}state.answered=false;clearInterval(timerId);syncStateAvatar('normal');
- $('roundLabel').textContent=`PERGUNTA ${state.index+1}/${state.questions.length}`;$('difficulty').textContent=q.d;$('questionTopic').textContent=TOPICS[q.topic][1];$('question').textContent=q.q;$('reaction').className='reaction';$('reaction').textContent='';$('nextBtn').classList.add('hidden');$('streak').textContent=`🔥 ${state.streak}`;$('prizeNext').textContent=`R$ ${money(q.p)}`;updateMeter();updatePrize();updateLifelines();updateLives();
+ $('roundLabel').textContent=`PERGUNTA ${state.index+1}/${state.questions.length}`;$('difficulty').textContent=q.d;$('questionTopic').textContent=TOPICS[q.topic][1];document.body.classList.toggle('cult-game',q.topic==='Desafio Cult');$('question').textContent=q.q;$('reaction').className='reaction';$('reaction').textContent='';$('nextBtn').classList.add('hidden');$('streak').textContent=`🔥 ${state.streak}`;$('prizeNext').textContent=`R$ ${money(q.p)}`;updateMeter();updatePrize();updateLifelines();updateLives();
  const wrap=$('answers');wrap.innerHTML='';q.a.forEach((text,i)=>{const b=document.createElement('button');b.type='button';b.className='answer';b.innerHTML=`<span class="answer-key">${String.fromCharCode(65+i)}</span><span>${escapeHtml(text)}</span>`;b.onclick=()=>answer(i,b);wrap.appendChild(b)});startTimer();
 }
 function answer(i,btn){if(state.answered||state.finished)return;state.answered=true;clearInterval(timerId);const q=state.questions[state.index],buttons=[...document.querySelectorAll('.answer')];buttons.forEach(b=>b.disabled=true);
@@ -667,6 +839,7 @@ function init(){
  document.addEventListener('keydown',e=>{if(!$('game').classList.contains('active-view')||state.answered)return;const n=Number(e.key);if(n>=1&&n<=4)document.querySelectorAll('.answer')[n-1]?.click()});
 }
 init();
+
 
 </script>
 </body></html>

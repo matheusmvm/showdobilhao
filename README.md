@@ -1,18 +1,23 @@
-# Show do Bilhão — v2.1 Desafio Cult
+# Show do Bilhão — v2.3 Desafio Cult
 
-Versão baseada no v2.0, preservando o preset central de gameplay.
+Versão corrigida baseada na interface v2.x.
+
+## Correção principal
+O problema da versão anterior era uma **divergência entre o `index.html` e o `script.js`**:
+- o `script.js` já possuía o banco e o tema `Desafio Cult`;
+- o JavaScript embutido no `index.html` ainda possuía a lista antiga com apenas 8 temas;
+- como o jogo executava o JavaScript embutido, o 9º painel nunca era renderizado.
+
+Na v2.3, o `index.html` usa o mesmo código do `script.js` como fonte única, eliminando essa divergência.
 
 ## Desafio Cult
-- 50 perguntas difíceis no banco.
-- 30 perguntas sorteadas por partida.
-- Nenhuma pergunta básica/média no modo Cult.
-- 60 segundos por pergunta, independentemente da configuração geral do cronômetro.
-- 3 erros encerram a partida.
-- Mesmas ajudas do palco: 50:50, Plateia e Pular.
-- Mesma escada de premiação do jogo principal.
+- 50 perguntas difíceis no banco
+- 30 perguntas por partida
+- 60 segundos por pergunta
+- 3 erros
+- 50:50, Plateia e Pular
+- mesma escada de premiação do jogo
+- temas: cinema, arte, história, literatura, política, filosofia, nutrição, ciência e cultura geral
 
-## Temas do banco Cult
-Cinema cult, arte, história, literatura, política, filosofia, nutrição, ciência e cultura geral.
-
-## Publicação
-Suba `index.html`, `style.css`, `script.js` e a pasta `assets/` para o GitHub Pages.
+## Publicação no GitHub Pages
+Envie o conteúdo desta pasta para a raiz do repositório (ou substitua a versão anterior) e publique pelo GitHub Pages.
