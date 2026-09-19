@@ -19,7 +19,7 @@ button:focus-visible,input:focus-visible{outline:3px solid #5d8daf;outline-offse
 
 
 /* =========================================================
-   V2.0 — IDENTIDADE VISUAL
+   V1.9 — VISUAL POLISH
    Somente apresentação: não altera regras da partida.
    ========================================================= */
 :root{
@@ -303,7 +303,7 @@ footer{background:rgba(2,16,29,.97);border-top:2px solid var(--gold);color:#d8ed
 <body>
 <div class="scanlines" aria-hidden="true"></div>
 <header class="topbar">
-  <button class="brand" data-view="home" aria-label="Voltar ao início"><span class="brand-mark">★</span><span><b>SHOW DO BILHÃO</b><small>QUIZ • PIXEL ART • V2.0</small></span></button>
+  <button class="brand" data-view="home" aria-label="Voltar ao início"><span class="brand-mark">★</span><span><b>SHOW DO BILHÃO</b><small>QUIZ • PIXEL ART • DEMO 1.9</small></span></button>
   <nav class="nav" aria-label="Menu principal">
     <button class="nav-btn active" data-view="home">INÍCIO</button>
     <button class="nav-btn" data-view="ranking">RANKING</button>
@@ -569,7 +569,7 @@ function getRanking(){try{const all=JSON.parse(localStorage.getItem(KEY)||localS
 function setRanking(v){localStorage.setItem(KEY,JSON.stringify(v))}
 function avatarSrc(g,s='normal'){
   const file=AV[g]?.[s]||AV[g]?.normal||AV.masculino.normal;
-  return `assets/${file}?v=20`;
+  return `assets/${file}?v=19`;
 }
 function avatarFallback(img,g){
   if(!img || img.dataset.avatarFallback==='1') return;

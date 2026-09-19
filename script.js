@@ -146,6 +146,60 @@ EXTRA['Política & Mundo'].push(
 ['MÉDIA','Qual presidente brasileiro assumiu após a renúncia de Jânio Quadros em 1961?',['João Goulart','Juscelino Kubitschek','Castelo Branco','Tancredo Neves'],0],['MÉDIA','Qual líder cubano era aliado próximo de Che Guevara na Revolução Cubana?',['Fidel Castro','Batista','Kennedy','Nasser'],0],['MÉDIA','Qual presidente dos EUA iniciou o mandato em janeiro de 1961?',['John F. Kennedy','Lyndon Johnson','Eisenhower','Nixon'],0],['MÉDIA','Qual país adotou a política de abertura econômica associada a Deng Xiaoping?',['China','Japão','Coreia do Sul','Vietnã'],0],['MÉDIA','Qual organização militar foi criada em 1949 no Atlântico Norte?',['OTAN','ONU','OEA','Pacto de Varsóvia'],0],
 ['AVANÇADA','Qual presidente brasileiro promulgou a Constituição de 1988 durante seu governo?',['José Sarney','Tancredo Neves','Collor','Itamar Franco'],0],['AVANÇADA','Qual acordo de 1998 ajudou a encerrar décadas de conflito na Irlanda do Norte?',['Acordo de Belfast','Acordo de Oslo','Tratado de Maastricht','Acordo de Dayton'],0],['AVANÇADA','Qual líder palestino assinou os Acordos de Oslo com Israel como representante da OLP?',['Yasser Arafat','Anwar Sadat','Hafez al-Assad','Gamal Nasser'],0],['AVANÇADA','Qual presidente americano ficou associado à política de détente com a URSS e à abertura para a China nos anos 1970?',['Richard Nixon','John Kennedy','Harry Truman','Jimmy Carter'],0],['AVANÇADA','Qual conferência de 1954 encerrou a guerra da Indochina francesa?',['Genebra','Bandung','Yalta','Potsdam'],0]);
 for(const [k,v] of Object.entries(EXTRA)){if(raw[k]) raw[k].push(...v); else raw[k]=v;}
+
+// DESAFIO CULT — banco separado, sem perguntas fáceis.
+raw['Desafio Cult']=[
+['CULT','Em “Persona”, de Ingmar Bergman, qual atriz interpreta Elisabet Vogler?',['Liv Ullmann','Bibi Andersson','Ingrid Thulin','Harriet Andersson'],0],
+['CULT','Qual filme de Andrei Tarkovsky acompanha Kris Kelvin em uma estação espacial orbitando Solaris?',['Stalker','Solaris','Nostalgia','O Sacrifício'],1],
+['CULT','Em “O Ano Passado em Marienbad”, quem dirigiu o filme?',['Alain Resnais','Éric Rohmer','Jean-Luc Godard','Claude Chabrol'],0],
+['CULT','Qual filme de Luis Buñuel satiriza a burguesia através de um grupo incapaz de concluir um jantar?',['O Discreto Charme da Burguesia','O Anjo Exterminador','Viridiana','Belle de Jour'],0],
+['CULT','Qual cineasta japonês dirigiu “A Mulher da Areia”?',['Hiroshi Teshigahara','Kenji Mizoguchi','Nagisa Oshima','Shohei Imamura'],0],
+['CULT','Qual diretor realizou “Jeanne Dielman, 23 quai du Commerce, 1080 Bruxelles”?',['Chantal Akerman','Agnès Varda','Claire Denis','Márta Mészáros'],0],
+['CULT','Quem pintou “Las Meninas”?',['Diego Velázquez','Francisco Goya','El Greco','Bartolomé Esteban Murillo'],0],
+['CULT','A qual movimento é associado o quadro “A Persistência da Memória”, de Salvador Dalí?',['Cubismo','Surrealismo','Futurismo','Dadaísmo'],1],
+['CULT','Quem escreveu o ensaio “A Obra de Arte na Era de sua Reprodutibilidade Técnica”?',['Walter Benjamin','Theodor Adorno','Herbert Marcuse','Max Horkheimer'],0],
+['CULT','Qual artista é associado ao conceito de “readymade” em obras como “Fonte”?',['Marcel Duchamp','Man Ray','Joseph Beuys','Kurt Schwitters'],0],
+['CULT','Qual arquiteta projetou a Casa de Vidro em São Paulo?',['Lina Bo Bardi','Zaha Hadid','Eileen Gray','Charlotte Perriand'],0],
+['CULT','Qual pintor espanhol é autor de “Guernica”?',['Joan Miró','Pablo Picasso','Juan Gris','Antoni Tàpies'],1],
+['CULT','Qual acontecimento de 1618 é tradicionalmente usado como marco inicial da Guerra dos Trinta Anos?',['Defenestração de Praga','Paz de Augsburgo','Paz de Vestfália','Revolta de Flandres'],0],
+['CULT','Qual tratado de 1648 é associado ao encerramento da Guerra dos Trinta Anos?',['Tratado de Utrecht','Paz de Vestfália','Tratado de Tordesilhas','Paz de Cateau-Cambrésis'],1],
+['CULT','Qual império tinha Tenochtitlán como capital antes da conquista espanhola?',['Asteca','Inca','Muisca','Tolteca'],0],
+['CULT','Qual batalha de 732 é tradicionalmente associada à derrota das forças omíadas por Carlos Martel?',['Poitiers/Tours','Hastings','Manzikert','Lechfeld'],0],
+['CULT','Qual dinastia chinesa patrocinou as grandes viagens marítimas de Zheng He no século XV?',['Ming','Han','Tang','Song'],0],
+['CULT','Qual revolta brasileira de 1835, na Bahia, teve forte participação de africanos muçulmanos?',['Revolta dos Malês','Sabinada','Cabanagem','Balaiada'],0],
+['CULT','Qual conferência de 1955 reuniu países afro-asiáticos e ficou associada ao espírito de Bandung?',['Conferência de Bandung','Conferência de Yalta','Conferência de Potsdam','Conferência de Bretton Woods'],0],
+['CULT','Qual acontecimento de 1453 é frequentemente usado como marco final da Idade Média europeia?',['Queda de Constantinopla','Queda de Roma','Descoberta da América','Coroação de Carlos Magno'],0],
+['CULT','Qual romance de Machado de Assis é narrado por um defunto autor?',['Memórias Póstumas de Brás Cubas','Dom Casmurro','Quincas Borba','Esaú e Jacó'],0],
+['CULT','Qual heterônimo de Fernando Pessoa é apresentado como guardador de rebanhos e defensor de uma percepção não metafísica da natureza?',['Alberto Caeiro','Ricardo Reis','Álvaro de Campos','Bernardo Soares'],0],
+['CULT','Qual romance de Italo Calvino apresenta dez histórias de leitura dentro de sua própria estrutura?',['Se um viajante numa noite de inverno','O Barão nas Árvores','As Cidades Invisíveis','O Cavaleiro Inexistente'],0],
+['CULT','Quem escreveu “O Homem sem Qualidades”?',['Robert Musil','Hermann Broch','Thomas Mann','Stefan Zweig'],0],
+['CULT','Qual poeta chileno publicou “Altazor”?',['Vicente Huidobro','Pablo Neruda','Gabriela Mistral','Nicanor Parra'],0],
+['CULT','Em “O Castelo”, de Kafka, qual é a profissão do protagonista K.?',['Agrimensor','Advogado','Médico','Professor'],0],
+['CULT','Qual líder soviético lançou as políticas de glasnost e perestroika na segunda metade dos anos 1980?',['Mikhail Gorbachev','Leonid Brejnev','Nikita Khrushchev','Andrei Gromyko'],0],
+['CULT','Qual acordo de 1978, mediado pelos Estados Unidos, resultou em um tratado de paz entre Egito e Israel em 1979?',['Acordos de Camp David','Acordos de Oslo','Acordos de Dayton','Acordos de Helsinque'],0],
+['CULT','Quem foi presidente do Brasil quando a Constituição de 1988 foi promulgada?',['José Sarney','Tancredo Neves','Fernando Collor','Itamar Franco'],0],
+['CULT','Qual líder sul-africano foi libertado em 1990 após décadas de prisão e tornou-se presidente em 1994?',['Nelson Mandela','Oliver Tambo','Desmond Tutu','F. W. de Klerk'],0],
+['CULT','Qual conferência de 1884–1885 estabeleceu regras europeias para a ocupação colonial da África?',['Conferência de Berlim','Conferência de Viena','Congresso de Paris','Conferência de Bruxelas'],0],
+['CULT','Qual presidente dos Estados Unidos foi associado à Doutrina Truman, anunciada em 1947?',['Harry Truman','Dwight Eisenhower','Franklin D. Roosevelt','John F. Kennedy'],0],
+['CULT','Qual filósofo escreveu “Ser e Tempo”?',['Martin Heidegger','Edmund Husserl','Karl Jaspers','Hans-Georg Gadamer'],0],
+['CULT','Qual obra de Immanuel Kant apresenta a formulação do imperativo categórico como princípio central da moral?',['Fundamentação da Metafísica dos Costumes','Crítica da Razão Pura','Crítica do Juízo','A Religião nos Limites da Simples Razão'],0],
+['CULT','Qual filósofo desenvolveu a noção de “eterno retorno” como um motivo central de sua obra?',['Friedrich Nietzsche','Arthur Schopenhauer','Søren Kierkegaard','Georg Hegel'],0],
+['CULT','Qual pensador escreveu “A Sociedade do Espetáculo”?',['Guy Debord','Michel Foucault','Jean Baudrillard','Pierre Bourdieu'],0],
+['CULT','Na filosofia de Platão, qual diálogo é especialmente associado à alegoria da caverna?',['A República','Fédon','Timeu','Sofista'],0],
+['CULT','Qual filósofa escreveu “A Condição Humana”?',['Hannah Arendt','Simone de Beauvoir','Judith Butler','Edith Stein'],0],
+['CULT','Qual vitamina é necessária para a síntese hepática de vários fatores de coagulação?',['Vitamina K','Vitamina C','Vitamina B1','Vitamina E'],0],
+['CULT','Qual ácido graxo é classificado como essencial porque o organismo humano não o sintetiza em quantidade suficiente?',['Ácido linoleico','Ácido palmítico','Ácido esteárico','Ácido oleico'],0],
+['CULT','Qual componente dos alimentos fornece 4 kcal por grama e é formado por aminoácidos?',['Proteína','Lipídio','Álcool','Água'],0],
+['CULT','A deficiência grave de niacina, vitamina B3, está classicamente associada a qual doença?',['Pelagra','Escorbuto','Beribéri','Raquitismo'],0],
+['CULT','Qual mineral é componente central da molécula de hemoglobina?',['Ferro','Cálcio','Magnésio','Zinco'],0],
+['CULT','Qual processo metabólico converte glicose em piruvato no citosol?',['Glicólise','Ciclo de Krebs','Beta-oxidação','Gliconeogênese'],0],
+['CULT','Qual unidade é usada para medir atividade catalítica de enzimas no Sistema Internacional?',['Katal','Joule','Pascal','Siemens'],0],
+['CULT','Qual fenômeno físico explica a mudança aparente de frequência de uma onda devido ao movimento relativo entre fonte e observador?',['Efeito Doppler','Efeito Compton','Efeito fotoelétrico','Ressonância'],0],
+['CULT','Qual manuscrito medieval ricamente ilustrado é famoso por sua linguagem ainda não decifrada?',['Manuscrito Voynich','Códice Gigas','Livro de Kells','Códice Mendoza'],0],
+['CULT','Qual civilização mesoamericana desenvolveu o conceito de zero de forma independente em sua tradição matemática?',['Maia','Asteca','Olmeca','Tolteca'],0],
+['CULT','Qual compositor escreveu “A Sagração da Primavera”?',['Igor Stravinsky','Claude Debussy','Arnold Schoenberg','Maurice Ravel'],0],
+['CULT','Qual banda lançou o álbum “Mezzanine”, frequentemente associado ao trip hop?',['Massive Attack','Portishead','Cocteau Twins','The Chemical Brothers'],0]
+];
 const TOPICS={
  'Conhecimentos Gerais':['🧠','Conhecimentos Gerais','Variedade geral: ciência, cultura, geografia e curiosidades.'],
  'Música':['🎵','Música','Instrumentos, gêneros, compositores, teoria e cultura musical.'],
@@ -155,7 +209,8 @@ const TOPICS={
  'Geografia & Brasil':['🌎','Geografia & Brasil','Território, mapas, natureza, cidades e geografia brasileira.']
 ,
  'Literatura':['📚','Literatura','Machado, Shakespeare, Pessoa, Lorca, clássicos e autores cult.'],
- 'Política & Mundo':['🌐','Política & Mundo','Personagens, líderes e acontecimentos da história política mundial e brasileira.']
+ 'Política & Mundo':['🌐','Política & Mundo','Personagens, líderes e acontecimentos da história política mundial e brasileira.'],
+ 'Desafio Cult':['🧠','DESAFIO CULT','Cinema, arte, história, literatura, política, filosofia, nutrição e cultura — só perguntas difíceis.']
 };
 const AV={masculino:{normal:'avatar-masculino-v2-normal.png',wave:'avatar-masculino-v2-wave.png',happy:'avatar-masculino-v2-happy.png',sad:'avatar-masculino-v2-sad.png',think:'avatar-masculino-v2-think.png'},feminino:{normal:'avatar-feminino-v2-normal.png',wave:'avatar-feminino-v2-wave.png',happy:'avatar-feminino-v2-happy.png',sad:'avatar-feminino-v2-sad.png',think:'avatar-feminino-v2-think.png'}};
 const REACTIONS={
@@ -177,7 +232,7 @@ function getRanking(){try{const all=JSON.parse(localStorage.getItem(KEY)||localS
 function setRanking(v){localStorage.setItem(KEY,JSON.stringify(v))}
 function avatarSrc(g,s='normal'){
   const file=AV[g]?.[s]||AV[g]?.normal||AV.masculino.normal;
-  return `assets/${file}?v=20`;
+  return `assets/${file}?v=19`;
 }
 function avatarFallback(img,g){
   if(!img || img.dataset.avatarFallback==='1') return;
@@ -202,7 +257,12 @@ function validBanks(){
  if(PRIZES[9]!==10000||PRIZES[19]!==100000||PRIZES[29]!==1000000)return false;
  return topics.every(t=>{
    const bank=raw[t];
-   if(!Array.isArray(bank)||bank.length!==45)return false;
+   if(!Array.isArray(bank))return false;
+   if(t==='Desafio Cult'){
+     if(bank.length<45)return false;
+     return bank.every(x=>Array.isArray(x)&&x[0]==='CULT'&&typeof x[1]==='string'&&Array.isArray(x[2])&&x[2].length===4&&new Set(x[2].map(String)).size===4&&Number.isInteger(x[3])&&x[3]>=0&&x[3]<=3);
+   }
+   if(bank.length!==45)return false;
    for(const d of ['BÁSICA','MÉDIA','AVANÇADA']){
      const rows=bank.filter(x=>x[0]===d);
      if(rows.length!==15)return false;
@@ -217,11 +277,14 @@ function validBanks(){
 }
 function buildGameQuestions(topic){
  const bank=raw[topic];if(!Array.isArray(bank))return [];
+ if(topic==='Desafio Cult'){
+   return shuffle(bank).slice(0,30).map((x,i)=>{const opts=shuffle(x[2].map((text,j)=>({text,j})));return {topic,d:'CULT',q:x[1],a:opts.map(o=>o.text),c:opts.findIndex(o=>o.j===x[3]),p:PRIZES[i]}});
+ }
  const out=[];for(const d of ['BÁSICA','MÉDIA','AVANÇADA']) shuffle(bank.filter(x=>x[0]===d)).slice(0,10).forEach(x=>{const opts=shuffle(x[2].map((text,i)=>({text,i})));out.push({topic,d:x[0],q:x[1],a:opts.map(o=>o.text),c:opts.findIndex(o=>o.i===x[3]),p:PRIZES[out.length]})});
  return out;
 }
-function renderTopics(){const box=$('topicGrid');box.innerHTML=Object.entries(TOPICS).map(([k,v])=>`<button type="button" class="topic-card" data-topic="${escapeHtml(k)}"><span class="topic-icon">${v[0]}</span><b>${v[1]}</b><small>${v[2]}</small><em>45 perguntas no banco • 30 na partida</em></button>`).join('');box.querySelectorAll('.topic-card').forEach(b=>b.onclick=()=>selectTopic(b.dataset.topic));selectTopic(state.topic)}
-function selectTopic(topic){if(!TOPICS[topic])return;state.topic=topic;document.querySelectorAll('.topic-card').forEach(b=>b.classList.toggle('selected',b.dataset.topic===topic));$('selectedTopicName').textContent=TOPICS[topic][1];$('selectedTopicDesc').textContent=TOPICS[topic][2];$('startTopic').textContent=TOPICS[topic][1]}
+function renderTopics(){const box=$('topicGrid');box.innerHTML=Object.entries(TOPICS).map(([k,v])=>`<button type="button" class="topic-card ${k==='Desafio Cult'?'cult-topic':''}" data-topic="${escapeHtml(k)}"><span class="topic-icon">${v[0]}</span><b>${v[1]}</b><small>${v[2]}</small><em>${k==='Desafio Cult'?'50 perguntas difíceis • 30 na partida • 60s por pergunta':'45 perguntas no banco • 30 na partida'}</em></button>`).join('');box.querySelectorAll('.topic-card').forEach(b=>b.onclick=()=>selectTopic(b.dataset.topic));selectTopic(state.topic)}
+function selectTopic(topic){if(!TOPICS[topic])return;state.topic=topic;document.querySelectorAll('.topic-card').forEach(b=>b.classList.toggle('selected',b.dataset.topic===topic));$('selectedTopicName').textContent=TOPICS[topic][1];$('selectedTopicDesc').textContent=TOPICS[topic][2];$('startTopic').textContent=TOPICS[topic][1];document.body.classList.toggle('cult-selected',topic==='Desafio Cult')}
 function selectAvatar(g,s='normal'){if(!AV[g])g='masculino';state.avatar=g;state.avatarState=s;document.querySelectorAll('.avatar-option').forEach(x=>x.classList.toggle('selected',x.dataset.avatar===g&&x.dataset.state===s));syncAvatars()}
 function syncAvatars(){bindAvatarFallbacks();const s=state.avatarState;[['heroFemale','feminino','normal'],['heroMale','masculino','normal'],['gameAvatar',state.avatar,s],['questionAvatar',state.avatar,s],['hostAvatar',state.gender==='feminino'?'masculino':'feminino','normal']].forEach(([id,g,st])=>{if($(id))$(id).src=avatarSrc(g,st)});$('avatarName').textContent=state.avatar==='feminino'?'MOÇA':'RAPAZ'}
 function greeting(){return state.gender==='feminino'?`Boa sorte, ${state.name}, garota!`:state.gender==='masculino'?`Boa sorte, ${state.name}, rapaz!`:`Boa sorte, ${state.name}!`}
@@ -232,13 +295,13 @@ function updatePrize(){const v=money(state.prize);$('prize').textContent=v;$('si
 function updateLives(){const n=state.lives;$('lives').textContent='❤'.repeat(n)+'♡'.repeat(3-n);$('errors').textContent=`ERROS ${state.errors}/3`;$('lifeBar').style.width=`${(n/3)*100}%`}
 function updateLifelines(){[['hint50',state.used50],['hintAudience',state.usedAudience],['hintSkip',state.usedSkip]].forEach(([id,used])=>$(id).disabled=used||state.answered);}
 function updateMeter(){const pct=((state.index)/state.questions.length)*100;$('progress').style.width=`${pct}%`;$('progressText').textContent=`${state.index}/${state.questions.length}`}
-function startTimer(){clearInterval(timerId);const s=getSettings();if(!s.timer){$('timer').classList.add('off');$('timer').textContent='SEM TEMPO';return}state.timeLeft=s.timerSeconds;$('timer').classList.remove('off','danger');paintTimer();timerId=setInterval(()=>{if(state.answered||state.finished)return;state.timeLeft--;paintTimer();if(state.timeLeft<=0){clearInterval(timerId);timeoutAnswer()}},1000)}
-function paintTimer(){const s=getSettings();const pct=clamp(state.timeLeft/s.timerSeconds*100,0,100);$('timer').textContent=`⏱ ${state.timeLeft}s`;$('timerBar').style.width=`${pct}%`;$('timer').classList.toggle('danger',state.timeLeft<=5)}
+function startTimer(){clearInterval(timerId);const s=getSettings();const seconds=state.topic==='Desafio Cult'?60:s.timerSeconds;if(state.topic!=='Desafio Cult'&&!s.timer){$('timer').classList.add('off');$('timer').textContent='SEM TEMPO';return}state.timeLeft=seconds;$('timer').classList.remove('off','danger');paintTimer();timerId=setInterval(()=>{if(state.answered||state.finished)return;state.timeLeft--;paintTimer();if(state.timeLeft<=0){clearInterval(timerId);timeoutAnswer()}},1000)}
+function paintTimer(){const s=getSettings();const seconds=state.topic==='Desafio Cult'?60:s.timerSeconds;const pct=clamp(state.timeLeft/seconds*100,0,100);$('timer').textContent=`⏱ ${state.timeLeft}s`;$('timerBar').style.width=`${pct}%`;$('timer').classList.toggle('danger',state.timeLeft<=10)}
 function timeoutAnswer(){if(state.answered)return;const q=state.questions[state.index];state.answered=true;document.querySelectorAll('.answer').forEach(b=>b.disabled=true);document.querySelectorAll('.answer')[q.c]?.classList.add('correct');state.streak=0;state.errors++;state.lives=Math.max(0,3-state.errors);syncStateAvatar('sad');react('bad',state.errors>=3?'TEMPO ESGOTADO! 3 erros. Fim de jogo.':'TEMPO ESGOTADO! A planta estava mais rápida.');tone(130,.2);$('nextBtn').classList.remove('hidden');updateLifelines();updateLives()}
 function syncStateAvatar(s){state.avatarState=s;syncAvatars()}
 function loadQuestion(){
  const q=state.questions[state.index];if(!q){finish();return}state.answered=false;clearInterval(timerId);syncStateAvatar('normal');
- $('roundLabel').textContent=`PERGUNTA ${state.index+1}/${state.questions.length}`;$('difficulty').textContent=q.d;$('questionTopic').textContent=TOPICS[q.topic][1];$('question').textContent=q.q;$('reaction').className='reaction';$('reaction').textContent='';$('nextBtn').classList.add('hidden');$('streak').textContent=`🔥 ${state.streak}`;$('prizeNext').textContent=`R$ ${money(q.p)}`;updateMeter();updatePrize();updateLifelines();updateLives();
+ $('roundLabel').textContent=`PERGUNTA ${state.index+1}/${state.questions.length}`;$('difficulty').textContent=q.d;$('questionTopic').textContent=TOPICS[q.topic][1];document.body.classList.toggle('cult-game',q.topic==='Desafio Cult');$('question').textContent=q.q;$('reaction').className='reaction';$('reaction').textContent='';$('nextBtn').classList.add('hidden');$('streak').textContent=`🔥 ${state.streak}`;$('prizeNext').textContent=`R$ ${money(q.p)}`;updateMeter();updatePrize();updateLifelines();updateLives();
  const wrap=$('answers');wrap.innerHTML='';q.a.forEach((text,i)=>{const b=document.createElement('button');b.type='button';b.className='answer';b.innerHTML=`<span class="answer-key">${String.fromCharCode(65+i)}</span><span>${escapeHtml(text)}</span>`;b.onclick=()=>answer(i,b);wrap.appendChild(b)});startTimer();
 }
 function answer(i,btn){if(state.answered||state.finished)return;state.answered=true;clearInterval(timerId);const q=state.questions[state.index],buttons=[...document.querySelectorAll('.answer')];buttons.forEach(b=>b.disabled=true);

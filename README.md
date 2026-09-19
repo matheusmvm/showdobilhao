@@ -1,26 +1,18 @@
-# Show do Bilhão V2.0 — GitHub Pages
+# Show do Bilhão — v2.1 Desafio Cult
 
-Pacote de implantação com os arquivos na RAIZ do repositório.
+Versão baseada no v2.0, preservando o preset central de gameplay.
 
-## Importante
-Substitua os arquivos antigos `index.html`, `style.css`, `script.js` e a pasta `assets/` na raiz do repositório.
-Não coloque esta versão dentro de outra pasta se o GitHub Pages estiver configurado para publicar a raiz (`/(root)`).
+## Desafio Cult
+- 50 perguntas difíceis no banco.
+- 30 perguntas sorteadas por partida.
+- Nenhuma pergunta básica/média no modo Cult.
+- 60 segundos por pergunta, independentemente da configuração geral do cronômetro.
+- 3 erros encerram a partida.
+- Mesmas ajudas do palco: 50:50, Plateia e Pular.
+- Mesma escada de premiação do jogo principal.
 
-## Gameplay preservado
-- 30 perguntas por partida
-- 10 básicas + 10 médias + 10 avançadas
-- marcos em R$ 10.000, R$ 100.000 e R$ 1.000.000
-- 45 perguntas por tema
-- 3 vidas / 3 erros
-- tentar de novo
-- 50:50, plateia e pular
-- ranking local
+## Temas do banco Cult
+Cinema cult, arte, história, literatura, política, filosofia, nutrição, ciência e cultura geral.
 
-## Identidade visual V2.0
-- background espacial local
-- interface azul espacial + dourado
-- avatares pixel art locais com estados de reação
-- layout inspirado no modelo visual fornecido
-- sem dependência de imagem externa para os principais assets
-
-O `index.html` contém o CSS e JavaScript necessários para a aplicação, enquanto `style.css` e `script.js` acompanham a distribuição para manter a estrutura do projeto organizada.
+## Publicação
+Suba `index.html`, `style.css`, `script.js` e a pasta `assets/` para o GitHub Pages.
