@@ -351,3 +351,17 @@ body.cult-game .timer i{background:linear-gradient(90deg,#8d5bd2,#ffe071)}
 body.cult-game .question h2{text-shadow:2px 2px 0 #281746}
 @media(max-width:980px){.topic-card.cult-topic{grid-column:span 2}}
 @media(max-width:650px){.topic-card.cult-topic{grid-column:span 1;min-height:120px}.topic-card.cult-topic:before{font-size:5px}.topic-card.cult-topic b{font-size:14px}}
+
+/* v2.2 — DESAFIO CULT: painel sempre visível na grade principal */
+.topic-grid{grid-template-columns:repeat(4,minmax(0,1fr)) !important;}
+.topic-card.cult-topic{grid-column:span 2;min-height:124px;}
+.topic-card.cult-topic b{letter-spacing:.2px;}
+.topic-card.cult-topic small{line-height:1.45;}
+@media(max-width:980px){
+  .topic-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+  .topic-card.cult-topic{grid-column:span 2;}
+}
+@media(max-width:650px){
+  .topic-grid{grid-template-columns:1fr !important;}
+  .topic-card.cult-topic{grid-column:span 1;}
+}
