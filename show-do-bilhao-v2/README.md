@@ -3,7 +3,7 @@
 Versão pronta para GitHub Pages.
 
 - Modo Clássico: 30 perguntas, 10 básicas + 10 médias + 10 avançadas.
-- Desafio Cult: 40 perguntas difíceis, sem bloco fácil.
+- Desafio Cult: banco ampliado de perguntas difíceis, com painel próprio no menu e temas de cinema cult, literatura, história, política, filosofia, arte, música, cultura pop, nutrição e conhecimentos gerais.
 - Cronômetro: 60 segundos por pergunta.
 - 3 vidas/erros.
 - 50:50, Plateia e Pular.
